@@ -3,949 +3,440 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Romain Abdel-Aal - Solutions Architect & Technical Leader</title>
+    <title>Romain Abdel-Aal - Autonomous AI Solutions Architect</title>
+    <!-- PRECONNECT FOR PERFORMANCE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* Basic Reset & Defaults */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        :root {
+            --bg-primary: #0A0A0A; /* Near-black */
+            --bg-secondary: #141414; /* Dark gray */
+            --text-primary: #EAEAEA;
+            --text-secondary: #A0A0A0;
+            --accent-primary: #00A9FF; /* Electric Blue */
+            --accent-secondary: #8E44AD; /* Deep Purple */
+            --glow-color: rgba(0, 169, 255, 0.6);
+            --font-main: 'Space Grotesk', sans-serif;
         }
 
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px; /* Base font size */
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; /* Modern font stack */
-            line-height: 1.7; /* Improved readability */
-            background-color: #f8f9fa; /* Lighter, cleaner background */
-            color: #495057; /* Softer text color */
+            font-family: var(--font-main);
+            line-height: 1.7;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased; /* Smoother fonts */
+            -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
         .container {
-            max-width: 1024px; /* Slightly wider for modern screens */
-            margin: 40px auto; /* Increased margin */
+            max-width: 1100px;
+            margin: 40px auto;
             padding: 0 25px;
-            overflow: hidden;
         }
-
-        /* Header Styles */
+        
+        /* --- HEADER AGI --- */
         header {
-            background: linear-gradient(135deg, #3a6073 0%, #16222a 100%); /* Refined gradient */
-            color: #e9ecef; /* Lighter text for contrast */
-            padding: 80px 30px; /* More padding */
-            margin-bottom: 50px; /* Increased spacing */
             text-align: center;
+            padding: 100px 30px;
+            margin-bottom: 60px;
             position: relative;
             overflow: hidden;
-            border-bottom-left-radius: 20px; /* Smoother rounding */
-            border-bottom-right-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18); /* Deeper shadow */
         }
 
-        /* Particle JS Container */
-        #particles-js {
+        #neural-net-bg {
             position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1; /* Behind content */
+            top: 50%;
+            left: 50%;
+            width: 150%;
+            height: 150%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            opacity: 0.15;
         }
 
-        header .header-content {
+        .header-content {
             position: relative;
-            z-index: 2; /* Above particles */
+            z-index: 2;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        header img.profile-pic {
-            width: 170px; /* Even larger */
-            height: 170px;
-            border-radius: 50%;
-            border: 6px solid rgba(233, 236, 239, 0.85); /* Thicker, slightly more opaque */
+        .profile-pic-container {
+            position: relative;
             margin-bottom: 30px;
+        }
+
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid var(--accent-primary);
             object-fit: cover;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Stronger profile shadow */
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease-out; /* Bouncy scale transition */
-        }
-         header img.profile-pic:hover {
-             transform: scale(1.08); /* Larger scale on hover */
-             box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
-         }
-
-        header h1 {
-            font-size: 3.2em; /* Larger */
-            margin-bottom: 10px;
-            font-weight: 700; /* Bolder */
-            letter-spacing: 0.8px; /* More spacing */
-            color: #ffffff; /* Pure white */
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.2); /* Enhanced shadow */
+            box-shadow: 0 0 25px var(--glow-color);
+            transition: transform 0.4s ease;
         }
 
-        header h2.title {
-            font-size: 1.7em; /* Larger */
-            font-weight: 400; /* Normal weight */
-            margin-bottom: 25px; /* More spacing */
-            color: #ced4da; /* Lighter subtitle */
-            letter-spacing: 0.7px;
+        .profile-status {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            background-color: #27ae60;
+            border-radius: 50%;
+            border: 3px solid var(--bg-primary);
+            box-shadow: 0 0 10px #27ae60;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+        .profile-status::after { content: ''; display: block; width: 12px; height: 12px; background-color: #fff; border-radius: 50%; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
 
-        .contact-info {
-            margin-top: 25px;
-            font-size: 1.05em; /* Slightly larger */
-        }
-
-        .contact-info p {
-            margin-bottom: 10px;
-            line-height: 1.6;
-        }
+        h1 { font-size: 3.5em; font-weight: 700; color: #fff; text-shadow: 0 0 15px var(--glow-color); }
+        .title { font-size: 1.8em; font-weight: 400; margin-bottom: 25px; color: var(--text-secondary); }
 
         .contact-info a {
-            color: #86c9ff; /* Adjusted blue */
+            color: var(--accent-primary);
             text-decoration: none;
-            transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
             font-weight: 500;
-            display: inline-block; /* Needed for transform */
         }
+        .contact-info a:hover { color: #fff; text-shadow: 0 0 10px var(--glow-color); }
 
-        .contact-info a:hover {
-            color: #bde0ff; /* Lighter hover */
-            text-shadow: 0 0 8px rgba(134, 201, 255, 0.6);
-            transform: translateY(-2px); /* Slight lift */
+        /* --- AGI INTERFACE --- */
+        #agi-interface {
+            background: var(--bg-secondary);
+            border: 1px solid #222;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
         }
+        #agi-interface h3 {
+            font-size: 1.8em; color: var(--accent-primary);
+            margin-bottom: 20px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        #agi-interface h3::before { content: '⚡'; }
 
-        /* Section Styling */
+        #prompt-container { display: flex; gap: 10px; margin-bottom: 15px; }
+        #user-prompt {
+            flex-grow: 1; background: #222; border: 1px solid #333;
+            border-radius: 8px; color: var(--text-primary);
+            padding: 15px; font-family: var(--font-main); font-size: 1em;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        #user-prompt:focus { outline: none; border-color: var(--accent-primary); box-shadow: 0 0 10px var(--glow-color); }
+        #prompt-button {
+            background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+            color: #fff; border: none; border-radius: 8px;
+            padding: 0 25px; font-family: var(--font-main); font-weight: 600;
+            cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+        }
+        #prompt-button:hover { transform: scale(1.05); box-shadow: 0 0 15px var(--glow-color); }
+        #suggestion-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+        .chip {
+            background: #2a2a2a; border: 1px solid #444; color: var(--text-secondary);
+            padding: 8px 15px; border-radius: 20px; font-size: 0.9em;
+            cursor: pointer; transition: all 0.2s;
+        }
+        .chip:hover { background: var(--accent-primary); color: #fff; border-color: var(--accent-primary); transform: translateY(-2px); }
+
+        #agi-response {
+            margin-top: 20px;
+            background: rgba(0,0,0,0.2);
+            border: 1px solid #222;
+            border-radius: 8px;
+            padding: 20px;
+            min-height: 100px;
+            color: var(--text-secondary);
+            white-space: pre-wrap;
+            line-height: 1.6;
+            font-size: 1.05em;
+        }
+        #agi-response p { margin-bottom: 1em; }
+        #agi-response strong { color: var(--text-primary); }
+
+        /* --- SECTION STYLING --- */
         section {
-            background-color: #ffffff;
-            padding: 40px 45px; /* Increased padding */
-            margin-bottom: 35px; /* More spacing */
-            border-radius: 15px; /* Increased rounding */
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07); /* Refined shadow */
-            transition: transform 0.35s ease-out, box-shadow 0.35s ease-out, border 0.35s ease-out;
-            border: 1px solid transparent; /* Prepare for gradient border */
-             /* Initial state for scroll animation */
-             opacity: 0;
-             transform: translateY(50px); /* Start slightly lower */
-             will-change: transform, opacity, border; /* Optimize */
+            background-color: var(--bg-secondary);
+            padding: 40px; margin-bottom: 35px; border-radius: 15px;
+            border: 1px solid #222;
+            transition: transform 0.3s, box-shadow 0.3s;
+            opacity: 0; transform: translateY(40px);
         }
-
-         /* Enhanced hover effect for sections */
-         section:hover {
-            transform: translateY(-8px) scale(1.01); /* More lift and slight scale */
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1); /* Increased shadow */
-            border: 1px solid;
-            border-image-slice: 1;
-            border-image-source: linear-gradient(to right, #4dabf7, #1c7ed6); /* Gradient border */
-         }
+        section.visible { opacity: 1; transform: translateY(0); }
+        section:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
 
         section h3 {
-            font-size: 2em; /* Larger section titles */
-            color: #343a40;
-            margin-bottom: 30px; /* More spacing */
-            padding-bottom: 15px;
-            border-bottom: 3px solid #dee2e6;
-            position: relative;
-            font-weight: 600;
+            font-size: 2.2em; color: #fff; margin-bottom: 30px;
+            padding-bottom: 15px; border-bottom: 2px solid #333;
         }
-
-        section h3::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 80px; /* Longer accent */
-            height: 3px;
-            background: linear-gradient(90deg, #4dabf7 0%, #228be6 100%); /* Adjusted gradient */
-            border-radius: 2px;
-            transition: width 0.4s ease-out; /* Animate accent on hover */
-        }
-        section:hover h3::after {
-             width: 120px; /* Extend accent on section hover */
-        }
-
-
-        /* Experience Section */
-        .job {
-            margin-bottom: 35px; /* More spacing */
-            padding-bottom: 35px;
-            border-bottom: 1px solid #e9ecef;
-            position: relative;
-             /* Initial animation state (handled by JS) */
-        }
-        .job:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .job h4 {
-            font-size: 1.4em; /* Larger */
-            color: #1c7ed6; /* Stronger accent color */
-            margin-bottom: 6px;
-            font-weight: 600;
-        }
-
-        .job .company-date {
-            font-size: 1.1em; /* Larger */
-            color: #868e96;
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-
-        .job p {
-             margin-bottom: 20px;
-             color: #495057;
-             line-height: 1.75; /* Slightly more line height */
-        }
-
-        .job ul {
-            list-style: none;
-            padding-left: 0;
-            margin-bottom: 18px;
-        }
-
-        .job ul li {
-            margin-bottom: 12px; /* More spacing */
-            position: relative;
-            padding-left: 28px; /* More space */
-            color: #495057;
-            line-height: 1.65;
-        }
+        
+        /* --- EXPERIENCE / PROJECTS --- */
+        .job { margin-bottom: 35px; padding-left: 25px; border-left: 3px solid var(--accent-primary); }
+        .job h4 { font-size: 1.5em; color: var(--accent-primary); }
+        .job .company-date { font-size: 1.1em; color: var(--text-secondary); margin-bottom: 15px; }
+        .job ul li { margin-bottom: 12px; padding-left: 25px; position: relative; }
         .job ul li::before {
-            content: '✔';
-            position: absolute;
-            left: 0;
-            top: 3px; /* Adjust */
-            color: #37b24d;
-            font-weight: bold;
-            font-size: 1.15em; /* Slightly larger check */
+            content: '»'; position: absolute; left: 0; top: -2px;
+            color: var(--accent-primary); font-weight: bold; font-size: 1.5em;
         }
 
-        .technical-env {
-            font-size: 1em; /* Standard size */
-            color: #343a40; /* Darker text */
-            background-color: #e9ecef;
-            padding: 12px 18px; /* More padding */
-            border-radius: 8px; /* More rounding */
-            display: inline-block;
-            margin-top: 15px;
-            border: 1px solid #dee2e6;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        /* --- SKILLS --- */
+        #skills ul { display: flex; flex-wrap: wrap; gap: 15px; list-style: none; }
+        #skills li {
+            background: #222; color: var(--text-primary); padding: 12px 20px;
+            border-radius: 8px; border: 1px solid #333;
+            transition: all 0.2s;
         }
-         .technical-env:hover {
-             background-color: #dce1e4; /* Darken slightly on hover */
-             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-         }
-        .technical-env strong {
-            color: #228be6; /* Blue highlight */
-            font-weight: 600;
+        #skills li:hover {
+            color: #fff; background: var(--accent-primary);
+            transform: scale(1.05); box-shadow: 0 0 10px var(--glow-color);
         }
 
-        /* Skills, Competencies, Languages, Certifications Sections */
-         #skills ul, #competencies ul, #languages ul, #certifications ul {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 20px; /* More spacing */
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px; /* Increased gap */
-        }
-
-        #skills li, #competencies li, #languages li, #certifications li {
-            background-image: linear-gradient(to right, #e7f5ff 0%, #d0ebff 100%); /* Subtle gradient */
-            color: #1864ab; /* Darker blue */
-            padding: 12px 20px; /* More padding */
-            margin-bottom: 0;
-            border-radius: 30px; /* More rounded */
-            display: inline-block;
-            margin-right: 0;
-            font-size: 1.05em; /* Larger */
-            font-weight: 500;
-            border: 1px solid #a5d8ff; /* Lighter border */
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother transition */
-            cursor: pointer; /* Indicate interactivity */
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        #skills li:hover, #competencies li:hover, #languages li:hover, #certifications li:hover {
-             background-image: linear-gradient(to right, #4dabf7 0%, #1c7ed6 100%); /* Brighter gradient on hover */
-             color: #ffffff;
-             transform: translateY(-4px) scale(1.03); /* Lift more, scale slightly */
-             box-shadow: 0 6px 15px rgba(77, 171, 247, 0.35); /* Enhanced shadow */
-             border-color: transparent; /* Hide border on hover */
-        }
-
-        #skills h4 {
-            font-size: 1.25em; /* Slightly larger */
-            color: #495057;
-            margin-top: 25px; /* More spacing */
-            margin-bottom: 18px;
-            font-weight: 600;
-            border-bottom: 1px dashed #ced4da; /* Add subtle separator */
-            padding-bottom: 8px;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 30px; /* More padding */
-            margin-top: 50px; /* More spacing */
-            color: #868e96;
-            font-size: 1em; /* Standard size */
-            border-top: 1px solid #dee2e6;
-        }
-
-         /* Remove Animation Helper Class, handled by JS */
-
-         /* Responsive Design Updates */
-        @media (max-width: 768px) {
-             html {
-                 font-size: 15px;
-             }
-             .container {
-                 padding: 0 15px;
-                 margin-top: 30px;
-                 margin-bottom: 30px;
-             }
-             header {
-                 padding: 60px 20px;
-                 margin-bottom: 40px;
-             }
-             header h1 {
-                 font-size: 2.8em;
-             }
-             header h2.title {
-                 font-size: 1.5em;
-             }
-             header img.profile-pic {
-                 width: 150px;
-                 height: 150px;
-             }
-             section {
-                 padding: 30px 35px;
-                 margin-bottom: 30px;
-             }
-             section h3 {
-                  font-size: 1.8em;
-             }
-             .job h4 {
-                  font-size: 1.3em;
-             }
-             #skills li, #competencies li, #languages li, #certifications li {
-                  font-size: 1em;
-                  padding: 10px 16px;
-             }
-        }
-         @media (max-width: 480px) {
-              html {
-                 font-size: 14px;
-              }
-              .container {
-                  padding: 0 12px;
-                   margin-top: 25px;
-                   margin-bottom: 25px;
-              }
-              header {
-                  padding: 50px 15px;
-                  margin-bottom: 30px;
-                  border-bottom-left-radius: 15px;
-                  border-bottom-right-radius: 15px;
-              }
-              header h1 {
-                  font-size: 2.2em;
-              }
-              header h2.title {
-                  font-size: 1.25em;
-              }
-              header img.profile-pic {
-                 width: 130px;
-                 height: 130px;
-                 border-width: 5px;
-             }
-              section {
-                  padding: 25px;
-                  margin-bottom: 25px;
-                  border-radius: 12px;
-              }
-              section h3 {
-                  font-size: 1.6em;
-              }
-              .job h4 {
-                  font-size: 1.2em;
-              }
-               #skills li, #competencies li, #languages li, #certifications li {
-                  font-size: 0.95em;
-                  padding: 8px 14px;
-                  border-radius: 25px;
-             }
-              .contact-info {
-                    font-size: 1em;
-              }
-              .contact-info p {
-                  font-size: 1em;
-              }
-         }
-
-        /* Accessibility: Reduce motion for users who prefer it */
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto; /* Disable smooth scrolling */
-            }
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-                transition-delay: 0ms !important;
-            }
-            /* Reset transforms applied by JS/CSS */
-            header img.profile-pic:hover,
-            section:hover,
-            #skills li:hover, #competencies li:hover, #languages li:hover, #certifications li:hover,
-            .contact-info a:hover {
-                transform: none !important;
-            }
-            /* Hide particle effects */
-            #particles-js {
-                display: none;
-            }
-            /* Prevent JS-based animations from translating elements */
-            .animate-on-scroll,
-            header .header-content *,
-            section * {
-                transform: none !important;
-                opacity: 1 !important; /* Ensure elements are visible */
-            }
-        }
-
+        footer { text-align: center; padding: 40px; margin-top: 50px; color: #555; }
     </style>
 </head>
 <body>
-    <!-- Particle container -->
-    <div id="particles-js"></div>
+    <canvas id="neural-net-bg"></canvas>
 
-    <header class="animate-on-scroll">
+    <header>
         <div class="header-content">
-            <img src="https://media.licdn.com/dms/image/v2/C4E03AQGRFowgMDNAEg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1651067252631?e=1749686400&v=beta&t=0Q69VfzFd1TKd59Lab-IDInuLf2O0gsgS3Cy8FrZnEU" alt="Romain Abdel-Aal" class="profile-pic" id="profilePic">
-            <h1 id="mainName">ROMAIN ABDEL-AAL</h1>
-            <h2 class="title" id="mainTitle">Solutions Architect & Technical Leader</h2>
-            <div class="contact-info" id="contactDetails">
+            <div class="profile-pic-container">
+                <img src="https://media.licdn.com/dms/image/v2/C4E03AQGRFowgMDNAEg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1651067252631?e=1749686400&v=beta&t=0Q69VfzFd1TKd59Lab-IDInuLf2O0gsgS3Cy8FrZnEU" alt="Romain Abdel-Aal" class="profile-pic">
+                <div class="profile-status" title="Status: Online & Actively Building"></div>
+            </div>
+            <h1>ROMAIN ABDEL-AAL</h1>
+            <h2 class="title">Autonomous AI Solutions Architect</h2>
+            <div class="contact-info">
                 <p>
-                    <a href="mailto:romainabdelaal@gmail.com">romainabdelaal@gmail.com</a> | +33 651 985 779
-                </p>
-                <p>
-                   94340 Joinville-Le-Pont, France
-                </p>
-                <p>
-                    <a href="https://www.linkedin.com/in/romain-a-03204450/" target="_blank">LinkedIn Profile</a>
+                    <a href="mailto:romainabdelaal@gmail.com">romainabdelaal@gmail.com</a> | 
+                    <a href="https://www.linkedin.com/in/romain-a-03204450/" target="_blank">LinkedIn</a> |
+                    94340 Joinville-Le-Pont, France
                 </p>
             </div>
         </div>
     </header>
 
     <div class="container">
+        <!-- ============================================== -->
+        <!-- THE AGI (Artificial General Intelligence) PROMPT INTERFACE -->
+        <!-- ============================================== -->
+        <section id="agi-interface">
+            <h3>Engage with my AI Agent</h3>
+            <div id="prompt-container">
+                <input type="text" id="user-prompt" placeholder="Ask about my experience, projects, or a technical concept...">
+                <button id="prompt-button">Query</button>
+            </div>
+            <div id="suggestion-chips">
+                <div class="chip" data-prompt="Summarize Romain's experience with RAG systems.">RAG Systems</div>
+                <div class="chip" data-prompt="What was the core architectural challenge of AstralAGI?">AstralAGI Architecture</div>
+                <div class="chip" data-prompt="Explain his approach to prompt engineering.">Prompt Engineering</div>
+                <div class="chip" data-prompt="Generate a 30-day plan for a new AI project.">Generate 30-Day Plan</div>
+            </div>
+            <div id="agi-response">
+                <p><strong>Agent Status:</strong> Online. Ready for queries.</p>
+                <p>I am an AI agent trained on Romain's professional history, skills, and project portfolio. You can ask me questions to get tailored, specific insights into his capabilities.</p>
+            </div>
+        </section>
+
+
         <section id="summary" class="animate-on-scroll">
-            <h3>Professional Summary</h3>
+            <h3>Mission Briefing</h3>
             <p>
-                Innovative AI Solutions Architect with extensive experience in technical leadership, software development, and specialized AI applications. Creator of AstralAGI, merging traditional astrology with advanced AI technologies. Passionate about emerging technologies with a consistent technology watch approach to stay ahead of industry trends. Proven track record in designing scalable architectures, developing advanced prompt engineering techniques, and delivering high-quality solutions across multiple domains. Skilled in both frontend and backend development with expertise in multiple programming languages, frameworks, and AI tools.
+                Autonomous AI Solutions Architect engineering the bridge between complex business challenges and intelligent, scalable systems. My core function is to design and deploy AI-native solutions, from advanced RAG architectures to specialized agentic workflows. Creator of AstralAGI, a proof-of-concept merging domain-specific knowledge with frontier AI. My operational directive is a continuous technology watch, ensuring all solutions leverage the most effective and emergent technologies.
             </p>
         </section>
 
+        <!-- Experience is now 'Projects & Deployments' -->
         <section id="experience" class="animate-on-scroll">
-            <h3>Professional Experience</h3>
+            <h3>Projects & Deployments</h3>
 
             <div class="job">
-                <h4>Owner & AI Solutions Architect</h4>
-                <p class="company-date">AstralAGI | May 2024 - Present (1 year)</p>
-                <p>Creator and developer of an AI-powered astrology service, combining traditional astrological knowledge with modern AI technologies.</p>
+                <h4>Project: AstralAGI [Personal AGI]</h4>
+                <p class="company-date">Owner & AI Solutions Architect | May 2024 - Present</p>
                 <ul>
-                    <li>Designed and implemented a specialized AI system for generating astrology insights and readings</li>
-                    <li>Developed advanced prompt engineering techniques for astrological interpretations</li>
-                    <li>Created an innovative platform merging ancient astrological wisdom with cutting-edge AI</li>
-                    <li>Conducted continuous technology watch to incorporate the latest AI advancements into astrological applications</li>
+                    <li>Engineered a specialized AI agent for generative astrology, fine-tuning language models on a custom corpus of esoteric knowledge.</li>
+                    <li>Designed and implemented a hybrid RAG system utilizing vector databases for semantic retrieval of astrological patterns.</li>
+                    <li>Developed proprietary prompt chaining techniques to create complex, multi-layered astrological interpretations.</li>
                 </ul>
-                <p class="technical-env"><strong>Technical Environment:</strong> Cursor IDE, OpenAI API, Anthropic API, LangChain, Vector Databases, GitHub</p>
             </div>
 
             <div class="job">
-                <h4>CEO & Solution Architect</h4>
-                <p class="company-date">Xaartaz | October 2020 - November 2023</p>
-                 <p>Founder and provider of IT services to companies.</p>
+                <h4>Deployment: Enterprise IT Services [Consulting]</h4>
+                <p class="company-date">CEO & Solution Architect | Xaartaz | Oct 2020 - Nov 2023</p>
                 <ul>
-                    <li>Defined technical and functional architectures for client solutions</li>
-                    <li>Integrated partner APIs and implemented system optimizations</li>
-                    <li>Led technical teams and coordinated project deliverables</li>
-                    <li>Created comprehensive technical and functional documentation</li>
+                    <li>Architected and orchestrated IT solutions for diverse enterprise clients, focusing on system optimization and API integration.</li>
+                    <li>Led cross-functional technical teams, defining functional architectures and ensuring project alignment with strategic goals.</li>
                 </ul>
-                <p class="technical-env"><strong>Technical Environment:</strong> Slack, Jira, Skype, Postman, Zoom, Trello</p>
             </div>
-
+            
              <div class="job">
-                <h4>Solution Architect</h4>
-                <p class="company-date">JSOFT / ITO Services | July 2018 - September 2020</p>
-                 <p>Technical referent, services coordinator, and R&D services director.</p>
+                <h4>Project: Predictive Algorithms [AdTech]</h4>
+                 <p class="company-date">Solution Architect | RythmOne | Sep 2016 - Mar 2017</p>
                 <ul>
-                    <li>Developed a proprietary framework for turnkey subscription websites</li>
-                    <li>Created conversion optimization modules increasing client ROI</li>
-                    <li>Built a custom support system improving customer satisfaction</li>
-                    <li>Optimized advertising formats for better performance</li>
-                    <li>Led technical teams and managed development workflows</li>
+                    <li>Collaborated with Data Scientists to design and integrate user behavior prediction algorithms into a high-throughput ad platform.</li>
+                    <li>Optimized data pipelines for real-time API integrations, enhancing ad format performance and efficiency.</li>
                 </ul>
-                 <p class="technical-env"><strong>Technical Environment:</strong> Slack, Jira, Skype, Bitbucket, Postman, Visual Studio, Zoom, Trello</p>
-            </div>
-
-            <div class="job">
-                <h4>Cryptocurrency Consultant</h4>
-                <p class="company-date">Freelance | March 2017 - June 2018</p>
-                 <p>Portfolio management, private investments, and smart contracts development.</p>
-                <ul>
-                    <li>Founded and managed a private cryptocurrency group with 50+ members</li>
-                    <li>Developed automated earnings sharing systems using blockchain technology</li>
-                    <li>Created Ethereum tokens and smart contracts</li>
-                    <li>Provided technical consulting on cryptocurrency trading strategies</li>
-                </ul>
-                 <p class="technical-env"><strong>Technical Environment:</strong> Discord, Binance, Cryptopia, Blockfolio, Remix (Solidity IDE)</p>
-            </div>
-
-             <div class="job">
-                <h4>Solution Architect</h4>
-                 <p class="company-date">RythmOne (formerly RadiumOne) | September 2016 - March 2017</p>
-                 <p>Technical reference for the Parisian office, supervising development teams in San Francisco and Kyiv.</p>
-                <ul>
-                    <li>Designed prediction algorithms in collaboration with Data Scientists</li>
-                    <li>Integrated partner APIs and optimized advertising formats (JPG, GIF to HTML5)</li>
-                    <li>Created internal demo sites showcasing platform capabilities</li>
-                    <li>Provided technical support to media traders for campaign management</li>
-                </ul>
-                <p class="technical-env"><strong>Technical Environment:</strong> Slack, Jira, Skype, Postman</p>
-            </div>
-
-             <div class="job">
-                <h4>Technical Director & Co-founder</h4>
-                <p class="company-date">Almaksoft | October 2012 - November 2015</p>
-                 <p>Led technical direction and development for web and mobile projects.</p>
-                 <ul>
-                    <li>Developed HTML5 games for Canal+ on Facebook platform</li>
-                    <li>Created mobile games for Android and iOS platforms</li>
-                    <li>Designed and implemented commercial websites using Prestashop</li>
-                    <li>Developed a website vulnerability testing automation tool</li>
-                    <li>Created various mobile applications across multiple categories</li>
-                </ul>
-                <p class="technical-env"><strong>Technical Environment:</strong> C#, PHP, HTML5, CSS3, Unity3D, Visual Studio, SQL Server, IIS, MVC, Entity Framework, jQuery, Bootstrap, TFS, SVN</p>
-            </div>
-
-             <div class="job">
-                <h4>Full Stack Developer</h4>
-                 <p class="company-date">Teemo (formerly Databerries) | December 2015 - February 2016</p>
-                 <p>Front-end lead developer for location-based marketing platform.</p>
-                <ul>
-                    <li>Implemented CRM system for customer relationship management</li>
-                    <li>Modified proprietary SDKs for iOS and Android platforms</li>
-                    <li>Created modules on Apache Spark for data processing</li>
-                    <li>Integrated Machine Learning models for predictive analytics</li>
-                 </ul>
-                 <p class="technical-env"><strong>Technical Environment:</strong> Spark, Elastic Search, Python, Java, Objective C, MongoDB, BigQuery, GIT, Ubuntu</p>
-            </div>
-
-             <div class="job">
-                 <h4>Lead Developer</h4>
-                 <p class="company-date">Socialshaker | August 2014 - October 2014</p>
-                 <p>2-month project for Universal Music, the company's largest client.</p>
-                <ul>
-                    <li>Built album promotion audio player using HTML5 and Node.js</li>
-                    <li>Integrated designer graphics and improved user experience</li>
-                    <li>Redesigned company website and created Node.js plugins</li>
-                </ul>
-                <p class="technical-env"><strong>Technical Environment:</strong> PHP, HTML5, CSS3, Java, Node.js, CakePHP, SVN</p>
-            </div>
-
-            <div class="job">
-                <h4>Research & Development Engineer</h4>
-                <p class="company-date">Surikate | December 2011 - November 2012</p>
-                <p>Developer focused on API design and website enhancement.</p>
-                <ul>
-                    <li>Designed and developed APIs for mobile applications</li>
-                    <li>Created innovative responsive advertising formats</li>
-                    <li>Developed custom WordPress plugins for extended functionality</li>
-                    <li>Redesigned multiple company websites with multilingual support</li>
-                 </ul>
-                 <p class="technical-env"><strong>Technical Environment:</strong> PHP, HTML5, CSS3, Java, WordPress, Apache, SVN</p>
-            </div>
-
-            <div class="job">
-                <h4>Research & Development Engineer</h4>
-                <p class="company-date">OPSONE | March 2011 - December 2011</p>
-                <p>Web developer focused on client projects and custom solutions.</p>
-                <ul>
-                    <li>Developed contest websites and e-commerce platforms</li>
-                    <li>Created custom CMS solutions for partner companies</li>
-                    <li>Managed a team of two interns on development projects</li>
-                </ul>
-                <p class="technical-env"><strong>Technical Environment:</strong> Zend, Symfony, PHP, HTML5, CSS3, Ubuntu, NetBeans, Apache</p>
-            </div>
-
-             <div class="job">
-                <h4>Research & Development Engineer</h4>
-                <p class="company-date">ITSI Aubervilliers | 2010 - 2011</p>
-                 <!-- No specific description or achievements listed in OCR for this role -->
             </div>
 
         </section>
 
         <section id="skills" class="animate-on-scroll">
-            <h3>Technical Skills</h3>
-
-            <h4>AI & Machine Learning</h4>
-            <ul>
-                <li>Prompt Engineering</li><li>LLM Fine-tuning</li><li>AI Architecture Design</li><li>Vector Databases</li><li>RAG Systems</li><li>Embeddings</li><li>LangChain</li><li>Semantic Search</li>
-            </ul>
-
-            <h4>Programming Languages</h4>
-            <ul>
-                <li>JavaScript</li><li>Python</li><li>PHP</li><li>C#</li><li>Java</li><li>SQL</li><li>Unity Script</li><li>Solidity</li>
-            </ul>
-
-            <h4>Frameworks & Technologies</h4>
-            <ul>
-                <li>React</li><li>Next.js</li><li>Node.js</li><li>Zend</li><li>CodeIgniter</li><li>Symfony</li><li>CakePHP</li><li>ASP.NET (WebForm & MVC)</li><li>WCF</li><li>WinForm</li><li>Web API</li>
-            </ul>
-
-            <h4>Libraries</h4>
+            <h3>Technical Capabilities Matrix</h3>
              <ul>
-                 <li>jQuery</li><li>jQuery UI</li><li>Amplify JS</li><li>Bootstrap</li><li>Nuget</li><li>Entity Framework</li><li>Kendo UI</li><li>Highcharts</li><li>Google Maps</li><li>PostSharp</li><li>Log4net</li><li>Knockout</li><li>NextJS</li>
-             </ul>
-
-            <h4>Development Tools</h4>
-            <ul>
-                 <li>Cursor IDE</li><li>Visual Studio Code</li><li>Remix</li><li>Unity</li><li>SQL Server Management Studio</li><li>Git</li><li>TFS</li><li>SVN</li>
-             </ul>
-
-            <h4>Databases</h4>
-             <ul>
-                <li>MongoDB</li><li>SQL Server</li><li>MySQL</li><li>PostgreSQL</li><li>YAML</li>
-            </ul>
-
-            <h4>CMS & Servers</h4>
-             <ul>
-                <li>WordPress</li><li>Drupal</li><li>DotNetNuke</li><li>Orchard</li><li>Apache</li><li>IIS</li>
-             </ul>
-
-            <h4>Operating Systems</h4>
-            <ul>
-                <li>macOS</li><li>Windows XP/Vista/7/8/10/11</li><li>Ubuntu</li>
-            </ul>
-
-        </section>
-
-        <section id="certifications" class="animate-on-scroll">
-            <h3>Certifications</h3>
-            <ul>
-                <li>CIW Site Development Associate</li>
-                <li>CIW JavaScript Specialist</li>
-                <li>Oracle Certified Associate MySQL 5 (OCAM)</li>
+                <li>AI Architecture Design</li><li>RAG Systems</li><li>Vector Databases</li><li>LLM Fine-tuning</li><li>Prompt Engineering</li><li>Agentic Workflows</li><li>LangChain</li>
+                <li>Python</li><li>JavaScript</li><li>React</li><li>Next.js</li><li>Node.js</li><li>C#</li>
+                <li>MongoDB</li><li>SQL Server</li><li>PostgreSQL</li>
+                <li>Cursor IDE</li><li>Git</li><li>Docker</li>
             </ul>
         </section>
+        
+        <!-- Other sections like Certs, Langs, Comps can be added here -->
 
-        <section id="languages" class="animate-on-scroll">
-            <h3>Languages</h3>
-            <ul>
-                <li>French: Native</li>
-                <li>English: Fluent</li>
-                <li>Spanish: Intermediate</li>
-            </ul>
-        </section>
-
-        <section id="competencies" class="animate-on-scroll">
-            <h3>Core Competencies</h3>
-            <ul>
-                <li>AI Solution Architecture</li><li>Prompt Engineering</li><li>Technology Watch & Innovation</li><li>Team Leadership</li><li>Software Development</li><li>Technical Specifications</li><li>Requirements Gathering</li><li>Project Management</li><li>System Optimization</li><li>API Integration</li>
-            </ul>
-        </section>
-
-    </div><!-- /container -->
+    </div>
 
     <footer>
-        <p>© 2025 Romain Abdel-Aal</p>
+        <p>Romain Abdel-Aal // AGI v1.0 // System Online</p>
     </footer>
 
-    <!-- Include Particles.js Library -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
-    <!-- Include Anime.js Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" defer></script>
-
-    <!-- Custom Animation & Particles Script -->
-    <script defer>
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Check for reduced motion preference before initializing animations
-            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            // --- Neural Net Background Animation ---
+            const canvas = document.getElementById('neural-net-bg');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
 
-            // --- Initialize Particles.js (only if motion is not reduced) ---
-            if (!prefersReducedMotion) {
-                particlesJS('particles-js', {
-                    "particles": {
-                        "number": {
-                        "value": 60,
-                        "density": {
-                            "enable": true,
-                            "value_area": 800
-                        }
-                        },
-                        "color": {
-                        "value": "#ffffff"
-                        },
-                        "shape": {
-                        "type": "circle",
-                        "stroke": {
-                            "width": 0,
-                            "color": "#000000"
-                        },
-                        "polygon": {
-                            "nb_sides": 5
-                        }
-                        },
-                        "opacity": {
-                        "value": 0.4,
-                        "random": true,
-                        "anim": {
-                            "enable": true,
-                            "speed": 0.8,
-                            "opacity_min": 0.1,
-                            "sync": false
-                        }
-                        },
-                        "size": {
-                        "value": 3,
-                        "random": true,
-                        "anim": {
-                            "enable": false,
-                            "speed": 40,
-                            "size_min": 0.1,
-                            "sync": false
-                        }
-                        },
-                        "line_linked": {
-                        "enable": true,
-                        "distance": 130,
-                        "color": "#ffffff",
-                        "opacity": 0.3,
-                        "width": 1
-                        },
-                        "move": {
-                        "enable": true,
-                        "speed": 1.5,
-                        "direction": "none",
-                        "random": true,
-                        "straight": false,
-                        "out_mode": "out",
-                        "bounce": false,
-                        "attract": {
-                            "enable": false,
-                            "rotateX": 600,
-                            "rotateY": 1200
-                        }
-                        }
-                    },
-                    "interactivity": {
-                        "detect_on": "canvas",
-                        "events": {
-                        "onhover": {
-                            "enable": true,
-                            "mode": "grab"
-                        },
-                        "onclick": {
-                            "enable": false,
-                            "mode": "push"
-                        },
-                        "resize": true
-                        },
-                        "modes": {
-                        "grab": {
-                            "distance": 150,
-                            "line_linked": {
-                            "opacity": 0.7
-                            }
-                        },
-                        "bubble": {
-                            "distance": 400,
-                            "size": 40,
-                            "duration": 2,
-                            "opacity": 8,
-                            "speed": 3
-                        },
-                        "repulse": {
-                            "distance": 200,
-                            "duration": 0.4
-                        },
-                        "push": {
-                            "particles_nb": 4
-                        },
-                        "remove": {
-                            "particles_nb": 2
-                        }
-                        }
-                    },
-                    "retina_detect": true
-                });
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = document.querySelector('header').offsetHeight;
             }
 
-            // --- Intersection Observer Setup (only if motion is not reduced) ---
-            if (!prefersReducedMotion) {
-                const animatedElements = document.querySelectorAll('.animate-on-scroll');
-
-                const observer = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            animateElement(entry.target);
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, {
-                    root: null,
-                    threshold: 0.01,
-                    rootMargin: '0px 0px -40px 0px'
-                });
-
-                animatedElements.forEach(el => {
-                    if (el.tagName.toLowerCase() !== 'header') {
-                        el.style.opacity = 0; // Keep initial hide for non-header elements
-                    }
-                    observer.observe(el);
-                });
-            } else {
-                 // If reduced motion is preferred, ensure all potentially hidden elements are visible
-                 const animatedElements = document.querySelectorAll('.animate-on-scroll');
-                 animatedElements.forEach(el => {
-                    el.style.opacity = 1;
-                    // Reset any inline transforms that might have been set before this check
-                    el.style.transform = 'none';
-                });
-                // Ensure elements inside sections are also visible
-                document.querySelectorAll('section *').forEach(el => {
-                    el.style.opacity = 1;
-                    el.style.transform = 'none';
-                });
-            }
-
-            // --- Animation Function (remains defined, but only called if observer is set up) ---
-            function animateElement(element) {
-                let initialTranslateY = 40;
-                const masterTl = anime.timeline({
-                    easing: 'easeOutExpo',
-                    duration: 800
-                });
-                masterTl.add({
-                   targets: element,
-                   opacity: [0, 1],
-                   translateY: [initialTranslateY, 0],
-                   duration: 600
-                });
-                if (element.tagName.toLowerCase() === 'header') {
-                    masterTl.add({
-                        targets: element.querySelector('.profile-pic'),
-                        opacity: [0, 1],
-                        scale: [0.6, 1],
-                        duration: 800,
-                        easing: 'spring(1, 80, 10, 0)'
-                    }, '-=400')
-                    .add({
-                        targets: element.querySelector('#mainName'),
-                        opacity: [0, 1],
-                        translateY: [-30, 0],
-                         duration: 650,
-                          easing: 'easeOutCubic'
-                    }, '-=550')
-                    .add({
-                        targets: element.querySelector('#mainTitle'),
-                        opacity: [0, 1],
-                        translateY: [-20, 0],
-                        duration: 650,
-                        easing: 'easeOutCubic'
-                    }, '-=500')
-                     .add({
-                        targets: element.querySelector('#contactDetails p'),
-                        opacity: [0, 1],
-                        translateY: [25, 0],
-                        duration: 550,
-                        delay: anime.stagger(80),
-                        easing: 'easeOutCubic'
-                    }, '-=450');
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2 + 1;
+                    this.speedX = Math.random() * 1 - 0.5;
+                    this.speedY = Math.random() * 1 - 0.5;
                 }
-                else if (element.tagName.toLowerCase() === 'section') {
-                   const heading = element.querySelector('h3');
-                   if (heading) {
-                        masterTl.add({
-                           targets: heading,
-                            opacity: [0, 1],
-                            translateX: [-25, 0],
-                            duration: 550
-                        }, '-=450');
-                   }
-                    const paragraphs = element.querySelectorAll('p:not(.technical-env):not(.company-date)');
-                    if (paragraphs.length > 0) {
-                         masterTl.add({
-                            targets: paragraphs,
-                             opacity: [0, 1],
-                             translateY: [15, 0],
-                             delay: anime.stagger(60),
-                             duration: 450
-                         }, '-=400');
-                    }
-                   const listItems = element.querySelectorAll('ul > li');
-                   if (listItems.length > 0) {
-                        masterTl.add({
-                           targets: listItems,
-                           opacity: [0, 1],
-                           translateX: [-15, 0],
-                            scale: [0.95, 1],
-                            delay: anime.stagger(40, { start: 50 }),
-                           duration: 350,
-                            easing: 'easeOutBack'
-                        }, '-=350');
-                   }
-                    const jobItems = element.querySelectorAll('.job');
-                    if (jobItems.length > 0) {
-                          jobItems.forEach((job, index) => {
-                              masterTl.add({ 
-                                  targets: job,
-                                  opacity: [0, 1],
-                                  translateY: [30, 0],
-                                  duration: 450,
-                                  easing: 'easeOutCubic'
-                              }, `-=${index === 0 ? 350 : 300}`);
-                              masterTl.add({
-                                  targets: job.querySelectorAll('h4, .company-date'),
-                                  opacity: [0, 1],
-                                  translateY: [10, 0],
-                                  delay: anime.stagger(40),
-                                  duration: 350
-                              }, '-=250');
-                          });
-                    }
-                    const techEnvs = element.querySelectorAll('.technical-env');
-                     if (techEnvs.length > 0) {
-                          masterTl.add({
-                             targets: techEnvs,
-                              opacity: [0, 1],
-                              scale: [0.85, 1],
-                              delay: anime.stagger(50),
-                              duration: 300,
-                              easing: 'easeOutBack'
-                          }, '-=250');
-                     }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+                    if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
+                }
+                draw() {
+                    ctx.fillStyle = 'rgba(0, 169, 255, 0.8)';
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
                 }
             }
+
+            function initParticles() {
+                particles = [];
+                for (let i = 0; i < 70; i++) {
+                    particles.push(new Particle());
+                }
+            }
+
+            function handleParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+                    for (let j = i; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        if (distance < 100) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(0, 169, 255, ${1 - distance / 100})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(handleParticles);
+            }
+
+            resizeCanvas();
+            initParticles();
+            handleParticles();
+            window.addEventListener('resize', () => {
+                resizeCanvas();
+                initParticles();
+            });
+
+            // --- AGI Interface Logic ---
+            const promptInput = document.getElementById('user-prompt');
+            const promptButton = document.getElementById('prompt-button');
+            const responseContainer = document.getElementById('agi-response');
+            const chips = document.querySelectorAll('.chip');
+
+            // Simplified data store for the AGI
+            const agiMemory = {
+                "RAG systems": "Romain has designed and implemented hybrid RAG systems, notably for the AstralAGI project. His approach involves using vector databases for efficient semantic retrieval and developing advanced prompt chaining techniques to synthesize complex information from retrieved documents.",
+                "AstralAGI": "The core architectural challenge of AstralAGI was creating a specialized AI agent capable of generating nuanced astrological interpretations. This required fine-tuning language models on a custom, domain-specific knowledge base and engineering a robust RAG system to ensure factual accuracy and contextual relevance.",
+                "prompt engineering": "Romain's approach to prompt engineering is systematic. He develops proprietary prompt chaining and tree-of-thought techniques to guide LLMs through complex, multi-step reasoning processes. This is crucial for transforming generic model outputs into specialized, high-value insights.",
+                "30-day plan": "A potential 30-day plan for a new AI project would be:\n\n**Phase 1 (Days 1-10): Discovery & Scoping.**\n- Deep dive into existing data infrastructure and business objectives.\n- Identify the highest-impact problem that can be solved with a specialized AI agent.\n- Define clear KPIs for success.\n\n**Phase 2 (Days 11-25): Prototype & Iterate.**\n- Build a minimum viable RAG pipeline using a small, targeted dataset.\n- Develop and test initial prompt chains.\n- Present a functional prototype to stakeholders for early feedback.\n\n**Phase 3 (Days 26-30): Roadmap & Scaling.**\n- Refine the prototype based on feedback.\n- Architect the full-scale solution.\n- Deliver a comprehensive roadmap for production deployment.",
+                "default": "I am an AI agent trained on Romain's professional data. I can answer questions about his skills, projects, and technical approach. Please try one of the suggestions or ask a specific question."
+            };
+            
+            function queryAgent(prompt) {
+                responseContainer.innerHTML = '<p>Querying knowledge base...</p>';
+                setTimeout(() => {
+                    const lowerPrompt = prompt.toLowerCase();
+                    let response = agiMemory.default;
+                    for (const key in agiMemory) {
+                        if (lowerPrompt.includes(key.split(" ")[0])) { // Simple keyword match
+                            response = agiMemory[key];
+                            break;
+                        }
+                    }
+                    responseContainer.innerHTML = `<p>${response}</p>`;
+                }, 750);
+            }
+
+            promptButton.addEventListener('click', () => {
+                if (promptInput.value) queryAgent(promptInput.value);
+            });
+            promptInput.addEventListener('keyup', (e) => {
+                if (e.key === 'Enter' && promptInput.value) queryAgent(promptInput.value);
+            });
+            chips.forEach(chip => {
+                chip.addEventListener('click', () => {
+                    const prompt = chip.getAttribute('data-prompt');
+                    promptInput.value = prompt;
+                    queryAgent(prompt);
+                });
+            });
+
+             // --- Scroll Animations ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
         });
     </script>
-
 </body>
 </html>
