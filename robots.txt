@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://rabdelaal.github.io/sitemap.xml
+# Please respect crawl-delay if needed; contact site owner for API access
