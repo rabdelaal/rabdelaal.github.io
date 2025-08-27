@@ -201,16 +201,31 @@
         }
 
         /* --- UI ELEMENTS --- */
-        #ui-instructions {
-            position: fixed;
-            top: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: var(--text-secondary);
-            font-size: 0.9em;
-            z-index: 50;
-            animation: fadeIn 2s ease;
-        }
+    /* Layout helpers */
+    .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+    header#site-header { position: fixed; top: 10px; left: 0; right: 0; z-index: 120; }
+    header#site-header .container { display:flex; align-items:center; justify-content:space-between; }
+    header#site-header h1 { font-size:1.1rem; color:var(--text-primary); }
+    header#site-header nav a { color:var(--text-secondary); margin-left:18px; text-decoration:none; font-size:0.95rem; }
+
+    #hero { padding: 110px 0 40px; }
+    .hero-inner { display:flex; gap:30px; align-items:center; }
+    .hero-left { flex:1; }
+    .hero-right { width:520px; max-width:42%; }
+    .hero-left h2 { color:var(--glow-primary); font-size:1.6rem; margin-bottom:8px; }
+    .lead { color:var(--text-secondary); line-height:1.5; }
+    .papers-cta { margin-top:14px; }
+    .btn { display:inline-block; background:var(--glow-primary); color:#000; padding:8px 14px; border-radius:6px; text-decoration:none; margin-right:8px; }
+    .btn.ghost { background:transparent; color:var(--glow-primary); border:1px solid var(--glow-primary); }
+
+    .hero-right video { width:100%; border-radius:8px; box-shadow:0 6px 30px rgba(0,0,0,0.6); display:block; }
+
+    #papers { padding: 30px 0; }
+    .papers-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:14px; margin-top:16px; }
+    .paper-card { display:block; padding:14px; border-radius:8px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); color:var(--text-primary); text-decoration:none; border:1px solid rgba(255,255,255,0.03); }
+    .paper-card:hover { box-shadow:0 8px 40px rgba(0,0,0,0.6); transform:translateY(-2px); }
+
+    #ui-instructions { position: fixed; top: 30px; left: 50%; transform: translateX(-50%); color: var(--text-secondary); font-size: 0.9em; z-index: 50; animation: fadeIn 2s ease; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
     </style>
@@ -223,71 +238,71 @@
         <div class="container">
             <h1>Romain Abdel-Aal — Research & Architecture</h1>
             <nav>
-+                <a href="#hero">Home</a>
-+                <a href="#papers">Papers</a>
-+                <a href="#timeline">Timeline</a>
-+            </nav>
-+        </div>
-+    </header>
-+
-+    <main>
-+        <section id="hero">
-+            <div class="hero-inner container">
-+                <div class="hero-left">
-+                    <h2>Selected Works — 2025</h2>
-+                    <p class="lead">Modular architectures, speculative execution, and efficient sequence models. Explore the papers below and watch the overview video.</p>
-+                    <div class="papers-cta">
-+                        <a class="btn" href="#papers">View Papers</a>
-+                        <a class="btn ghost" href="#timeline">Explore Timeline</a>
-+                    </div>
-+                </div>
-+                <div class="hero-right">
-+                    <video id="intro-video" controls playsinline preload="metadata">
-+                        <source src="videos/Le_Prochain_Paradigme_de_l_IA.mp4" type="video/mp4">
-+                        Your browser does not support the video tag.
-+                    </video>
-+                </div>
-+            </div>
-+        </section>
-+
-+        <section id="papers" class="container">
-+            <h3>Papers</h3>
-+            <div class="papers-grid">
-+                <a class="paper-card" href="papers/The SSR Architecture_ The Three-Kernel System.md">The SSR Architecture — The Three-Kernel System</a>
-+                <a class="paper-card" href="papers/The SSR Omega Architecture_ A Paradigm for Modular, Parallel, and Interpretable Machine Reasoning.md">The SSR Omega Architecture</a>
-+                <a class="paper-card" href="papers/The Vectorized Temporal Residue Network (vTRN)_ A Post-Transformer Architecture with O(n) Complexity for Large-Scale Sequence Processing.md">The Vectorized TRN (vTRN)</a>
-+                <a class="paper-card" href="papers/The Inertial-Speculative Temporal Residue Network (is-vTRN)_ A Computationally Superior Post-Transformer Architecture.md">is-vTRN</a>
-+                <a class="paper-card" href="papers/Speculative Decomposition with Residue Correction (SDRC)_ A Paradigm for Parallel Reasoning in AI Models.md">SDRC</a>
-+                <a class="paper-card" href="papers/Fused Synaptic Speculation (SyS-Fused)_ A Latency-Hiding Paradigm for Deep Learning Optimization.md">SyS-Fused</a>
-+                <a class="paper-card" href="papers/GEPARD_ Genetic Evolving Policy anD Representation for the Synthesis of Interpretable and Efficient Control Systems.md">GEPARD</a>
-+                <a class="paper-card" href="papers/Cognitive Resonance Cascade.md">Cognitive Resonance Cascade</a>
-+            </div>
-+        </section>
-+
-+        <section id="timeline">
-+            <div id="ui-instructions">Use Scroll, Drag, or Arrow Keys to Navigate Chrono-Space</div>
-+
-+            <div id="timeline-container">
-+                <div id="timeline-wrapper">
-+                    <!-- Nodes will be injected by JavaScript -->
-+                </div>
-+            </div>
-+            <div id="timeline-axis"></div>
-+
-+            <div id="agi-guide">
-+                <h4>Awaiting Input...</h4>
-+                <p>Navigate the timeline to explore key deployments and projects. Select a node for a contextual briefing from my AI agent.</p>
-+            </div>
-+
-+            <div id="modal-container">
-+                <div id="modal-content">
-+                    <button id="modal-close">&times;</button>
-+                    <h3 id="modal-title"></h3>
-+                    <div id="modal-body"></div>
-+                </div>
-+            </div>
-+        </section>
-+    </main>
+                <a href="#hero">Home</a>
+                <a href="#papers">Papers</a>
+                <a href="#timeline">Timeline</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-inner container">
+                <div class="hero-left">
+                    <h2>Selected Works — 2025</h2>
+                    <p class="lead">Modular architectures, speculative execution, and efficient sequence models. Explore the papers below and watch the overview video.</p>
+                    <div class="papers-cta">
+                        <a class="btn" href="#papers">View Papers</a>
+                        <a class="btn ghost" href="#timeline">Explore Timeline</a>
+                    </div>
+                </div>
+                <div class="hero-right">
+                    <video id="intro-video" controls playsinline preload="metadata" poster="videos/hero-poster.svg" loading="lazy">
+                        <source src="videos/Le_Prochain_Paradigme_de_l_IA.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <section id="papers" class="container">
+            <h3>Papers</h3>
+            <div class="papers-grid">
+                <a class="paper-card" href="papers/ssr-architecture.html">The SSR Architecture — The Three-Kernel System</a>
+                <a class="paper-card" href="papers/ssr-omega.html">The SSR Omega Architecture</a>
+                <a class="paper-card" href="papers/vtrn.html">The Vectorized TRN (vTRN)</a>
+                <a class="paper-card" href="papers/is-vtrn.html">is-vTRN</a>
+                <a class="paper-card" href="papers/sdrc.html">SDRC</a>
+                <a class="paper-card" href="papers/sys-fused.html">SyS-Fused</a>
+                <a class="paper-card" href="papers/gepard.html">GEPARD</a>
+                <a class="paper-card" href="papers/cognitive-resonance.html">Cognitive Resonance Cascade</a>
+            </div>
+        </section>
+
+        <section id="timeline">
+            <div id="ui-instructions">Use Scroll, Drag, or Arrow Keys to Navigate Chrono-Space</div>
+
+            <div id="timeline-container">
+                <div id="timeline-wrapper">
+                    <!-- Nodes will be injected by JavaScript -->
+                </div>
+            </div>
+            <div id="timeline-axis"></div>
+
+            <div id="agi-guide">
+                <h4>Awaiting Input...</h4>
+                <p>Navigate the timeline to explore key deployments and projects. Select a node for a contextual briefing from my AI agent.</p>
+            </div>
+
+            <div id="modal-container">
+                <div id="modal-content">
+                    <button id="modal-close">&times;</button>
+                    <h3 id="modal-title"></h3>
+                    <div id="modal-body"></div>
+                </div>
+            </div>
+        </section>
+    </main>
 *** End Patch
 
 
