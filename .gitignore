@@ -1,0 +1,16 @@
+# Node modules and lockfiles
+node_modules/
+package-lock.json
+
+# Build output (minified assets are kept under version control by choice)
+*.min.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+
+# Temporary
+*.log
