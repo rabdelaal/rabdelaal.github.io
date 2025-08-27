@@ -1,0 +1,22 @@
+{
+  "name": "rabdelaal.github.io",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "build:vendor": "esbuild --bundle node_modules/marked/lib/marked.js --minify --outfile=scripts/marked.min.js",
+    "minify:css": "cleancss -o styles/main.min.css styles/main.css",
+    "minify:js": "esbuild scripts/timeline.js --minify --outfile=scripts/timeline.min.js && esbuild scripts/hero-lazy.js --minify --outfile=scripts/hero-lazy.min.js",
+    "build": "npm run build:vendor && npm run minify:css && npm run minify:js",
+    "ci:validate": "npx html-validate \"index.html\" \"papers/*.html\" && npx linkinator --file index.html --recursive"
+  },
+  "devDependencies": {
+    "esbuild": "^0.18.18",
+    "clean-css-cli": "^1.6.3",
+    "marked": "^5.1.1",
+    "html-validate": "^7.11.0",
+    "linkinator": "^2.9.0"
+  }
+}
