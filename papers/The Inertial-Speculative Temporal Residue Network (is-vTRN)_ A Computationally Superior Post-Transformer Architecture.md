@@ -1,9 +1,6 @@
 ### **The Inertial-Speculative Temporal Residue Network (is-vTRN): A Computationally Superior Post-Transformer Architecture**
 
 **Romain Abdel-Aal**  
-*Sorbonne Université, Laboratoire d'Informatique de Paris 6 (LIP6), Paris, France*  
-[*romainabdelaal@gmail.com*](mailto:romainabdelaal@gmail.com)
-**Romain Abdel-Aal**  
 *Joinville le Pont, 2025*  
 [*romainabdelaal@gmail.com*](mailto:romainabdelaal@gmail.com)
 
@@ -58,7 +55,7 @@ The results are stark and definitive. While neither model mastered the complex r
 * **Computational Efficiency:** The is-vTRN was **7.8 times faster** than the SOTA Transformer. This is a monumental speedup that directly results from its superior O(n) architecture, which avoids the massive computational overhead of the Transformer's deep, layered attention.  
 * **Learning Effectiveness:** Both models achieved a similar level of accuracy, demonstrating that the is-vTRN is a comparably powerful learner, even in its nascent stage. The is-vTRN's faster, more direct convergence (as shown in the loss plot below) suggests a more efficient learning process.
 
-\!\[alt text\](input\_file\_17.png)
+ 
 
 *Figure 1: The is-vTRN (green) converges to its final loss significantly faster than the SOTA Transformer (red).*
 

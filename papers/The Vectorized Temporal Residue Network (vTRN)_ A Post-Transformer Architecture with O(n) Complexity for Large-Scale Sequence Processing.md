@@ -81,8 +81,7 @@ We perform a head-to-head race, measuring the total wall-clock time required to 
 
 The results are definitive. While the Transformer's highly optimized matrix math is faster for very short sequences, its O(n²) complexity causes its runtime to explode. The vTRN's O(n) complexity allows it to scale gracefully. **The crossover point occurs at a sequence length below 800 tokens**, after which the vTRN becomes exponentially more efficient.
 
-\!\[alt text\](input\_file\_15.png)
-
+ 
 *Figure 1: The empirically measured crossover point. The Transformer's runtime (red) shows clear quadratic growth, while the vTRN's runtime (green) shows stable linear growth.*
 
 **6\. Implementation Blueprint**

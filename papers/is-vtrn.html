@@ -1,10 +1,26 @@
-<!doctype html><html><head><meta charset="utf-8"><title>is-vTRN</title><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="background:#000;color:#e0f2f1;font-family:IBM Plex Mono,monospace;padding:24px;">
-<h1>is-vTRN</h1>
-<div id="content">Loading...</div>
-<script src="../scripts/marked.min.js"></script>
-<script>
-fetch('The Inertial-Speculative Temporal Residue Network (is-vTRN)_ A Computationally Superior Post-Transformer Architecture.md').then(r=>r.text()).then(md=>{
-  document.getElementById('content').innerHTML = marked(md);
-});
-</script>
-</body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>is-vTRN</title>
+    <link rel="stylesheet" href="/styles/main.min.css">
+  </head>
+  <body>
+  <main class="paper-main">
+      <h1>is-vTRN</h1>
+      <div id="content">Loading...</div>
+    </main>
+    <script src="/scripts/marked.min.js"></script>
+    <script src="/scripts/futuristic-charts.js" defer></script>
+    <script>
+      fetch('The Inertial-Speculative Temporal Residue Network (is-vTRN)_ A Computationally Superior Post-Transformer Architecture.md')
+        .then(r=>r.text())
+        .then(md=>{
+            // Replace any markdown image references with a safe placeholder div that will be rendered as an animated chart
+            const sanitized = md.replace(/!\[[^\]]*\]\([^\)]+\)/g, function(m,i){ return `\n<div data-fchart></div>\n`; });
+            document.getElementById('content').innerHTML = (marked.parse?marked.parse(sanitized):marked(sanitized));
+        });
+    </script>
+  </body>
+</html>

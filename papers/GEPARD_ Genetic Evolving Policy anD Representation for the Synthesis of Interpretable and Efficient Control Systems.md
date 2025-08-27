@@ -100,8 +100,7 @@ The initial experiment without the complexity penalty demonstrated that GEPARD c
 **5.2. With Parsimony Pressure: The Emergence of Elegance**  
 The results from the GEPARD v4.0 run, with parsimony pressure enabled, are shown in Figure 1\.
 
-\!\[alt text\](gepard\_evolution\_parsimony.png)
-
+ 
 *Figure 1: Evolutionary dynamics with parsimony pressure. The Best Fitness (cyan) remains high, while the Average Tree Size (green) is actively managed and reduced by the evolutionary process, demonstrating the successful suppression of code bloat.*
 
 The results are definitive. The **Best Fitness (cyan)** remains high, indicating the algorithm is still finding effective solutions. However, the **Average Tree Size (green)** tells a new story. After an initial exploratory phase where complexity rises, the evolutionary pressure begins to favor simpler solutions, causing the average size to trend downwards in the latter half of the run. This demonstrates that the algorithm is successfully navigating the trade-off between performance and complexity.

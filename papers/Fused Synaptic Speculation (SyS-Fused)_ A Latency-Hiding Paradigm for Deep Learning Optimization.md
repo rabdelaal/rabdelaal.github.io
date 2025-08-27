@@ -80,8 +80,7 @@ To validate SyS-Fused, we conducted a large-scale text classification task.
 
 The results are conclusive. **SyS-Fused achieved a final loss that was \~8% lower than the Momentum baseline**, demonstrating its superior ability to find a better minimum in the loss landscape. This superior quality comes at a moderate and predictable **\~25% increase in wall-clock training time**, a highly favorable trade-off for applications where model accuracy is paramount.
 
-\!\[alt text\](input\_file\_5.png)
-
+ 
 *Figure 1: Convergence plot showing SyS-Fused (green/yellow) achieving a consistently lower final loss than Momentum (blue).*
 
 **6\. CUDA Implementation Blueprint**

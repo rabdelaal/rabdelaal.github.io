@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
             year: '2012',
             title: 'Genesis Node',
             role: 'Romain Abdel-Aal',
-            img: 'https://media.licdn.com/dms/image/v2/C4E03AQGRFowgMDNAEg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1651067252631?e=1749686400&v=beta&t=0Q69VfzFd1TKd59Lab-IDInuLf2O0gsgS3Cy8FrZnEU',
+            img: '/images/profileimage.webp',
             brief: 'The starting point. This represents the genesis of a career focused on leveraging technology to build innovative solutions.',
             deepDive: '<h3>Core Competencies</h3><ul><li>Software Development Lifecycle</li><li>Team Leadership</li><li>Web & Mobile Application Development</li><li>System Architecture</li></ul>'
         },
