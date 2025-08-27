@@ -60,6 +60,11 @@
                             <source src="videos/Le_Prochain_Paradigme_de_l_IA.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
+                        <div class="video-controls" aria-hidden="false">
+                            <button id="mute-btn" title="Mute / Unmute">🔈</button>
+                            <button id="subtitles-btn" title="Toggle Subtitles">CC</button>
+                            <button id="pip-btn" title="Picture in Picture">⧉</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -80,6 +85,11 @@
         </section>
 
         <section id="timeline">
+            <div class="timeline-controls container">
+                <input id="timeline-search" class="filter-input" placeholder="Search timeline (year/title/role)" aria-label="Search timeline" />
+                <button id="timeline-prev" class="btn ghost">◀</button>
+                <button id="timeline-next" class="btn ghost">▶</button>
+            </div>
             <div id="ui-instructions">Use Scroll, Drag, or Arrow Keys to Navigate Chrono-Space</div>
 
             <div id="timeline-container">
