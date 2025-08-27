@@ -1,6 +1,6 @@
 // Render animated futuristic SVG charts into <div data-fchart> placeholders
-document.addEventListener('DOMContentLoaded', () => {
-    const placeholders = document.querySelectorAll('[data-fchart]');
+function renderFuturisticCharts(root = document) {
+    const placeholders = (root || document).querySelectorAll('[data-fchart]');
     placeholders.forEach((el, idx) => {
         const w = Math.min(window.innerWidth - 80, 760);
         const h = 240;
@@ -64,4 +64,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         requestAnimationFrame(frame);
     });
-});
+}
+
+// Auto-run on initial load
+document.addEventListener('DOMContentLoaded', () => renderFuturisticCharts(document));
+
+// Expose globally so pages that inject HTML can trigger rendering
+window.renderFuturisticCharts = renderFuturisticCharts;

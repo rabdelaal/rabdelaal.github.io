@@ -11,16 +11,33 @@
       <h1>is-vTRN</h1>
       <div id="content">Loading...</div>
     </main>
-    <script src="/scripts/marked.min.js"></script>
-    <script src="/scripts/futuristic-charts.js" defer></script>
-    <script>
-      fetch('The Inertial-Speculative Temporal Residue Network (is-vTRN)_ A Computationally Superior Post-Transformer Architecture.md')
-        .then(r=>r.text())
-        .then(md=>{
-            // Replace any markdown image references with a safe placeholder div that will be rendered as an animated chart
-            const sanitized = md.replace(/!\[[^\]]*\]\([^\)]+\)/g, function(m,i){ return `\n<div data-fchart></div>\n`; });
-            document.getElementById('content').innerHTML = (marked.parse?marked.parse(sanitized):marked(sanitized));
-        });
+      <script>
+        function loadScript(src){
+          return new Promise((res, rej)=>{
+            const s = document.createElement('script');
+            s.src = src;
+            s.onload = res;
+            s.onerror = () => rej(new Error('Failed to load '+src));
+            document.head.appendChild(s);
+          });
+        }
+        function ensureMarked(){
+          if(window.marked) return Promise.resolve();
+          return loadScript('/scripts/marked.min.js');
+        }
+
+        fetch('The Inertial-Speculative Temporal Residue Network (is-vTRN)_ A Computationally Superior Post-Transformer Architecture.md')
+          .then(r=>r.text())
+          .then(md=>{
+              const sanitized = md.replace(/!\[[^\]]*\]\([^\)]+\)/g, ()=>'\n<div data-fchart></div>\n');
+              return ensureMarked().then(()=>({ sanitized }));
+          })
+          .then(({ sanitized })=>{
+              const html = (marked.parse?marked.parse(sanitized):marked(sanitized));
+              document.getElementById('content').innerHTML = html;
+              if(window.renderFuturisticCharts) window.renderFuturisticCharts(document.getElementById('content'));
+          })
+          .catch(err => { console.error('Failed to load paper:', err); document.getElementById('content').textContent = 'Failed to load paper.'; });
     </script>
   </body>
 </html>
