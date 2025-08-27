@@ -219,27 +219,76 @@
     <div id="vignette"></div>
     <div id="scanlines"></div>
 
-    <div id="ui-instructions">Use Scroll, Drag, or Arrow Keys to Navigate Chrono-Space</div>
-
-    <div id="timeline-container">
-        <div id="timeline-wrapper">
-            <!-- Nodes will be injected by JavaScript -->
-        </div>
-    </div>
-    <div id="timeline-axis"></div>
-
-    <div id="agi-guide">
-        <h4>Awaiting Input...</h4>
-        <p>Navigate the timeline to explore key deployments and projects. Select a node for a contextual briefing from my AI agent.</p>
-    </div>
-
-    <div id="modal-container">
-        <div id="modal-content">
-            <button id="modal-close">&times;</button>
-            <h3 id="modal-title"></h3>
-            <div id="modal-body"></div>
-        </div>
-    </div>
+    <header id="site-header">
+        <div class="container">
+            <h1>Romain Abdel-Aal — Research & Architecture</h1>
+            <nav>
++                <a href="#hero">Home</a>
++                <a href="#papers">Papers</a>
++                <a href="#timeline">Timeline</a>
++            </nav>
++        </div>
++    </header>
++
++    <main>
++        <section id="hero">
++            <div class="hero-inner container">
++                <div class="hero-left">
++                    <h2>Selected Works — 2025</h2>
++                    <p class="lead">Modular architectures, speculative execution, and efficient sequence models. Explore the papers below and watch the overview video.</p>
++                    <div class="papers-cta">
++                        <a class="btn" href="#papers">View Papers</a>
++                        <a class="btn ghost" href="#timeline">Explore Timeline</a>
++                    </div>
++                </div>
++                <div class="hero-right">
++                    <video id="intro-video" controls playsinline preload="metadata">
++                        <source src="videos/Le_Prochain_Paradigme_de_l_IA.mp4" type="video/mp4">
++                        Your browser does not support the video tag.
++                    </video>
++                </div>
++            </div>
++        </section>
++
++        <section id="papers" class="container">
++            <h3>Papers</h3>
++            <div class="papers-grid">
++                <a class="paper-card" href="papers/The SSR Architecture_ The Three-Kernel System.md">The SSR Architecture — The Three-Kernel System</a>
++                <a class="paper-card" href="papers/The SSR Omega Architecture_ A Paradigm for Modular, Parallel, and Interpretable Machine Reasoning.md">The SSR Omega Architecture</a>
++                <a class="paper-card" href="papers/The Vectorized Temporal Residue Network (vTRN)_ A Post-Transformer Architecture with O(n) Complexity for Large-Scale Sequence Processing.md">The Vectorized TRN (vTRN)</a>
++                <a class="paper-card" href="papers/The Inertial-Speculative Temporal Residue Network (is-vTRN)_ A Computationally Superior Post-Transformer Architecture.md">is-vTRN</a>
++                <a class="paper-card" href="papers/Speculative Decomposition with Residue Correction (SDRC)_ A Paradigm for Parallel Reasoning in AI Models.md">SDRC</a>
++                <a class="paper-card" href="papers/Fused Synaptic Speculation (SyS-Fused)_ A Latency-Hiding Paradigm for Deep Learning Optimization.md">SyS-Fused</a>
++                <a class="paper-card" href="papers/GEPARD_ Genetic Evolving Policy anD Representation for the Synthesis of Interpretable and Efficient Control Systems.md">GEPARD</a>
++                <a class="paper-card" href="papers/Cognitive Resonance Cascade.md">Cognitive Resonance Cascade</a>
++            </div>
++        </section>
++
++        <section id="timeline">
++            <div id="ui-instructions">Use Scroll, Drag, or Arrow Keys to Navigate Chrono-Space</div>
++
++            <div id="timeline-container">
++                <div id="timeline-wrapper">
++                    <!-- Nodes will be injected by JavaScript -->
++                </div>
++            </div>
++            <div id="timeline-axis"></div>
++
++            <div id="agi-guide">
++                <h4>Awaiting Input...</h4>
++                <p>Navigate the timeline to explore key deployments and projects. Select a node for a contextual briefing from my AI agent.</p>
++            </div>
++
++            <div id="modal-container">
++                <div id="modal-content">
++                    <button id="modal-close">&times;</button>
++                    <h3 id="modal-title"></h3>
++                    <div id="modal-body"></div>
++                </div>
++            </div>
++        </section>
++    </main>
+*** End Patch
 
 
     <script>
