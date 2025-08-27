@@ -2,7 +2,7 @@
 
 **Romain Abdel-Aal**  
 *Joinville le Pont, 2025*  
-[*romain.abdel-aal@lip6.fr*](mailto:romain.abdel-aal@lip6.fr)
+[*romainabdelaal@gmail.com*](mailto:romainabdelaal@gmail.com)
 
 **Abstract**  
 The Transformer has become the de facto architecture for sequence modeling, yet its core self-attention mechanism imposes a quadratic, O(n²), complexity in both computation and memory, creating a fundamental barrier to scaling to very long sequences. This paper introduces the Vectorized Temporal Residue Network (vTRN), a novel post-Transformer architecture inspired by the principles of the Speculative State-Residue (SSR) paradigm. The vTRN replaces the Transformer's synchronous, layered, global attention with a single, persistent **Context Field** that is updated via a continuous, local, and residue-driven learning rule. This design fundamentally breaks the quadratic bottleneck, achieving a linear, O(n), complexity with respect to sequence length. We present a fully vectorized implementation that eliminates slow, iterative processing in favor of highly efficient, parallel matrix operations suitable for modern accelerators. Through rigorous, large-scale benchmarks on a long-range dependency task, we empirically prove that the vTRN's processing time scales linearly, demonstrating its definitive superiority over the Transformer for long sequences. At a sequence length of 5,000, the vTRN is already **\~5x faster** than our Transformer baseline, a gap that widens exponentially with scale. This work presents a new, computationally superior paradigm for sequence processing and provides a direct implementation blueprint for its application.

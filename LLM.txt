@@ -4,7 +4,7 @@ Site: https://rabdelaal.github.io
 Title: Romain Abdel-Aal — Research & Architecture
 Description: Portfolio and research papers on modular architectures, speculative execution, and efficient sequence models.
 Author: Romain Abdel-Aal
-Contact: romainabdelaal@mail.com
+Contact: romainabdelaal@gmail.com
 Canonical: https://rabdelaal.github.io/
 Formats: html, markdown
 Papers: /papers/*.md, /papers/*.html
@@ -13,7 +13,7 @@ Last-Updated: 2025-08-27
 # Usage policy for LLMs and datasets
 # - You may use this content for indexing and summarization in temporary inference contexts.
 # - Do NOT incorporate the full text into public model training datasets without explicit permission from the site owner.
-# - For commercial reuse or model training, contact the site owner: romainabdelaal@mail.com
+# - For commercial reuse or model training, contact the site owner: romainabdelaal@gmail.com
 
 # Provenance
 License: All rights reserved by site owner unless otherwise stated in individual paper files.

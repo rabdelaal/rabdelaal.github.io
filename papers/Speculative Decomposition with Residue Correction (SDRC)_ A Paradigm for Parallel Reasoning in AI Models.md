@@ -2,7 +2,7 @@
 
 **Romain Abdel-Aal**  
 *Joinville le Pont, 2025*  
-[*romain.abdel-aal@lip6.fr*](mailto:romain.abdel-aal@lip6.fr)
+[*romainabdelaal@gmail.com*](mailto:romainabdelaal@gmail.com)
 
 **Abstract**  
 The advent of Chain-of-Thought (CoT) prompting has enabled Large Language Models to tackle complex, multi-step reasoning tasks. However, the CoT paradigm is fundamentally limited by its serial nature: each step in the reasoning chain must wait for the previous one to complete. This creates a synchronous bottleneck that is inefficient and architecturally rigid. This paper introduces Speculative Decomposition with Residue Correction (SDRC), a new paradigm for machine reasoning inspired by the Speculative State-Residue (SSR) architecture. SDRC reframes a complex problem not as a serial chain, but as a dependency graph of sub-problems that can be executed in parallel. An Orchestrator module decomposes the main task and dispatches independent sub-problems to specialized "expert" networks for simultaneous, speculative execution. The key innovation lies in the learning process: instead of relying on a single, diffuse error signal backpropagated from the final answer, each expert receives a direct, high-quality **Residue** signal corresponding to its specific sub-task. Through a robust, from-scratch benchmark on a multi-step arithmetic task, we demonstrate that SDRC converges to a higher-quality solution than a sequential CoT baseline. SDRC represents a fundamental shift from serial thought to parallel reasoning, offering a more powerful, efficient, and scalable architecture for the next generation of intelligent systems.

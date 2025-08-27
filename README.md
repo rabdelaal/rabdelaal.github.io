@@ -19,7 +19,7 @@ Open http://localhost:8000 in your browser.
 
 Contact
 
-Romain Abdel-Aal — romainabdelaal@mail.com
+Romain Abdel-Aal — romainabdelaal@gmail.com
 
 Notes
 

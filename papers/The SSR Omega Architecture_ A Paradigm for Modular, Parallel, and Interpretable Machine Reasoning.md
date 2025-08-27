@@ -2,7 +2,7 @@
 
 **Romain Abdel-Aal**  
 *Joinville le Pont, 2025*  
-[*romain.abdel-aal@lip6.fr*](mailto:romain.abdel-aal@lip6.fr)
+[*romainabdelaal@gmail.com*](mailto:romainabdelaal@gmail.com)
 
 **Abstract**  
 The dominant trend in artificial intelligence is the scaling of monolithic, end-to-end deep learning models. While powerful, these systems are architecturally inefficient, opaque "black boxes," and struggle with complex, multi-step reasoning tasks. This paper introduces the SSR Omega Architecture, a new paradigm for building intelligent systems that rejects the monolithic approach in favor of a modular, parallel, and interpretable framework. The Omega architecture is a grand synthesis of our prior research, combining three validated, high-performance innovations: (1) The **Vectorized Temporal Residue Network (vTRN)**, a computationally superior O(n) sequence model, serves as the foundation for specialized "expert" agents. (2) The **Fused Synaptic Speculation (SyS-Fused)** optimizer is used to train these experts for maximal quality. (3) The **Speculative Decomposition with Residue Correction (SDRC)** paradigm is elevated to the system level, where a high-level **Orchestrator** decomposes complex problems and dispatches sub-tasks to the appropriate experts for parallel execution. The SSR Omega Architecture is not a single model, but a system of coordinated, specialized agents that learn from direct, unambiguous residue signals. This design is hypothesized to be vastly more efficient, scalable, and trustworthy than current SOTA models, offering a clear and compelling blueprint for the future of artificial general intelligence.

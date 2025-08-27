@@ -1,7 +1,7 @@
 /* TEAM */
 Last-Updated: 2025-08-27
 Owner: Romain Abdel-Aal
-Contact: romainabdelaal@mail.com
+Contact: romainabdelaal@gmail.com
 
 /* THANKS */
 Thanks for visiting. Reach out for reuse/licensing requests.

@@ -2,7 +2,7 @@
 
 **Romain Abdel-Aal**  
 *Joinville le Pont, 2025*  
-[*romain.abdel-aal@lip6.fr*](mailto:romain.abdel-aal@lip6.fr)
+[*romainabdelaal@gmail.com*](mailto:romainabdelaal@gmail.com)
 
 **Abstract**  
 The dominant paradigm in deep learning involves a sequential process of calculating a gradient and subsequently taking a step to update model parameters. This process is fundamentally limited by the latency of backpropagation; the optimizer must wait for the gradient to be computed before it can act. This paper introduces Fused Synaptic Speculation (SyS-Fused), a novel optimization paradigm inspired by our prior work on the Speculative State-Residue (SSR) architecture for parallel computing. SyS-Fused reframes the gradient calculation latency not as a barrier to be waited for, but as a computational window for productive, speculative exploration. The algorithm performs an aggressive "jump" forward using a cheap directional proxy (momentum) and then uses the true, high-latency gradient—calculated at the starting point—to perform a powerful "correction" from this advanced position. We present a mathematically fused update rule that makes this process computationally efficient. Through rigorous benchmarking on a large-scale text classification task, we demonstrate that SyS-Fused consistently converges to a higher-quality (lower loss) solution than the industry-standard Momentum optimizer, achieving a new state-of-the-art in model quality for a moderate and predictable increase in computational cost. We conclude by providing a detailed blueprint for a high-performance CUDA implementation, enabling immediate application of this paradigm to train large-scale models.

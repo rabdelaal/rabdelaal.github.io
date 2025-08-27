@@ -2,10 +2,10 @@
 
 **Romain Abdel-Aal**  
 *Sorbonne Université, Laboratoire d'Informatique de Paris 6 (LIP6), Paris, France*  
-[*romain.abdel-aal@lip6.fr*](mailto:romain.abdel-aal@lip6.fr)
+[*romainabdelaal@gmail.com*](mailto:romainabdelaal@gmail.com)
 **Romain Abdel-Aal**  
 *Joinville le Pont, 2025*  
-[*romain.abdel-aal@lip6.fr*](mailto:romain.abdel-aal@lip6.fr)
+[*romainabdelaal@gmail.com*](mailto:romainabdelaal@gmail.com)
 
 **Abstract**  
 The Transformer architecture, while foundational to modern AI, faces an insurmountable scalability barrier due to the O(n²) complexity of its self-attention mechanism. This paper introduces the Inertial-Speculative Vectorized Temporal Residue Network (is-vTRN), a novel post-Transformer architecture designed for maximum computational efficiency. The is-vTRN replaces the Transformer's deep, synchronous layers with a single, persistent **Context Field** that is queried and updated with linear O(n) complexity. Learning is driven by a unique synthesis of two paradigms: the **Temporal Residue** update, inspired by the SSR architecture, provides a direct, error-driven corrective signal, while the **Fused Synaptic Speculation (SyS-Fused)** optimizer provides a stabilized, forward-looking learning dynamic. We conduct a definitive benchmark against a State-of-the-Art, multi-layer Transformer on a challenging grammatical reasoning task. The results are conclusive: the is-vTRN achieves a comparable level of learning accuracy while being **7.8 times faster** to train. This demonstrates a fundamental architectural superiority, presenting the is-vTRN as a viable and highly efficient successor to the Transformer for large-scale sequence processing. We provide a full implementation blueprint to facilitate immediate adoption and further research.
