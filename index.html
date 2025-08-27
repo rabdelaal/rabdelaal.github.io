@@ -3,439 +3,394 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Romain Abdel-Aal - Autonomous AI Solutions Architect</title>
-    <!-- PRECONNECT FOR PERFORMANCE -->
+    <title>Abdel-Aal OS // Chrono-Spatial Interface</title>
+    <!-- FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- FONT -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-primary: #0A0A0A; /* Near-black */
-            --bg-secondary: #141414; /* Dark gray */
-            --text-primary: #EAEAEA;
-            --text-secondary: #A0A0A0;
-            --accent-primary: #00A9FF; /* Electric Blue */
-            --accent-secondary: #8E44AD; /* Deep Purple */
-            --glow-color: rgba(0, 169, 255, 0.6);
-            --font-main: 'Space Grotesk', sans-serif;
+            --bg: #000000;
+            --glow-primary: rgba(0, 255, 255, 0.75);
+            --glow-secondary: rgba(191, 0, 255, 0.75);
+            --text-primary: #E0F2F1;
+            --text-secondary: #75AAB0;
+            --line-color: rgba(0, 255, 255, 0.2);
+            --font-mono: 'IBM Plex Mono', monospace;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: var(--font-main);
-            line-height: 1.7;
-            background-color: var(--bg-primary);
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: var(--bg);
+            font-family: var(--font-mono);
             color: var(--text-primary);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
-        .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 25px;
+        #vignette {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle, transparent 50%, black 120%);
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        #scanlines {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.02) 50%, rgba(255,255,255,0) 100%);
+            background-size: 100% 4px;
+            animation: scan 5s linear infinite;
+            z-index: 101;
+            pointer-events: none;
+        }
+        @keyframes scan { 0% { background-position: 0 0; } 100% { background-position: 0 100px; } }
+
+        #timeline-container {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0; left: 0;
+            cursor: grab;
+            user-select: none;
+        }
+        #timeline-container:active { cursor: grabbing; }
+
+        #timeline-wrapper {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            padding: 0 45vw; /* Center the first/last nodes */
+            position: absolute;
+            left: 0;
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
         }
         
-        /* --- HEADER AGI --- */
-        header {
+        .timeline-node {
+            flex-shrink: 0;
+            width: 300px;
+            margin: 0 10vw;
             text-align: center;
-            padding: 100px 30px;
-            margin-bottom: 60px;
             position: relative;
-            overflow: hidden;
+            transform: scale(0.6);
+            opacity: 0.4;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+        
+        .timeline-node.active {
+            transform: scale(1);
+            opacity: 1;
         }
 
-        #neural-net-bg {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 150%;
-            height: 150%;
-            transform: translate(-50%, -50%);
-            z-index: 0;
-            opacity: 0.15;
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .profile-pic-container {
-            position: relative;
-            margin-bottom: 30px;
-        }
-
-        .profile-pic {
-            width: 180px;
-            height: 180px;
+        .node-core {
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(0, 30, 30, 0.8) 0%, transparent 70%);
+            border: 2px solid var(--line-color);
             border-radius: 50%;
-            border: 4px solid var(--accent-primary);
-            object-fit: cover;
-            box-shadow: 0 0 25px var(--glow-color);
-            transition: transform 0.4s ease;
-        }
-
-        .profile-status {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            width: 30px;
-            height: 30px;
-            background-color: #27ae60;
-            border-radius: 50%;
-            border: 3px solid var(--bg-primary);
-            box-shadow: 0 0 10px #27ae60;
+            margin: 0 auto 20px auto;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 2em;
+            font-weight: 600;
+            box-shadow: 0 0 15px var(--line-color);
+            transition: all 0.5s ease;
+            cursor: pointer;
         }
-        .profile-status::after { content: ''; display: block; width: 12px; height: 12px; background-color: #fff; border-radius: 50%; animation: pulse 1.5s infinite; }
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
-
-        h1 { font-size: 3.5em; font-weight: 700; color: #fff; text-shadow: 0 0 15px var(--glow-color); }
-        .title { font-size: 1.8em; font-weight: 400; margin-bottom: 25px; color: var(--text-secondary); }
-
-        .contact-info a {
-            color: var(--accent-primary);
-            text-decoration: none;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
-            font-weight: 500;
+        .timeline-node.active .node-core {
+            border-color: var(--glow-primary);
+            box-shadow: 0 0 35px var(--glow-primary);
+            text-shadow: 0 0 10px var(--glow-primary);
         }
-        .contact-info a:hover { color: #fff; text-shadow: 0 0 10px var(--glow-color); }
-
-        /* --- AGI INTERFACE --- */
-        #agi-interface {
-            background: var(--bg-secondary);
-            border: 1px solid #222;
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 50px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-        }
-        #agi-interface h3 {
-            font-size: 1.8em; color: var(--accent-primary);
-            margin-bottom: 20px;
-            display: flex; align-items: center; gap: 10px;
-        }
-        #agi-interface h3::before { content: '⚡'; }
-
-        #prompt-container { display: flex; gap: 10px; margin-bottom: 15px; }
-        #user-prompt {
-            flex-grow: 1; background: #222; border: 1px solid #333;
-            border-radius: 8px; color: var(--text-primary);
-            padding: 15px; font-family: var(--font-main); font-size: 1em;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-        #user-prompt:focus { outline: none; border-color: var(--accent-primary); box-shadow: 0 0 10px var(--glow-color); }
-        #prompt-button {
-            background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
-            color: #fff; border: none; border-radius: 8px;
-            padding: 0 25px; font-family: var(--font-main); font-weight: 600;
-            cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
-        }
-        #prompt-button:hover { transform: scale(1.05); box-shadow: 0 0 15px var(--glow-color); }
-        #suggestion-chips { display: flex; flex-wrap: wrap; gap: 10px; }
-        .chip {
-            background: #2a2a2a; border: 1px solid #444; color: var(--text-secondary);
-            padding: 8px 15px; border-radius: 20px; font-size: 0.9em;
-            cursor: pointer; transition: all 0.2s;
-        }
-        .chip:hover { background: var(--accent-primary); color: #fff; border-color: var(--accent-primary); transform: translateY(-2px); }
-
-        #agi-response {
-            margin-top: 20px;
-            background: rgba(0,0,0,0.2);
-            border: 1px solid #222;
-            border-radius: 8px;
-            padding: 20px;
-            min-height: 100px;
-            color: var(--text-secondary);
-            white-space: pre-wrap;
-            line-height: 1.6;
-            font-size: 1.05em;
-        }
-        #agi-response p { margin-bottom: 1em; }
-        #agi-response strong { color: var(--text-primary); }
-
-        /* --- SECTION STYLING --- */
-        section {
-            background-color: var(--bg-secondary);
-            padding: 40px; margin-bottom: 35px; border-radius: 15px;
-            border: 1px solid #222;
-            transition: transform 0.3s, box-shadow 0.3s;
-            opacity: 0; transform: translateY(40px);
-        }
-        section.visible { opacity: 1; transform: translateY(0); }
-        section:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
-
-        section h3 {
-            font-size: 2.2em; color: #fff; margin-bottom: 30px;
-            padding-bottom: 15px; border-bottom: 2px solid #333;
+        .node-core img {
+            width: 90%;
+            height: 90%;
+            border-radius: 50%;
+            object-fit: cover;
         }
         
-        /* --- EXPERIENCE / PROJECTS --- */
-        .job { margin-bottom: 35px; padding-left: 25px; border-left: 3px solid var(--accent-primary); }
-        .job h4 { font-size: 1.5em; color: var(--accent-primary); }
-        .job .company-date { font-size: 1.1em; color: var(--text-secondary); margin-bottom: 15px; }
-        .job ul li { margin-bottom: 12px; padding-left: 25px; position: relative; }
-        .job ul li::before {
-            content: '»'; position: absolute; left: 0; top: -2px;
-            color: var(--accent-primary); font-weight: bold; font-size: 1.5em;
+        .node-date { font-size: 0.9em; color: var(--text-secondary); margin-bottom: 5px; }
+        .node-title { font-size: 1.4em; font-weight: 600; color: var(--text-primary); margin-bottom: 10px; }
+        .node-role { font-size: 1em; color: var(--glow-primary); }
+        
+        #timeline-axis {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--line-color);
+            top: 50%;
+            transform: translateY(-50px); /* Align with node centers */
+            z-index: -1;
         }
 
-        /* --- SKILLS --- */
-        #skills ul { display: flex; flex-wrap: wrap; gap: 15px; list-style: none; }
-        #skills li {
-            background: #222; color: var(--text-primary); padding: 12px 20px;
-            border-radius: 8px; border: 1px solid #333;
-            transition: all 0.2s;
+        /* --- AMBIENT AGI GUIDE --- */
+        #agi-guide {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 450px;
+            max-width: 90vw;
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid #222;
+            border-radius: 10px;
+            padding: 20px;
+            z-index: 50;
         }
-        #skills li:hover {
-            color: #fff; background: var(--accent-primary);
-            transform: scale(1.05); box-shadow: 0 0 10px var(--glow-color);
+        #agi-guide h4 {
+            color: var(--glow-primary);
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+        }
+        #agi-guide h4::before { content: '>'; margin-right: 8px; animation: blink 1s infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+        #agi-guide p { color: var(--text-secondary); line-height: 1.6; font-size: 0.95em; }
+        #agi-guide button {
+            background: transparent;
+            border: 1px solid var(--glow-primary);
+            color: var(--glow-primary);
+            padding: 8px 15px;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+        #agi-guide button:hover { background: var(--glow-primary); color: var(--bg); }
+        
+        /* --- MODAL FOR DEEP DIVE --- */
+        #modal-container {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+        #modal-container.visible { opacity: 1; pointer-events: auto; }
+        #modal-content {
+            background: var(--bg-secondary, #141414);
+            border: 1px solid var(--glow-primary);
+            box-shadow: 0 0 50px var(--glow-secondary);
+            width: 700px;
+            max-width: 90vw;
+            padding: 30px;
+            border-radius: 10px;
+            transform: scale(0.9);
+            transition: transform 0.4s ease;
+        }
+        #modal-container.visible #modal-content { transform: scale(1); }
+        #modal-content h3 { color: var(--glow-primary); margin-bottom: 20px; }
+        #modal-content ul { list-style: none; }
+        #modal-content ul li { margin-bottom: 12px; padding-left: 20px; position: relative; }
+        #modal-content ul li::before { content: '›'; position: absolute; left: 0; color: var(--glow-primary); }
+        #modal-close {
+            position: absolute; top: 15px; right: 15px; background: none; border: none;
+            color: var(--text-secondary); font-size: 2em; cursor: pointer;
         }
 
-        footer { text-align: center; padding: 40px; margin-top: 50px; color: #555; }
+        /* --- UI ELEMENTS --- */
+        #ui-instructions {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            z-index: 50;
+            animation: fadeIn 2s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
     </style>
 </head>
 <body>
-    <canvas id="neural-net-bg"></canvas>
+    <div id="vignette"></div>
+    <div id="scanlines"></div>
 
-    <header>
-        <div class="header-content">
-            <div class="profile-pic-container">
-                <img src="https://media.licdn.com/dms/image/v2/C4E03AQGRFowgMDNAEg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1651067252631?e=1749686400&v=beta&t=0Q69VfzFd1TKd59Lab-IDInuLf2O0gsgS3Cy8FrZnEU" alt="Romain Abdel-Aal" class="profile-pic">
-                <div class="profile-status" title="Status: Online & Actively Building"></div>
-            </div>
-            <h1>ROMAIN ABDEL-AAL</h1>
-            <h2 class="title">Autonomous AI Solutions Architect</h2>
-            <div class="contact-info">
-                <p>
-                    <a href="mailto:romainabdelaal@gmail.com">romainabdelaal@gmail.com</a> | 
-                    <a href="https://www.linkedin.com/in/romain-a-03204450/" target="_blank">LinkedIn</a> |
-                    94340 Joinville-Le-Pont, France
-                </p>
-            </div>
+    <div id="ui-instructions">Use Scroll, Drag, or Arrow Keys to Navigate Chrono-Space</div>
+
+    <div id="timeline-container">
+        <div id="timeline-wrapper">
+            <!-- Nodes will be injected by JavaScript -->
         </div>
-    </header>
+    </div>
+    <div id="timeline-axis"></div>
 
-    <div class="container">
-        <!-- ============================================== -->
-        <!-- THE AGI (Artificial General Intelligence) PROMPT INTERFACE -->
-        <!-- ============================================== -->
-        <section id="agi-interface">
-            <h3>Engage with my AI Agent</h3>
-            <div id="prompt-container">
-                <input type="text" id="user-prompt" placeholder="Ask about my experience, projects, or a technical concept...">
-                <button id="prompt-button">Query</button>
-            </div>
-            <div id="suggestion-chips">
-                <div class="chip" data-prompt="Summarize Romain's experience with RAG systems.">RAG Systems</div>
-                <div class="chip" data-prompt="What was the core architectural challenge of AstralAGI?">AstralAGI Architecture</div>
-                <div class="chip" data-prompt="Explain his approach to prompt engineering.">Prompt Engineering</div>
-                <div class="chip" data-prompt="Generate a 30-day plan for a new AI project.">Generate 30-Day Plan</div>
-            </div>
-            <div id="agi-response">
-                <p><strong>Agent Status:</strong> Online. Ready for queries.</p>
-                <p>I am an AI agent trained on Romain's professional history, skills, and project portfolio. You can ask me questions to get tailored, specific insights into his capabilities.</p>
-            </div>
-        </section>
-
-
-        <section id="summary" class="animate-on-scroll">
-            <h3>Mission Briefing</h3>
-            <p>
-                Autonomous AI Solutions Architect engineering the bridge between complex business challenges and intelligent, scalable systems. My core function is to design and deploy AI-native solutions, from advanced RAG architectures to specialized agentic workflows. Creator of AstralAGI, a proof-of-concept merging domain-specific knowledge with frontier AI. My operational directive is a continuous technology watch, ensuring all solutions leverage the most effective and emergent technologies.
-            </p>
-        </section>
-
-        <!-- Experience is now 'Projects & Deployments' -->
-        <section id="experience" class="animate-on-scroll">
-            <h3>Projects & Deployments</h3>
-
-            <div class="job">
-                <h4>Project: AstralAGI [Personal AGI]</h4>
-                <p class="company-date">Owner & AI Solutions Architect | May 2024 - Present</p>
-                <ul>
-                    <li>Engineered a specialized AI agent for generative astrology, fine-tuning language models on a custom corpus of esoteric knowledge.</li>
-                    <li>Designed and implemented a hybrid RAG system utilizing vector databases for semantic retrieval of astrological patterns.</li>
-                    <li>Developed proprietary prompt chaining techniques to create complex, multi-layered astrological interpretations.</li>
-                </ul>
-            </div>
-
-            <div class="job">
-                <h4>Deployment: Enterprise IT Services [Consulting]</h4>
-                <p class="company-date">CEO & Solution Architect | Xaartaz | Oct 2020 - Nov 2023</p>
-                <ul>
-                    <li>Architected and orchestrated IT solutions for diverse enterprise clients, focusing on system optimization and API integration.</li>
-                    <li>Led cross-functional technical teams, defining functional architectures and ensuring project alignment with strategic goals.</li>
-                </ul>
-            </div>
-            
-             <div class="job">
-                <h4>Project: Predictive Algorithms [AdTech]</h4>
-                 <p class="company-date">Solution Architect | RythmOne | Sep 2016 - Mar 2017</p>
-                <ul>
-                    <li>Collaborated with Data Scientists to design and integrate user behavior prediction algorithms into a high-throughput ad platform.</li>
-                    <li>Optimized data pipelines for real-time API integrations, enhancing ad format performance and efficiency.</li>
-                </ul>
-            </div>
-
-        </section>
-
-        <section id="skills" class="animate-on-scroll">
-            <h3>Technical Capabilities Matrix</h3>
-             <ul>
-                <li>AI Architecture Design</li><li>RAG Systems</li><li>Vector Databases</li><li>LLM Fine-tuning</li><li>Prompt Engineering</li><li>Agentic Workflows</li><li>LangChain</li>
-                <li>Python</li><li>JavaScript</li><li>React</li><li>Next.js</li><li>Node.js</li><li>C#</li>
-                <li>MongoDB</li><li>SQL Server</li><li>PostgreSQL</li>
-                <li>Cursor IDE</li><li>Git</li><li>Docker</li>
-            </ul>
-        </section>
-        
-        <!-- Other sections like Certs, Langs, Comps can be added here -->
-
+    <div id="agi-guide">
+        <h4>Awaiting Input...</h4>
+        <p>Navigate the timeline to explore key deployments and projects. Select a node for a contextual briefing from my AI agent.</p>
     </div>
 
-    <footer>
-        <p>Romain Abdel-Aal // AGI v1.0 // System Online</p>
-    </footer>
+    <div id="modal-container">
+        <div id="modal-content">
+            <button id="modal-close">&times;</button>
+            <h3 id="modal-title"></h3>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- Neural Net Background Animation ---
-            const canvas = document.getElementById('neural-net-bg');
-            const ctx = canvas.getContext('2d');
-            let particles = [];
-
-            function resizeCanvas() {
-                canvas.width = window.innerWidth;
-                canvas.height = document.querySelector('header').offsetHeight;
-            }
-
-            class Particle {
-                constructor() {
-                    this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height;
-                    this.size = Math.random() * 2 + 1;
-                    this.speedX = Math.random() * 1 - 0.5;
-                    this.speedY = Math.random() * 1 - 0.5;
+            const projects = [
+                {
+                    year: '2012',
+                    title: 'Genesis Node',
+                    role: 'Romain Abdel-Aal',
+                    img: 'https://media.licdn.com/dms/image/v2/C4E03AQGRFowgMDNAEg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1651067252631?e=1749686400&v=beta&t=0Q69VfzFd1TKd59Lab-IDInuLf2O0gsgS3Cy8FrZnEU',
+                    brief: 'The starting point. This represents the genesis of a career focused on leveraging technology to build innovative solutions.',
+                    deepDive: '<h3>Core Competencies</h3><ul><li>Software Development Lifecycle</li><li>Team Leadership</li><li>Web & Mobile Application Development</li><li>System Architecture</li></ul>'
+                },
+                {
+                    year: '2016',
+                    title: 'AdTech Predictive Engine',
+                    role: 'Solution Architect',
+                    icon: '📡',
+                    brief: 'At RythmOne, I architected systems to integrate user behavior prediction algorithms into a high-throughput ad platform. This involved optimizing real-time data pipelines.',
+                    deepDive: '<h3>Technical Details</h3><ul><li>Collaborated with Data Scientists on algorithm design.</li><li>Integrated partner APIs for real-time data ingestion.</li><li>Optimized advertising formats from static images to dynamic HTML5.</li><li>Provided technical support for media traders managing high-spend campaigns.</li></ul>'
+                },
+                {
+                    year: '2017',
+                    title: 'Decentralized Systems',
+                    role: 'Cryptocurrency Consultant',
+                    icon: '🔗',
+                    brief: 'Pioneered early-stage crypto-finance applications. This phase involved smart contract development and managing a private investment group focused on blockchain technology.',
+                    deepDive: '<h3>Technical Details</h3><ul><li>Developed Ethereum tokens (ERC-20) and smart contracts using Solidity.</li><li>Created automated earnings-sharing systems on the blockchain.</li><li>Provided technical consulting on trading strategies and portfolio management.</li><li>Environment: Remix IDE, Binance API, Discord.</li></ul>'
+                },
+                {
+                    year: '2020',
+                    title: 'Enterprise Architecture',
+                    role: 'CEO & Solution Architect',
+                    icon: '🏢',
+                    brief: 'As founder of Xaartaz, I designed and orchestrated end-to-end IT solutions for enterprise clients, focusing on system optimization and complex API integrations.',
+                    deepDive: '<h3>Key Responsibilities</h3><ul><li>Defined technical and functional architectures.</li><li>Led cross-functional teams and coordinated project deliverables.</li><li>Managed client relationships and translated business requirements into technical specifications.</li><li>Created comprehensive technical and functional documentation.</li></ul>'
+                },
+                {
+                    year: '2024',
+                    title: 'Project: AstralAGI',
+                    role: 'Autonomous AI Architect',
+                    icon: '✨',
+                    brief: 'Creator of a specialized AI agent for generative astrology. This project serves as a proof-of-concept for fine-tuning LLMs on niche, domain-specific knowledge.',
+                    deepDive: '<h3>Architectural Breakdown</h3><ul><li>**Core Engine:** Hybrid RAG (Retrieval-Augmented Generation) system.</li><li>**Knowledge Base:** Vector database populated with a custom corpus of astrological texts.</li><li>**Reasoning:** Proprietary prompt chaining and tree-of-thought techniques for multi-layered interpretations.</li><li>**Stack:** OpenAI/Anthropic APIs, LangChain, Python, VectorDBs.</li></ul>'
                 }
-                update() {
-                    this.x += this.speedX;
-                    this.y += this.speedY;
-                    if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
-                    if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
-                }
-                draw() {
-                    ctx.fillStyle = 'rgba(0, 169, 255, 0.8)';
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fill();
-                }
-            }
+            ];
 
-            function initParticles() {
-                particles = [];
-                for (let i = 0; i < 70; i++) {
-                    particles.push(new Particle());
-                }
-            }
-
-            function handleParticles() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                for (let i = 0; i < particles.length; i++) {
-                    particles[i].update();
-                    particles[i].draw();
-                    for (let j = i; j < particles.length; j++) {
-                        const dx = particles[i].x - particles[j].x;
-                        const dy = particles[i].y - particles[j].y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
-                        if (distance < 100) {
-                            ctx.beginPath();
-                            ctx.strokeStyle = `rgba(0, 169, 255, ${1 - distance / 100})`;
-                            ctx.lineWidth = 0.5;
-                            ctx.moveTo(particles[i].x, particles[i].y);
-                            ctx.lineTo(particles[j].x, particles[j].y);
-                            ctx.stroke();
-                        }
-                    }
-                }
-                requestAnimationFrame(handleParticles);
-            }
-
-            resizeCanvas();
-            initParticles();
-            handleParticles();
-            window.addEventListener('resize', () => {
-                resizeCanvas();
-                initParticles();
-            });
-
-            // --- AGI Interface Logic ---
-            const promptInput = document.getElementById('user-prompt');
-            const promptButton = document.getElementById('prompt-button');
-            const responseContainer = document.getElementById('agi-response');
-            const chips = document.querySelectorAll('.chip');
-
-            // Simplified data store for the AGI
-            const agiMemory = {
-                "RAG systems": "Romain has designed and implemented hybrid RAG systems, notably for the AstralAGI project. His approach involves using vector databases for efficient semantic retrieval and developing advanced prompt chaining techniques to synthesize complex information from retrieved documents.",
-                "AstralAGI": "The core architectural challenge of AstralAGI was creating a specialized AI agent capable of generating nuanced astrological interpretations. This required fine-tuning language models on a custom, domain-specific knowledge base and engineering a robust RAG system to ensure factual accuracy and contextual relevance.",
-                "prompt engineering": "Romain's approach to prompt engineering is systematic. He develops proprietary prompt chaining and tree-of-thought techniques to guide LLMs through complex, multi-step reasoning processes. This is crucial for transforming generic model outputs into specialized, high-value insights.",
-                "30-day plan": "A potential 30-day plan for a new AI project would be:\n\n**Phase 1 (Days 1-10): Discovery & Scoping.**\n- Deep dive into existing data infrastructure and business objectives.\n- Identify the highest-impact problem that can be solved with a specialized AI agent.\n- Define clear KPIs for success.\n\n**Phase 2 (Days 11-25): Prototype & Iterate.**\n- Build a minimum viable RAG pipeline using a small, targeted dataset.\n- Develop and test initial prompt chains.\n- Present a functional prototype to stakeholders for early feedback.\n\n**Phase 3 (Days 26-30): Roadmap & Scaling.**\n- Refine the prototype based on feedback.\n- Architect the full-scale solution.\n- Deliver a comprehensive roadmap for production deployment.",
-                "default": "I am an AI agent trained on Romain's professional data. I can answer questions about his skills, projects, and technical approach. Please try one of the suggestions or ask a specific question."
-            };
+            const wrapper = document.getElementById('timeline-wrapper');
+            const agiGuide = document.getElementById('agi-guide');
+            const modalContainer = document.getElementById('modal-container');
+            const modalTitle = document.getElementById('modal-title');
+            const modalBody = document.getElementById('modal-body');
             
-            function queryAgent(prompt) {
-                responseContainer.innerHTML = '<p>Querying knowledge base...</p>';
-                setTimeout(() => {
-                    const lowerPrompt = prompt.toLowerCase();
-                    let response = agiMemory.default;
-                    for (const key in agiMemory) {
-                        if (lowerPrompt.includes(key.split(" ")[0])) { // Simple keyword match
-                            response = agiMemory[key];
-                            break;
-                        }
-                    }
-                    responseContainer.innerHTML = `<p>${response}</p>`;
-                }, 750);
+            let currentNodeIndex = 0;
+            let timelinePosition = 0;
+            let isDragging = false;
+            let startX, scrollLeft;
+
+            function buildTimeline() {
+                projects.forEach((p, index) => {
+                    const nodeEl = document.createElement('div');
+                    nodeEl.className = 'timeline-node';
+                    nodeEl.dataset.index = index;
+
+                    const coreContent = p.img ? `<img src="${p.img}" alt="Profile Picture">` : p.icon;
+
+                    nodeEl.innerHTML = `
+                        <div class="node-core">${coreContent}</div>
+                        <div class="node-date">${p.year}</div>
+                        <div class="node-title">${p.title}</div>
+                        <div class="node-role">${p.role}</div>
+                    `;
+                    wrapper.appendChild(nodeEl);
+                });
             }
 
-            promptButton.addEventListener('click', () => {
-                if (promptInput.value) queryAgent(promptInput.value);
-            });
-            promptInput.addEventListener('keyup', (e) => {
-                if (e.key === 'Enter' && promptInput.value) queryAgent(promptInput.value);
-            });
-            chips.forEach(chip => {
-                chip.addEventListener('click', () => {
-                    const prompt = chip.getAttribute('data-prompt');
-                    promptInput.value = prompt;
-                    queryAgent(prompt);
-                });
+            function navigateToNode(index) {
+                if (index < 0 || index >= projects.length) return;
+                currentNodeIndex = index;
+                const nodes = document.querySelectorAll('.timeline-node');
+                const targetNode = nodes[index];
+                
+                const containerCenter = window.innerWidth / 2;
+                const nodeCenter = targetNode.offsetLeft + targetNode.offsetWidth / 2;
+                
+                timelinePosition = containerCenter - nodeCenter;
+                wrapper.style.transform = `translateX(${timelinePosition}px)`;
+
+                nodes.forEach(n => n.classList.remove('active'));
+                targetNode.classList.add('active');
+
+                updateAgiGuide(index);
+            }
+            
+            function updateAgiGuide(index) {
+                const project = projects[index];
+                agiGuide.innerHTML = `
+                    <h4>SYSTEM.LOG: Node ${project.year}</h4>
+                    <p>${project.brief}</p>
+                    <button id="deep-dive-btn" data-index="${index}">DEEP DIVE »</button>
+                `;
+                document.getElementById('deep-dive-btn').onclick = () => showModal(index);
+            }
+
+            function showModal(index) {
+                const project = projects[index];
+                modalTitle.textContent = project.title;
+                modalBody.innerHTML = project.deepDive;
+                modalContainer.classList.add('visible');
+            }
+
+            // Event Listeners
+            wrapper.addEventListener('click', e => {
+                const node = e.target.closest('.timeline-node');
+                if (node) navigateToNode(parseInt(node.dataset.index));
             });
 
-             // --- Scroll Animations ---
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
+            window.addEventListener('keydown', e => {
+                if (e.key === 'ArrowRight') navigateToNode(currentNodeIndex + 1);
+                if (e.key === 'ArrowLeft') navigateToNode(currentNodeIndex - 1);
+                if (e.key === 'Escape') modalContainer.classList.remove('visible');
+            });
+            
+            document.getElementById('modal-close').onclick = () => modalContainer.classList.remove('visible');
+            
+            const container = document.getElementById('timeline-container');
+            container.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                startX = e.pageX - wrapper.offsetLeft;
+                scrollLeft = wrapper.style.transform ? parseFloat(wrapper.style.transform.replace('translateX(', '')) : 0;
+                container.style.cursor = 'grabbing';
+            });
+            container.addEventListener('mouseleave', () => { isDragging = false; container.style.cursor = 'grab'; });
+            container.addEventListener('mouseup', () => { isDragging = false; container.style.cursor = 'grab'; });
+            container.addEventListener('mousemove', (e) => {
+                if(!isDragging) return;
+                e.preventDefault();
+                const x = e.pageX - container.offsetLeft;
+                // Find closest node to the center
+                // Simple implementation for now, full drag is complex
+            });
+            
+            container.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                if (e.deltaY > 0) navigateToNode(currentNodeIndex + 1);
+                else navigateToNode(currentNodeIndex - 1);
+            });
 
-            document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+            // Init
+            buildTimeline();
+            navigateToNode(0);
         });
     </script>
 </body>
