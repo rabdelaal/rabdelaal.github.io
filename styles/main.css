@@ -340,7 +340,7 @@ header#site-header .container { background: linear-gradient(180deg, rgba(255,255
 /* Make link-like buttons keyboard accessible */
 .btn[role="button"] { cursor: pointer; }
 
-.hero-right video { width:100%; max-height:360px; border-radius:8px; box-shadow:0 6px 30px rgba(0,0,0,0.6); display:block; object-fit:cover; }
+.hero-right video { width:100%; max-height:280px; border-radius:8px; box-shadow:0 6px 30px rgba(0,0,0,0.6); display:block; object-fit:cover; }
 
 /* Futuristic video chrome */
 .hero-right .video-frame { position: relative; display: block; }
