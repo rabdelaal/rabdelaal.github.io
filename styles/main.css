@@ -421,7 +421,66 @@ video::cue { background: rgba(0,0,0,0.6); color: #e0ffff; font-family: var(--fon
 .paper-main pre { background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.04); padding: 14px; border-radius: 8px; overflow:auto; }
 :root[data-theme="light"] .paper-main pre { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.08); }
 
+/* Footer */
+#site-footer {
+    background: var(--bg-elev);
+    border-top: 1px solid var(--line-color);
+    padding: 20px 0;
+    margin-top: 40px;
+}
+#site-footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#site-footer p {
+    color: var(--text-secondary);
+    font-size: 0.9em;
+}
+#site-footer nav a {
+    color: var(--text-secondary);
+    margin-left: 20px;
+    text-decoration: none;
+}
+#site-footer nav a:hover {
+    color: var(--text-primary);
+}
+
 /* Respect user's reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
+/* Hero animations */
+.hero-left h2 {
+    animation: fadeInUp 1s ease-out;
+}
+.hero-left .lead {
+    animation: fadeInUp 1.2s ease-out;
+}
+.hero-left .papers-cta {
+    animation: fadeInUp 1.4s ease-out;
+}
+.hero-right {
+    animation: fadeInRight 1.6s ease-out;
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
