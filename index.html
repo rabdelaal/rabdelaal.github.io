@@ -8,6 +8,8 @@
     <noscript><link rel="stylesheet" href="/styles/main.min.css"></noscript>
     <link rel="icon" href="/images/profileimage.webp" type="image/webp">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <!-- SEO / Open Graph -->
         <meta name="description" content="Romain Abdel-Aal — Research &amp; Architecture. Papers on modular architectures, speculative execution, and sequence models (2025).">
         <meta name="author" content="Romain Abdel-Aal">
@@ -36,13 +38,15 @@
     <div id="vignette"></div>
     <div id="scanlines"></div>
 
+    <a class="skip-link" href="#papers">Skip to content</a>
     <header id="site-header">
         <div class="container">
-            <h1>Romain Abdel-Aal — Research &amp; Architecture</h1>
+            <h1><span class="logo" aria-hidden="true"></span> Romain Abdel-Aal — Research &amp; Architecture</h1>
             <nav>
                 <a href="#hero">Home</a>
                 <a href="#papers">Papers</a>
                 <a href="#timeline">Timeline</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" aria-pressed="false" title="Toggle theme">🌙</button>
             </nav>
         </div>
     </header>
@@ -77,14 +81,38 @@
         <section id="papers" class="container">
             <h3>Papers</h3>
             <div class="papers-grid">
-                <a class="paper-card" href="papers/ssr-architecture.html">The SSR Architecture — The Three-Kernel System</a>
-                <a class="paper-card" href="papers/ssr-omega.html">The SSR Omega Architecture</a>
-                <a class="paper-card" href="papers/vtrn.html">The Vectorized TRN (vTRN)</a>
-                <a class="paper-card" href="papers/is-vtrn.html">is-vTRN</a>
-                <a class="paper-card" href="papers/sdrc.html">SDRC</a>
-                <a class="paper-card" href="papers/sys-fused.html">SyS-Fused</a>
-                <a class="paper-card" href="papers/gepard.html">GEPARD</a>
-                <a class="paper-card" href="papers/cognitive-resonance.html">Cognitive Resonance Cascade</a>
+                <a class="paper-card" href="papers/ssr-architecture.html" aria-label="Open paper: The SSR Architecture — The Three-Kernel System">
+                    <span>The SSR Architecture — The Three-Kernel System</span>
+                    <span class="card-arrow" aria-hidden="true">→</span>
+                </a>
+                <a class="paper-card" href="papers/ssr-omega.html" aria-label="Open paper: The SSR Omega Architecture">
+                    <span>The SSR Omega Architecture</span>
+                    <span class="card-arrow" aria-hidden="true">→</span>
+                </a>
+                <a class="paper-card" href="papers/vtrn.html" aria-label="Open paper: The Vectorized TRN (vTRN)">
+                    <span>The Vectorized TRN (vTRN)</span>
+                    <span class="card-arrow" aria-hidden="true">→</span>
+                </a>
+                <a class="paper-card" href="papers/is-vtrn.html" aria-label="Open paper: is-vTRN">
+                    <span>is-vTRN</span>
+                    <span class="card-arrow" aria-hidden="true">→</span>
+                </a>
+                <a class="paper-card" href="papers/sdrc.html" aria-label="Open paper: SDRC">
+                    <span>SDRC</span>
+                    <span class="card-arrow" aria-hidden="true">→</span>
+                </a>
+                <a class="paper-card" href="papers/sys-fused.html" aria-label="Open paper: SyS-Fused">
+                    <span>SyS-Fused</span>
+                    <span class="card-arrow" aria-hidden="true">→</span>
+                </a>
+                <a class="paper-card" href="papers/gepard.html" aria-label="Open paper: GEPARD">
+                    <span>GEPARD</span>
+                    <span class="card-arrow" aria-hidden="true">→</span>
+                </a>
+                <a class="paper-card" href="papers/cognitive-resonance.html" aria-label="Open paper: Cognitive Resonance Cascade">
+                    <span>Cognitive Resonance Cascade</span>
+                    <span class="card-arrow" aria-hidden="true">→</span>
+                </a>
             </div>
         </section>
 
@@ -119,6 +147,7 @@
     </main>
     <!-- Modular scripts (minified) -->
     <script src="/scripts/marked.min.js" defer></script>
+    <script src="/scripts/theme.js" defer></script>
     <script src="/scripts/timeline.min.js" defer></script>
     <script src="/scripts/hero-lazy.min.js" defer></script>
 

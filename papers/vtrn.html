@@ -7,11 +7,21 @@
   <link rel="stylesheet" href="/styles/main.min.css">
   </head>
   <body>
+  <header class="paper-header">
+    <div class="container">
+      <a href="/" aria-label="Go to homepage">← Home</a>
+      <nav>
+        <a href="/index.html#papers">Papers</a>
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" aria-pressed="false" title="Toggle theme">🌙</button>
+      </nav>
+    </div>
+  </header>
   <main class="paper-main">
       <h1>Vectorized TRN (vTRN)</h1>
       <div id="content">Loading...</div>
     </main>
-      <script src="/scripts/futuristic-charts.js" defer></script>
+  <script src="/scripts/futuristic-charts.js" defer></script>
+  <script src="/scripts/theme.js" defer></script>
       <script>
         function loadScript(src){
           return new Promise((res, rej)=>{
@@ -24,7 +34,10 @@
         }
         function ensureMarked(){
           if(window.marked) return Promise.resolve();
-          return loadScript('/scripts/marked.min.js');
+          return loadScript('/scripts/marked.min.js').then(() => {
+            if (window.marked) return;
+            return loadScript('https://cdn.jsdelivr.net/npm/marked/marked.min.js');
+          });
         }
 
         fetch('The Vectorized Temporal Residue Network (vTRN)_ A Post-Transformer Architecture with O(n) Complexity for Large-Scale Sequence Processing.md')
@@ -39,7 +52,6 @@
                 if(window.renderFuturisticCharts) window.renderFuturisticCharts(document.getElementById('content'));
           })
           .catch(err => { console.error('Failed to load paper:', err); document.getElementById('content').textContent = 'Failed to load paper.'; });
-      </script>
-    </script>
+  </script>
   </body>
 </html>
