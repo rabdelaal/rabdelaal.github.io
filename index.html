@@ -1,165 +1,661 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Romain Abdel-Aal — Research &amp; Architecture</title>
-    <link rel="preload" href="/styles/main.min.css" as="style" onload="this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/styles/main.min.css"></noscript>
+    <title>Romain Abdel-Aal — Research & Architecture</title>
+
+    <!-- Preloads for performance -->
+    <link rel="preload" href="/images/profileromain.jpg" as="image">
+    <link rel="preload" href="/styles/main.css" as="style">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles/main.css">
     <link rel="icon" href="/images/profileimage.webp" type="image/webp">
+
+    <!-- Modern fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    <!-- SEO / Open Graph -->
-        <meta name="description" content="Romain Abdel-Aal — Research &amp; Architecture. Papers on modular architectures, speculative execution, and sequence models (2025).">
-        <meta name="author" content="Romain Abdel-Aal">
-        <meta name="theme-color" content="#000000">
-    <meta property="og:title" content="Romain Abdel-Aal — Research &amp; Architecture">
-        <meta property="og:description" content="Selected works and research papers on modular neural architectures, latency-hiding, and post-transformer sequence models.">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://rabdelaal.github.io/">
-        <meta property="og:image" content="https://rabdelaal.github.io/videos/hero-poster.svg">
-        <link rel="canonical" href="https://rabdelaal.github.io/">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
 
-        <!-- JSON-LD for structured data (profile + website) -->
-        <script type="application/ld+json">
+    <!-- SEO / Open Graph -->
+    <meta name="description"
+        content="Romain Abdel-Aal — Research & Architecture. Papers on modular architectures, speculative execution, and sequence models (2025).">
+    <meta name="author" content="Romain Abdel-Aal">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta property="og:title" content="Romain Abdel-Aal — Research & Architecture">
+    <meta property="og:description"
+        content="Selected works and research papers on modular neural architectures, latency-hiding, and post-transformer sequence models.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rabdelaal.github.io/">
+    <meta property="og:image" content="https://rabdelaal.github.io/images/profileromain.jpg">
+    <link rel="canonical" href="https://rabdelaal.github.io/">
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "Person",
             "name": "Romain Abdel-Aal",
             "url": "https://rabdelaal.github.io/",
-            "sameAs": [],
+            "image": "https://rabdelaal.github.io/images/profileromain.jpg",
+            "sameAs": [
+                "https://www.linkedin.com/in/romain-a-03204450/",
+                "https://github.com/rabdelaal",
+                "https://github.com/bahira",
+                "https://x.com/RomainAbdelAal"
+            ],
             "jobTitle": "Researcher and Architect",
             "worksFor": "Independent"
         }
     </script>
 </head>
-<body>
-    <div id="vignette"></div>
-    <div id="scanlines"></div>
 
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-ring"></div>
+    </div>
+
+    <!-- Three.js Canvas Container -->
+    <div id="three-container"></div>
+
+    <!-- Background Layers -->
+    <div class="bg-gradient"></div>
+    <div class="bg-noise"></div>
+
+    <!-- Skip Navigation -->
     <a class="skip-link" href="#papers">Skip to content</a>
+
+    <!-- Header -->
     <header id="site-header">
         <div class="container">
-            <h1><span class="logo" aria-hidden="true"></span> Romain Abdel-Aal — Research &amp; Architecture</h1>
+            <a href="#hero" class="logo-link">
+                <div class="logo">
+                    <span class="logo-icon">RA</span>
+                </div>
+                <span class="logo-text">Romain Abdel-Aal</span>
+            </a>
             <nav>
-                <a href="#hero">Home</a>
-                <a href="#papers">Papers</a>
-                <a href="#timeline">Timeline</a>
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" aria-pressed="false" title="Toggle theme">🌙</button>
+                <a href="#hero" class="nav-link" data-magnetic>Home</a>
+                <a href="#about" class="nav-link" data-magnetic>About</a>
+                <a href="#services" class="nav-link" data-magnetic>Services</a>
+                <a href="#papers" class="nav-link" data-magnetic>Papers</a>
+                <a href="#contact" class="nav-link" data-magnetic>Contact</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" data-magnetic>
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <path
+                            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
+                        </path>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
             </nav>
         </div>
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section id="hero">
             <div class="hero-inner container">
-                <div class="hero-left">
-                    <h2>Selected Works — 2025</h2>
-                    <p class="lead">Modular architectures, speculative execution, and efficient sequence models. Explore the papers below and watch the overview video.</p>
-                    <div class="papers-cta">
-                        <a class="btn" href="#papers">View Papers</a>
-                        <a class="btn ghost" href="#timeline">Explore Timeline</a>
+                <div class="hero-content">
+                    <div class="hero-badge" data-animate="fade-up">
+                        <span class="badge-dot"></span>
+                        <span>Available for Research Collaborations</span>
+                    </div>
+
+                    <h1 class="hero-title" data-animate="fade-up" data-delay="100">
+                        <span class="title-line">Research &</span>
+                        <span class="title-line gradient-text">Architecture</span>
+                    </h1>
+
+                    <p class="hero-description" data-animate="fade-up" data-delay="200">
+                        Exploring the frontiers of modular neural architectures, speculative execution, and efficient
+                        sequence models. Building the next paradigm of AI.
+                    </p>
+
+                    <div class="hero-cta" data-animate="fade-up" data-delay="300">
+                        <a href="#contact" class="btn btn-primary" data-magnetic>
+                            <span>Book a Consultation</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                        <a href="#services" class="btn btn-ghost" data-magnetic>
+                            <span>View Services</span>
+                        </a>
+                    </div>
+
+                    <div class="hero-stats" data-animate="fade-up" data-delay="400">
+                        <div class="stat">
+                            <span class="stat-number" data-count="8">0</span>
+                            <span class="stat-label">Papers</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="12">0</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="5">0</span>
+                            <span class="stat-label">Ventures</span>
+                        </div>
                     </div>
                 </div>
-                <div class="hero-right">
-                    <div class="video-frame">
-                        <video id="intro-video" class="video-futuristic" controls playsinline preload="metadata" poster="videos/hero-poster.svg" loading="lazy">
-                            <source src="videos/Le_Prochain_Paradigme_de_l_IA.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <div class="video-controls" aria-hidden="false">
-                            <button id="mute-btn" title="Mute / Unmute">🔈</button>
-                            <button id="subtitles-btn" title="Toggle Subtitles">CC</button>
-                            <button id="pip-btn" title="Picture in Picture">⧉</button>
+
+                <div class="hero-visual">
+                    <div class="profile-container" data-animate="scale-in" data-delay="200">
+                        <div class="profile-ring"></div>
+                        <div class="profile-ring profile-ring--2"></div>
+                        <div class="profile-glow"></div>
+                        <img src="/images/profileromain.jpg" alt="Romain Abdel-Aal" class="profile-image"
+                            loading="eager">
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-indicator" data-animate="fade-up" data-delay="600">
+                <span>Scroll to explore</span>
+                <div class="scroll-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 5v14M19 12l-7 7-7-7" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="container">
+                <div class="section-header" data-animate="fade-up">
+                    <span class="section-tag">About</span>
+                    <h2 class="section-title">Building the Future of AI</h2>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-content" data-animate="fade-up" data-delay="100">
+                        <p class="about-text large">
+                            I'm a researcher and architect focused on pushing the boundaries of neural architectures and
+                            sequence modeling.
+                        </p>
+                        <p class="about-text">
+                            With over a decade of experience in software development, system architecture, and AI
+                            research, I've led projects from early-stage crypto systems to enterprise-scale solutions.
+                        </p>
+                        <p class="about-text">
+                            My current work explores modular architectures, speculative execution for latency hiding,
+                            and post-transformer paradigms for efficient AI systems.
+                        </p>
+                    </div>
+
+                    <div class="about-video" data-animate="fade-up" data-delay="200">
+                        <div class="video-frame">
+                            <video id="intro-video" class="video-futuristic" controls playsinline preload="metadata"
+                                poster="videos/hero-poster.svg">
+                                <source src="videos/Le_Prochain_Paradigme_de_l_IA.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="video-overlay"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="papers" class="container">
-            <h3>Papers</h3>
-            <div class="papers-grid">
-                <a class="paper-card" href="papers/ssr-architecture.html" aria-label="Open paper: The SSR Architecture — The Three-Kernel System">
-                    <span>The SSR Architecture — The Three-Kernel System</span>
-                    <span class="card-arrow" aria-hidden="true">→</span>
-                </a>
-                <a class="paper-card" href="papers/ssr-omega.html" aria-label="Open paper: The SSR Omega Architecture">
-                    <span>The SSR Omega Architecture</span>
-                    <span class="card-arrow" aria-hidden="true">→</span>
-                </a>
-                <a class="paper-card" href="papers/vtrn.html" aria-label="Open paper: The Vectorized TRN (vTRN)">
-                    <span>The Vectorized TRN (vTRN)</span>
-                    <span class="card-arrow" aria-hidden="true">→</span>
-                </a>
-                <a class="paper-card" href="papers/is-vtrn.html" aria-label="Open paper: is-vTRN">
-                    <span>is-vTRN</span>
-                    <span class="card-arrow" aria-hidden="true">→</span>
-                </a>
-                <a class="paper-card" href="papers/sdrc.html" aria-label="Open paper: SDRC">
-                    <span>SDRC</span>
-                    <span class="card-arrow" aria-hidden="true">→</span>
-                </a>
-                <a class="paper-card" href="papers/sys-fused.html" aria-label="Open paper: SyS-Fused">
-                    <span>SyS-Fused</span>
-                    <span class="card-arrow" aria-hidden="true">→</span>
-                </a>
-                <a class="paper-card" href="papers/gepard.html" aria-label="Open paper: GEPARD">
-                    <span>GEPARD</span>
-                    <span class="card-arrow" aria-hidden="true">→</span>
-                </a>
-                <a class="paper-card" href="papers/cognitive-resonance.html" aria-label="Open paper: Cognitive Resonance Cascade">
-                    <span>Cognitive Resonance Cascade</span>
-                    <span class="card-arrow" aria-hidden="true">→</span>
-                </a>
+        <!-- Services Section -->
+        <section id="services">
+            <div class="container">
+                <div class="section-header" data-animate="fade-up">
+                    <span class="section-tag">Services</span>
+                    <h2 class="section-title">How I Can Help</h2>
+                    <p class="section-description">Premium services for organizations pushing the boundaries of AI</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card" data-animate="fade-up" data-delay="0">
+                        <div class="service-icon">🧠</div>
+                        <h3 class="service-title">AI Architecture Consulting</h3>
+                        <p class="service-description">Custom neural architecture design, optimization, and
+                            implementation for your specific use case.</p>
+                        <ul class="service-features">
+                            <li>Architecture audits & optimization</li>
+                            <li>Custom model design</li>
+                            <li>Performance tuning</li>
+                        </ul>
+                        <a href="#contact" class="service-cta">Get a Quote →</a>
+                    </div>
+
+                    <div class="service-card" data-animate="fade-up" data-delay="100">
+                        <div class="service-icon">🔬</div>
+                        <h3 class="service-title">Research Collaboration</h3>
+                        <p class="service-description">Joint research projects, co-authorship, and deep technical
+                            partnerships on cutting-edge AI.</p>
+                        <ul class="service-features">
+                            <li>Joint research papers</li>
+                            <li>Technical co-authorship</li>
+                            <li>Long-term partnerships</li>
+                        </ul>
+                        <a href="#contact" class="service-cta">Discuss Partnership →</a>
+                    </div>
+
+                    <div class="service-card" data-animate="fade-up" data-delay="200">
+                        <div class="service-icon">🎓</div>
+                        <h3 class="service-title">Technical Workshops</h3>
+                        <p class="service-description">Deep dives on SSR, vTRN, speculative execution, and next-gen AI
+                            architectures for your team.</p>
+                        <ul class="service-features">
+                            <li>Team training sessions</li>
+                            <li>Hands-on implementation</li>
+                            <li>Q&A and mentorship</li>
+                        </ul>
+                        <a href="#contact" class="service-cta">Book Workshop →</a>
+                    </div>
+
+                    <div class="service-card" data-animate="fade-up" data-delay="300">
+                        <div class="service-icon">🎤</div>
+                        <h3 class="service-title">Speaking Engagements</h3>
+                        <p class="service-description">Keynotes, panels, and technical talks on the future of AI and
+                            neural architectures.</p>
+                        <ul class="service-features">
+                            <li>Conference keynotes</li>
+                            <li>Panel discussions</li>
+                            <li>Corporate events</li>
+                        </ul>
+                        <a href="#contact" class="service-cta">Invite to Speak →</a>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="timeline">
-            <div class="timeline-controls container">
-                <input id="timeline-search" class="filter-input" placeholder="Search timeline (year/title/role)" aria-label="Search timeline" />
-                <button id="timeline-prev" class="btn ghost">◀</button>
-                <button id="timeline-next" class="btn ghost">▶</button>
+        <!-- Papers Section -->
+        <section id="papers">
+            <div class="container">
+                <div class="section-header" data-animate="fade-up">
+                    <span class="section-tag">Research</span>
+                    <h2 class="section-title">Selected Papers</h2>
+                    <p class="section-description">Exploring novel architectures and paradigms</p>
+                </div>
+
+                <div class="papers-grid">
+                    <a class="paper-card" href="papers/ssr-architecture.html" data-animate="fade-up" data-delay="0">
+                        <div class="card-number">01</div>
+                        <div class="card-content">
+                            <h3 class="card-title">The SSR Architecture</h3>
+                            <p class="card-subtitle">The Three-Kernel System</p>
+                            <div class="card-tags">
+                                <span class="card-tag">Architecture</span>
+                                <span class="card-tag">Systems</span>
+                            </div>
+                        </div>
+                        <div class="card-arrow">
+                            <span class="read-label">Read Paper</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 17L17 7M17 7H7M17 7v10" />
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a class="paper-card" href="papers/ssr-omega.html" data-animate="fade-up" data-delay="50">
+                        <div class="card-number">02</div>
+                        <div class="card-content">
+                            <h3 class="card-title">SSR Omega</h3>
+                            <p class="card-subtitle">Extended Architecture</p>
+                            <div class="card-tags">
+                                <span class="card-tag">Modular</span>
+                                <span class="card-tag">Scalable</span>
+                            </div>
+                        </div>
+                        <div class="card-arrow">
+                            <span class="read-label">Read Paper</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 17L17 7M17 7H7M17 7v10" />
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a class="paper-card" href="papers/vtrn.html" data-animate="fade-up" data-delay="100">
+                        <div class="card-number">03</div>
+                        <div class="card-content">
+                            <h3 class="card-title">vTRN</h3>
+                            <p class="card-subtitle">Vectorized TRN</p>
+                            <div class="card-tags">
+                                <span class="card-tag">Math</span>
+                                <span class="card-tag">Optimization</span>
+                            </div>
+                        </div>
+                        <div class="card-arrow">
+                            <span class="read-label">Read Paper</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 17L17 7M17 7H7M17 7v10" />
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a class="paper-card" href="papers/is-vtrn.html" data-animate="fade-up" data-delay="150">
+                        <div class="card-number">04</div>
+                        <div class="card-content">
+                            <h3 class="card-title">is-vTRN</h3>
+                            <p class="card-subtitle">Iterative Sparse vTRN</p>
+                            <div class="card-tags">
+                                <span class="card-tag">Sparsity</span>
+                                <span class="card-tag">Research</span>
+                            </div>
+                        </div>
+                        <div class="card-arrow">
+                            <span class="read-label">Read Paper</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 17L17 7M17 7H7M17 7v10" />
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a class="paper-card" href="papers/sdrc.html" data-animate="fade-up" data-delay="200">
+                        <div class="card-number">05</div>
+                        <div class="card-content">
+                            <h3 class="card-title">SDRC</h3>
+                            <p class="card-subtitle">Speculative Decoding</p>
+                            <div class="card-tags">
+                                <span class="card-tag">Latency</span>
+                                <span class="card-tag">LLM</span>
+                            </div>
+                        </div>
+                        <div class="card-arrow">
+                            <span class="read-label">Read Paper</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 17L17 7M17 7H7M17 7v10" />
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a class="paper-card" href="papers/sys-fused.html" data-animate="fade-up" data-delay="250">
+                        <div class="card-number">06</div>
+                        <div class="card-content">
+                            <h3 class="card-title">SyS-Fused</h3>
+                            <p class="card-subtitle">System Fusion</p>
+                            <div class="card-tags">
+                                <span class="card-tag">Hardware</span>
+                                <span class="card-tag">AI</span>
+                            </div>
+                        </div>
+                        <div class="card-arrow">
+                            <span class="read-label">Read Paper</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 17L17 7M17 7H7M17 7v10" />
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a class="paper-card" href="papers/gepard.html" data-animate="fade-up" data-delay="300">
+                        <div class="card-number">07</div>
+                        <div class="card-content">
+                            <h3 class="card-title">GEPARD</h3>
+                            <p class="card-subtitle">Generative Paradigm</p>
+                            <div class="card-tags">
+                                <span class="card-tag">Generative</span>
+                                <span class="card-tag">Efficiency</span>
+                            </div>
+                        </div>
+                        <div class="card-arrow">
+                            <span class="read-label">Read Paper</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 17L17 7M17 7H7M17 7v10" />
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a class="paper-card" href="papers/cognitive-resonance.html" data-animate="fade-up"
+                        data-delay="350">
+                        <div class="card-number">08</div>
+                        <div class="card-content">
+                            <h3 class="card-title">Cognitive Resonance</h3>
+                            <p class="card-subtitle">Cascade Architecture</p>
+                            <div class="card-tags">
+                                <span class="card-tag">Cognitive</span>
+                                <span class="card-tag">Experimental</span>
+                            </div>
+                        </div>
+                        <div class="card-arrow">
+                            <span class="read-label">Read Paper</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 17L17 7M17 7H7M17 7v10" />
+                            </svg>
+                        </div>
+                    </a>
+                </div>
             </div>
-            <div id="ui-instructions">Use Scroll, Drag, or Arrow Keys to Navigate Chrono-Space</div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section id="timeline">
+            <div class="container">
+                <div class="section-header" data-animate="fade-up">
+                    <span class="section-tag">Journey</span>
+                    <h2 class="section-title">Career Timeline</h2>
+                </div>
+            </div>
+
+            <div class="timeline-controls container">
+                <input id="timeline-search" class="filter-input" placeholder="Search timeline..."
+                    aria-label="Search timeline" />
+                <div class="timeline-nav">
+                    <button id="timeline-prev" class="btn btn-icon" aria-label="Previous" data-magnetic>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
+                    </button>
+                    <button id="timeline-next" class="btn btn-icon" aria-label="Next" data-magnetic>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 18l6-6-6-6" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
 
             <div id="timeline-container">
                 <div id="timeline-wrapper">
-                    <!-- Nodes will be injected by JavaScript -->
+                    <!-- Nodes injected by JavaScript -->
                 </div>
+                <div id="timeline-axis"></div>
             </div>
-            <div id="timeline-axis"></div>
 
             <div id="agi-guide">
-                <h4>Awaiting Input...</h4>
-                <p>Navigate the timeline to explore key deployments and projects. Select a node for a contextual briefing from my AI agent.</p>
+                <div class="guide-header">
+                    <span class="guide-icon">⚡</span>
+                    <h4>System Ready</h4>
+                </div>
+                <p>Navigate the timeline to explore key milestones. Select a node for detailed insights.</p>
             </div>
 
             <div id="modal-container">
                 <div id="modal-content">
-                    <button id="modal-close" type="button">&times;</button>
+                    <button id="modal-close" type="button" aria-label="Close modal">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 6L6 18M6 6l12 12" />
+                        </svg>
+                    </button>
                     <h3 id="modal-title">Details</h3>
                     <div id="modal-body"></div>
                 </div>
             </div>
         </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <div class="section-header" data-animate="fade-up">
+                    <span class="section-tag">Contact</span>
+                    <h2 class="section-title">Let's Work Together</h2>
+                    <p class="section-description">Ready to push the boundaries of AI? Let's discuss your project.</p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-form-container" data-animate="fade-up" data-delay="100">
+                        <form id="contact-form" class="contact-form">
+                            <div class="form-group">
+                                <label for="contact-name">Name</label>
+                                <input type="text" id="contact-name" name="name" required placeholder="Your name">
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">Email</label>
+                                <input type="email" id="contact-email" name="email" required
+                                    placeholder="your@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-purpose">Purpose</label>
+                                <select id="contact-purpose" name="purpose" required>
+                                    <option value="" disabled selected>Select a purpose...</option>
+                                    <option value="consulting">AI Architecture Consulting</option>
+                                    <option value="research">Research Collaboration</option>
+                                    <option value="workshop">Technical Workshop</option>
+                                    <option value="speaking">Speaking Engagement</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-message">Message</label>
+                                <textarea id="contact-message" name="message" rows="4" required
+                                    placeholder="Tell me about your project..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">
+                                <span>Send Message</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="contact-info" data-animate="fade-up" data-delay="200">
+                        <div class="contact-card">
+                            <h3>Direct Contact</h3>
+                            <a href="mailto:romainabdelaal@gmail.com" class="contact-link">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                                <span>romainabdelaal@gmail.com</span>
+                            </a>
+                        </div>
+
+                        <div class="contact-card">
+                            <h3>Connect</h3>
+                            <div class="social-links">
+                                <a href="https://github.com/rabdelaal" target="_blank" rel="noopener"
+                                    class="social-link" aria-label="GitHub (Professional)">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                                <a href="https://github.com/bahira" target="_blank" rel="noopener" class="social-link"
+                                    aria-label="GitHub (Active Projects)">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                                <a href="https://linkedin.com/in/romain-a-03204450/" target="_blank" rel="noopener"
+                                    class="social-link" aria-label="LinkedIn">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                                    </svg>
+                                </a>
+                                <a href="https://x.com/RomainAbdelAal" target="_blank" rel="noopener"
+                                    class="social-link" aria-label="Twitter">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="contact-card availability-card">
+                            <div class="availability-dot"></div>
+                            <span>Currently accepting new projects for Q1 2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <!-- Floating CTA -->
+    <a href="#contact" class="floating-cta" id="floating-cta" aria-label="Contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+        </svg>
+    </a>
+
+    <!-- Footer -->
     <footer id="site-footer">
         <div class="container">
-            <p>&copy; 2025 Romain Abdel-Aal. All rights reserved.</p>
-            <nav>
-                <a href="#hero">Home</a>
-                <a href="#papers">Papers</a>
-                <a href="#timeline">Timeline</a>
-            </nav>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">RA</span>
+                    <p>Building the future of AI, one architecture at a time.</p>
+                </div>
+                <nav class="footer-nav">
+                    <a href="#hero">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#papers">Papers</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+                <div class="footer-social">
+                    <a href="https://github.com/rabdelaal" target="_blank" rel="noopener"
+                        aria-label="GitHub (Professional)">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                    </a>
+                    <a href="https://github.com/bahira" target="_blank" rel="noopener"
+                        aria-label="GitHub (Active Projects)">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/in/romain-a-03204450/" target="_blank" rel="noopener"
+                        aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                    </a>
+                    <a href="https://x.com/RomainAbdelAal" target="_blank" rel="noopener" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                            <path
+                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Romain Abdel-Aal. All rights reserved.</p>
+            </div>
         </div>
     </footer>
-    <!-- Modular scripts (minified) -->
-    <script src="/scripts/marked.min.js" defer></script>
-    <script src="/scripts/theme.js" defer></script>
-    <script src="/scripts/timeline.min.js" defer></script>
-    <script src="/scripts/hero-lazy.min.js" defer></script>
 
+    <!-- External Libraries (CDN for performance) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Local Scripts -->
+    <script src="/scripts/theme.js" defer></script>
+    <script src="/scripts/three-scene.js" defer></script>
+    <script src="/scripts/timeline.js" defer></script>
+    <script src="/scripts/animations.js" defer></script>
 </body>
+
 </html>
