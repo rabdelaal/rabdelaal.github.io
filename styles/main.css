@@ -1870,6 +1870,56 @@ main {
     font-size: 0.95rem;
 }
 
+/* On-Chain Identity */
+.onchain-card {
+    background: rgba(0, 82, 255, 0.05);
+    border-color: rgba(0, 82, 255, 0.2);
+}
+
+.onchain-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.onchain-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.onchain-item:hover {
+    border-color: #0052ff;
+    background: rgba(0, 82, 255, 0.1);
+    transform: translateX(4px);
+}
+
+.onchain-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #0052ff;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.onchain-value {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-primary);
+}
+
+.social-link[aria-label="Warpcast"]:hover {
+    color: #7c65c1;
+    border-color: #7c65c1;
+    box-shadow: 0 0 20px rgba(124, 101, 193, 0.3);
+}
+
 /* ─────────────────────────────────────────────────────────────────────────────
    20. FLOATING CTA
    ───────────────────────────────────────────────────────────────────────────── */
