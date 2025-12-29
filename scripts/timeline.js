@@ -39,6 +39,14 @@ document.addEventListener('DOMContentLoaded', () => {
             icon: '✨',
             brief: 'Creator of a specialized AI agent for generative astrology. This project serves as a proof-of-concept for fine-tuning LLMs on niche, domain-specific knowledge.',
             deepDive: '<h3>Architectural Breakdown</h3><ul><li>**Core Engine:** Hybrid RAG (Retrieval-Augmented Generation) system.</li><li>**Knowledge Base:** Vector database populated with a custom corpus of astrological texts.</li><li>**Reasoning:** Proprietary prompt chaining and tree-of-thought techniques for multi-layered interpretations.</li><li>**Stack:** OpenAI/Anthropic APIs, LangChain, Python, VectorDBs.</li></ul>'
+        },
+        {
+            year: '2025-2026',
+            title: 'The SSR Paradigm',
+            role: 'Lead Research Architect',
+            icon: '⚡',
+            brief: 'Developing the SSR Omega Architecture and vTRN sequence models. Focusing on modular, parallel, and latency-hiding neural systems.',
+            deepDive: '<h3>Current Research Focus</h3><ul><li>**vTRN:** O(n) complexity alternative to Transformers.</li><li>**SyS-Fused:** Speculative optimization techniques.</li><li>**Modular AI:** Breaking monolithic "black box" models into specialized experts.</li><li>**Strategic Collaborations:** Partnering with organizations like Microsoft and Amazon to test large-scale implementations.</li></ul>'
         }
     ];
 
@@ -47,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalContainer = document.getElementById('modal-container');
     const modalTitle = document.getElementById('modal-title');
     const modalBody = document.getElementById('modal-body');
-    
+
     let currentNodeIndex = 0;
     let timelinePosition = 0;
     let isDragging = false;
@@ -76,10 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
         currentNodeIndex = index;
         const nodes = document.querySelectorAll('.timeline-node');
         const targetNode = nodes[index];
-        
+
         const containerCenter = window.innerWidth / 2;
         const nodeCenter = targetNode.offsetLeft + targetNode.offsetWidth / 2;
-        
+
         timelinePosition = containerCenter - nodeCenter;
         wrapper.style.transform = `translateX(${timelinePosition}px)`;
 
@@ -88,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         updateAgiGuide(index);
     }
-    
+
     function updateAgiGuide(index) {
         const project = projects[index];
         agiGuide.innerHTML = `
@@ -117,9 +125,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'ArrowLeft') navigateToNode(currentNodeIndex - 1);
         if (e.key === 'Escape') modalContainer.classList.remove('visible');
     });
-    
+
     document.getElementById('modal-close').onclick = () => modalContainer.classList.remove('visible');
-    
+
     const container = document.getElementById('timeline-container');
     container.addEventListener('mousedown', (e) => {
         isDragging = true;
@@ -130,13 +138,13 @@ document.addEventListener('DOMContentLoaded', () => {
     container.addEventListener('mouseleave', () => { isDragging = false; container.style.cursor = 'grab'; });
     container.addEventListener('mouseup', () => { isDragging = false; container.style.cursor = 'grab'; });
     container.addEventListener('mousemove', (e) => {
-        if(!isDragging) return;
+        if (!isDragging) return;
         e.preventDefault();
         const x = e.pageX - container.offsetLeft;
         // Find closest node to the center
         // Simple implementation for now, full drag is complex
     });
-    
+
     container.addEventListener('wheel', (e) => {
         e.preventDefault();
         if (e.deltaY > 0) navigateToNode(currentNodeIndex + 1);

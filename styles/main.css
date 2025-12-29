@@ -1870,47 +1870,53 @@ main {
     font-size: 0.95rem;
 }
 
-/* On-Chain Identity */
-.onchain-card {
-    background: rgba(0, 82, 255, 0.05);
-    border-color: rgba(0, 82, 255, 0.2);
+/* Strategic Partnerships */
+.partners-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-medium);
 }
 
-.onchain-links {
+.partners-grid {
     display: flex;
     flex-direction: column;
-    gap: var(--space-sm);
+    gap: var(--space-md);
 }
 
-.onchain-item {
+.partner-item {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: var(--space-xs) var(--space-sm);
+    gap: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
     background: var(--bg-secondary);
     border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-sm);
-    text-decoration: none;
-    transition: var(--transition-fast);
+    border-radius: var(--radius-md);
+    transition: var(--transition-medium);
 }
 
-.onchain-item:hover {
-    border-color: #0052ff;
-    background: rgba(0, 82, 255, 0.1);
-    transform: translateX(4px);
+.partner-item:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-.onchain-label {
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: #0052ff;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+.partner-logo {
+    width: 24px;
+    height: 24px;
 }
 
-.onchain-value {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
+.partner-logo.microsoft {
+    color: #f25022;
+    /* Microsoft red but slightly adjusted if needed */
+}
+
+.partner-logo.amazon {
+    color: #ff9900;
+    /* Amazon orange */
+}
+
+.partner-item span {
+    font-size: 0.9rem;
+    font-weight: 600;
     color: var(--text-primary);
 }
 
