@@ -1,57 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>SSR Architecture</title>
-    <link rel="stylesheet" href="/styles/main.min.css">
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SSR Architecture — Romain Abdel-Aal</title>
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+
+<body>
+  <div class="bg-gradient"></div>
+  <div class="bg-noise"></div>
+
   <header class="paper-header">
     <div class="container">
-      <a href="/" aria-label="Go to homepage">← Home</a>
-      <nav>
-  <a href="/index.html#papers">Papers</a>
-  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" aria-pressed="false" title="Toggle theme">🌙</button>
+      <a href="/" aria-label="Go to homepage">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        Back
+      </a>
+      <nav style="display: flex; align-items: center; gap: var(--space-md);">
+        <button onclick="window.print()" class="icon-button" title="Print Paper"
+          style="background:none; border:none; color:inherit; cursor:pointer;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+            <path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2" />
+            <path d="M6 14h12v8H6z" />
+          </svg>
+        </button>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
       </nav>
     </div>
+    <div class="paper-progress-container">
+      <div id="paper-progress-bar"></div>
+    </div>
   </header>
+
   <main class="paper-main">
-      <h1>The SSR Architecture</h1>
-      <div id="content">Loading...</div>
-    </main>
+    <div class="paper-sheet">
+      <div class="paper-verification">
+        <div class="verification-dot"></div>
+        <span class="verification-text">Verified Architecture • SSR-CORE-V1</span>
+      </div>
+
+      <div class="paper-metadata">
+        <div class="paper-metadata-grid">
+          <div class="metadata-item">
+            <span class="metadata-label">Author</span>
+            <span class="metadata-value">Romain Abdel-Aal</span>
+          </div>
+          <div class="metadata-item">
+            <span class="metadata-label">Date</span>
+            <span class="metadata-value">2025</span>
+          </div>
+          <div class="metadata-item">
+            <span class="metadata-label">Category</span>
+            <span class="metadata-value">System Architecture / SSR</span>
+          </div>
+          <div class="metadata-item">
+            <span class="metadata-label">Status</span>
+            <span class="metadata-value" style="color: #22c55e;">Core Validated</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="content">Loading paper content...</div>
+    </div>
+  </main>
+
   <script src="/scripts/futuristic-charts.js" defer></script>
   <script src="/scripts/theme.js" defer></script>
-    <script>
-      function loadScript(src){
-        return new Promise((res, rej)=>{
-          const s = document.createElement('script');
-          s.src = src;
-          s.onload = res;
-          s.onerror = () => rej(new Error('Failed to load '+src));
-          document.head.appendChild(s);
-        });
-      }
-      function ensureMarked(){
-        if(window.marked) return Promise.resolve();
-        return loadScript('/scripts/marked.min.js').then(() => {
-          if (window.marked) return;
-          return loadScript('https://cdn.jsdelivr.net/npm/marked/marked.min.js');
-        });
-      }
+  <script>
+    function loadScript(src) {
+      return new Promise((res, rej) => {
+        const s = document.createElement('script');
+        s.src = src;
+        s.onload = res;
+        s.onerror = () => rej(new Error('Failed to load ' + src));
+        document.head.appendChild(s);
+      });
+    }
+    function ensureMarked() {
+      if (window.marked) return Promise.resolve();
+      return loadScript('/scripts/marked.min.js').then(() => {
+        if (window.marked) return;
+        return loadScript('https://cdn.jsdelivr.net/npm/marked/marked.min.js');
+      });
+    }
 
-      fetch('The SSR Architecture_ The Three-Kernel System.md')
-        .then(r=>r.text())
-        .then(md=>{
-            const sanitized = md.replace(/!\[[^\]]*\]\([^\)]+\)/g, ()=>'\n<div data-fchart></div>\n');
-            return ensureMarked().then(()=>({ sanitized }));
-        })
-        .then(({ sanitized })=>{
-            const html = (marked.parse?marked.parse(sanitized):marked(sanitized));
-            document.getElementById('content').innerHTML = html;
-            if(window.renderFuturisticCharts) window.renderFuturisticCharts(document.getElementById('content'));
-        })
-        .catch(err => { console.error('Failed to load paper:', err); document.getElementById('content').textContent = 'Failed to load paper.'; });
-    </script>
-  </body>
+    fetch('The SSR Architecture_ The Three-Kernel System.md')
+      .then(r => r.text())
+      .then(md => {
+        const sanitized = md.replace(/!\[[^\]]*\]\([^\)]+\)/g, () => '\n<div data-fchart></div>\n');
+        return ensureMarked().then(() => ({ sanitized }));
+      })
+      .then(({ sanitized }) => {
+        const html = (marked.parse ? marked.parse(sanitized) : marked(sanitized));
+        document.getElementById('content').innerHTML = html;
+
+        // Promote first heading to H1
+        const firstHeading = document.querySelector('#content h3, #content h2, #content h1');
+        if (firstHeading) {
+          const h1 = document.createElement('h1');
+          h1.innerHTML = firstHeading.innerHTML;
+          firstHeading.parentNode.replaceChild(h1, firstHeading);
+        }
+
+        if (window.renderFuturisticCharts) window.renderFuturisticCharts(document.getElementById('content'));
+        window.dispatchEvent(new Event('scroll'));
+      })
+      .catch(err => { console.error('Failed to load paper:', err); document.getElementById('content').textContent = 'Failed to load paper.'; });
+
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      const bar = document.getElementById('paper-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+    });
+  </script>
+</body>
+
 </html>
