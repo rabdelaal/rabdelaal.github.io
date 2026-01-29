@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Architecture Cost Calculator - Romain Abdel-Aal</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="icon" href="/images/profileimage.webp" type="image/webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <meta name="description" content="Free AI Architecture Cost Calculator - Estimate costs for AI model inference based on parameters.">
+</head>
+<body>
+    <header id="site-header">
+        <div class="container">
+            <a href="/" class="logo-link">
+                <div class="logo">
+                    <span class="logo-icon">RA</span>
+                </div>
+                <span class="logo-text">Romain Abdel-Aal</span>
+            </a>
+            <nav>
+                <a href="/" class="nav-link" data-magnetic>Home</a>
+                <a href="/#services" class="nav-link" data-magnetic>Services</a>
+                <a href="/#contact" class="nav-link" data-magnetic>Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="calculator">
+            <div class="container">
+                <div class="section-header" data-animate="fade-up">
+                    <span class="section-tag">Free Tool</span>
+                    <h2 class="section-title">AI Architecture Cost Calculator</h2>
+                    <p class="section-description">Estimate the costs of running AI models based on your usage parameters</p>
+                </div>
+
+                <div class="calculator-container" data-animate="fade-up" data-delay="100">
+                    <form id="cost-form" class="calculator-form">
+                        <div class="form-group">
+                            <label for="model">Model Type</label>
+                            <select id="model" name="model">
+                                <option value="gpt-4">GPT-4</option>
+                                <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+                                <option value="claude-3-opus">Claude 3 Opus</option>
+                                <option value="claude-3-sonnet">Claude 3 Sonnet</option>
+                                <option value="claude-3-haiku">Claude 3 Haiku</option>
+                                <option value="gemini-pro">Gemini Pro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input-tokens">Input Tokens (per request)</label>
+                            <input type="number" id="input-tokens" name="input-tokens" min="1" value="1000">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="output-tokens">Output Tokens (per request)</label>
+                            <input type="number" id="output-tokens" name="output-tokens" min="1" value="500">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="requests">Number of Requests (per month)</label>
+                            <input type="number" id="requests" name="requests" min="1" value="1000">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Calculate Cost</button>
+                    </form>
+
+                    <div id="results" class="calculator-results" style="display: none;">
+                        <h3>Estimated Monthly Cost</h3>
+                        <div class="result-item">
+                            <span class="result-label">Total Cost:</span>
+                            <span id="total-cost" class="result-value">$0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Cost per Request:</span>
+                            <span id="cost-per-request" class="result-value">$0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Input Cost:</span>
+                            <span id="input-cost" class="result-value">$0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Output Cost:</span>
+                            <span id="output-cost" class="result-value">$0.00</span>
+                        </div>
+                        <p class="disclaimer">* Estimates based on current pricing. Actual costs may vary. For precise quotes, contact for consulting.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Romain Abdel-Aal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const pricing = {
+            'gpt-4': { input: 0.03, output: 0.06 },
+            'gpt-3.5-turbo': { input: 0.0015, output: 0.002 },
+            'claude-3-opus': { input: 0.015, output: 0.075 },
+            'claude-3-sonnet': { input: 0.003, output: 0.015 },
+            'claude-3-haiku': { input: 0.00025, output: 0.00125 },
+            'gemini-pro': { input: 0.00025, output: 0.0005 }
+        };
+
+        document.getElementById('cost-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const model = document.getElementById('model').value;
+            const inputTokens = parseInt(document.getElementById('input-tokens').value);
+            const outputTokens = parseInt(document.getElementById('output-tokens').value);
+            const requests = parseInt(document.getElementById('requests').value);
+            
+            const rates = pricing[model];
+            const inputCost = (inputTokens / 1000) * rates.input * requests;
+            const outputCost = (outputTokens / 1000) * rates.output * requests;
+            const totalCost = inputCost + outputCost;
+            const costPerRequest = totalCost / requests;
+            
+            document.getElementById('total-cost').textContent = `$${totalCost.toFixed(2)}`;
+            document.getElementById('cost-per-request').textContent = `$${costPerRequest.toFixed(4)}`;
+            document.getElementById('input-cost').textContent = `$${inputCost.toFixed(2)}`;
+            document.getElementById('output-cost').textContent = `$${outputCost.toFixed(2)}`;
+            
+            document.getElementById('results').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
