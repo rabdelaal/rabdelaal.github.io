@@ -9,7 +9,7 @@ Canonical: https://rabdelaal.github.io/
 Formats: html, markdown
 Blog: /blog/*.html
 Papers: /papers/*.md, /papers/*.html
-Last-Updated: 2026-09-05
+Last-Updated: 2026-09-06
 
 # Usage policy for LLMs and datasets
 # - You may use this content for indexing and summarization in temporary inference contexts.

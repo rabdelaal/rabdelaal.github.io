@@ -85,6 +85,14 @@ document.addEventListener('DOMContentLoaded', () => {
             brief: 'Developing the SSR Omega architecture and vTRN sequence models — modular, parallel, latency-hiding neural systems.',
             tags: 'ssr vtrn research omega speculative modular papers',
             deepDive: '<h3>Current Research Focus</h3><ul><li><strong>vTRN:</strong> an O(n) complexity alternative to Transformers.</li><li><strong>SyS-Fused:</strong> speculative optimization techniques.</li><li><strong>Modular AI:</strong> breaking monolithic "black box" models into specialized experts.</li><li><strong>Strategic collaborations:</strong> working with organizations such as Microsoft and Amazon on large-scale implementations.</li></ul>'
+        },
+        {
+            year: '2026',
+            title: 'Levier IA',
+            role: 'COO',
+            brief: 'Leading technical operations and AI product architecture: the Levier-Learn™ platform, an AI diagnostics suite, and autonomous agent infrastructure on the edge.',
+            tags: 'levier ia coo saas cloudflare workers agents swarm learn lms operations diagnostics',
+            deepDive: '<h3>Responsibilities</h3><ul><li><strong>Technical operations:</strong> product architecture and automated deployment pipelines.</li><li><strong>Levier-Learn™:</strong> AI-augmented LMS platform for corporate training.</li><li><strong>AI diagnostics suite:</strong> Réputation IA, Score IA-Ready, Concurrence IA, Audit RGPD.</li><li><strong>Infrastructure:</strong> Cloudflare Workers, Durable Objects, D1, R2, Neon Postgres — autonomous Swarm agents.</li></ul>'
         }
     ];
 

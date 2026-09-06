@@ -1,13 +1,13 @@
 # Romain Abdel-Aal — Research & Architecture
 
-Personal site of Romain Abdel-Aal: independent researcher and solution architect.
+Personal site of Romain Abdel-Aal: COO of Levier IA, independent researcher and solution architect.
 Designed as a **preprint** — an editorial, print-inspired system (Fraunces · Spectral · IBM Plex Mono,
 warm paper background, oxide-red accent). No frameworks, no CDN scripts: vanilla HTML/CSS/JS.
 
 ## What's on the site
 
 - `index.html` — one-page site: Abstract (about), Services & rate card, Instrumentation (stack),
-  Exhibits (projects), Publications (8 papers), Version History (interactive timeline with
+  Exhibits (projects), Publications (9 papers), Version History (interactive timeline with
   search/drag/keyboard), Lab Notes (blog teaser), Correspondence (contact).
 - `blog/` — Lab Notes: short technical essays (`index.html` + 3 notes).
 - `papers/` — research papers: Markdown manuscripts (`*.md`) with lightweight HTML readers.

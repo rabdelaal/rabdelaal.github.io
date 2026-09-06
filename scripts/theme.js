@@ -10,7 +10,7 @@
         }
     }
     function getStoredTheme() {
-        try { return localStorage.getItem('theme') || 'light'; } catch { return 'light'; }
+        try { return localStorage.getItem('theme') || 'dark'; } catch { return 'dark'; }
     }
     function storeTheme(theme) {
         try { localStorage.setItem('theme', theme); } catch {}
