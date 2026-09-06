@@ -1,38 +1,43 @@
+# Romain Abdel-Aal — Research & Architecture
 
-# Abdel-Aal Research — Selected Works
+Personal site of Romain Abdel-Aal: independent researcher and solution architect.
+Designed as a **preprint** — an editorial, print-inspired system (Fraunces · Spectral · IBM Plex Mono,
+warm paper background, oxide-red accent). No frameworks, no CDN scripts: vanilla HTML/CSS/JS.
 
-This repository hosts an interactive portfolio and a collection of research papers by Romain Abdel-Aal.
+## What's on the site
 
-What's included
+- `index.html` — one-page site: Abstract (about), Services & rate card, Instrumentation (stack),
+  Exhibits (projects), Publications (8 papers), Version History (interactive timeline with
+  search/drag/keyboard), Lab Notes (blog teaser), Correspondence (contact).
+- `blog/` — Lab Notes: short technical essays (`index.html` + 3 notes).
+- `papers/` — research papers: Markdown manuscripts (`*.md`) with lightweight HTML readers.
+- `calculator.html` — AI architecture cost calculator (client-side only).
+- `images/` — portrait.
 
-- A modern landing page with an overview video and a chronological timeline.
-- A `papers/` folder with the original Markdown manuscripts and lightweight HTML viewers.
-- A `videos/` folder containing the overview presentation.
+## Local preview
 
-Local preview (one-liner):
-
-```powershell
+```bash
 python -m http.server 8000
 ```
 
-Open http://localhost:8000 in your browser.
+Open http://localhost:8000 — no build step required. Paper pages fetch their Markdown and render
+it client-side with the vendored `scripts/marked.min.js`.
 
-Contact
+## Validation (CI)
 
-Romain Abdel-Aal — romainabdelaal@gmail.com
+GitHub Actions validates HTML and internal links on every push/PR to `main`:
+
+```bash
+npm install
+npm run ci:validate
+```
 
 Notes
 
-- The site renders Markdown client-side. For static generation (recommended for production), I can add an Eleventy or Jekyll build step.
-- A poster image for the hero video is at `videos/hero-poster.svg`.
+- `node_modules` is **not** committed (see `.gitignore`). `scripts/marked.min.js` is vendored on
+  purpose so paper rendering works without any network dependency.
+- Light theme by default; `data-theme="dark"` (top-right toggle) for night reading.
 
-Build & CI
+## Contact
 
-This repository includes a minimal Node-based build that bundles an official `marked` vendor file and minifies CSS/JS. There is also a GitHub Actions workflow that runs the build and validates HTML and links on push/PR to `main`.
-
-Quick steps:
-
-- Install dependencies: `npm ci`
-- Build assets: `npm run build`
-
-The CI workflow will run on pushes and pull requests to `main` and will fail if HTML validation or link checks detect problems.
+Romain Abdel-Aal — romainabdelaal@gmail.com

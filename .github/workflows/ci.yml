@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build-and-validate:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,13 +19,10 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm ci
-
-      - name: Build vendor + minify
-        run: npm run build
+        run: npm install
 
       - name: Validate HTML
-        run: npx html-validate "index.html" "papers/*.html"
+        run: npx html-validate "index.html" "calculator.html" "blog/*.html" "papers/*.html"
 
-      - name: Link check (local files)
-        run: npx linkinator --file index.html --recursive
+      - name: Link check (internal links)
+        run: npx linkinator --file index.html --recursive --skip "^https?://"

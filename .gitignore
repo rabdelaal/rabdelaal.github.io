@@ -1,9 +1,6 @@
-# Node modules and lockfiles
+# Dependencies — never commit (vendor files are bundled explicitly)
 node_modules/
 package-lock.json
-
-# Build output (minified assets are kept under version control by choice)
-*.min.*
 
 # OS files
 .DS_Store

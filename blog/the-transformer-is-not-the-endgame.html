@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Transformer Is Not the Endgame — Lab Notes · Romain Abdel-Aal</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="icon" href="/images/profileromain.jpg" type="image/jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&amp;family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <meta name="description"
+        content="Why the O(n²) quadratic wall of self-attention motivates post-transformer, O(n) sequence models like vTRN.">
+    <link rel="canonical" href="https://rabdelaal.github.io/blog/the-transformer-is-not-the-endgame.html">
+</head>
+
+<body>
+    <a class="skip-link" href="#note-main">Skip to content</a>
+
+    <header class="masthead">
+        <div class="container masthead-inner">
+            <a href="/" class="brand">
+                <span class="brand-mark">RA</span>
+                <span class="brand-name">Romain Abdel-Aal</span>
+                <span class="brand-vol">Vol. 2012–2026</span>
+            </a>
+            <nav class="masthead-nav" aria-label="Main navigation">
+                <a href="/#papers">Papers</a>
+                <a href="/#notes">Notes</a>
+                <a href="/#contact">Contact</a>
+                <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">◐</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="note-main">
+        <section class="section" style="border-top: 0;">
+            <div class="container">
+                <article class="note-sheet">
+                    <span class="note-meta">Note 01 · Architecture · September 2026</span>
+                    <h1>The Transformer Is Not the Endgame</h1>
+                    <p class="note-standfirst">The quadratic wall of self-attention is not an inconvenience — it is a
+                        structural ceiling. This note is the short version of the argument I make at length in the
+                        vTRN paper [3].</p>
+
+                    <div class="md-body">
+                        <p>Attention is a wonderful mechanism and a terrible habit. For a sequence of <em>n</em>
+                            tokens, self-attention computes an <em>n × n</em> score matrix — every token attending to
+                            every other token. That matrix is the Transformer's greatest strength and its fatal flaw:
+                            both the compute and the memory scale as <em>O(n²)</em>. At <em>n</em> = 50,000, the score
+                            matrix alone is 2.5 billion floating-point numbers, before you have done anything useful
+                            with it.</p>
+                        <p>Everything I have written since the SSR architecture starts from the same observation:
+                            <strong>synchronous, blocking operations are the real bottleneck</strong> — whether the
+                            blocking operation is a kernel waiting on a global barrier or a reasoning chain waiting on
+                            its previous step. Self-attention is the biggest synchronous operation in modern AI.</p>
+                        <p>The vTRN replaces it with something almost unfashionably simple: a single, persistent
+                            <em>Context Field</em>, updated continuously by local, residue-driven corrections instead
+                            of global, layered attention. No <em>n × n</em> matrix, no quadratic wall. The whole thing
+                            vectorizes into batched matrix operations, so it runs in parallel on ordinary accelerators
+                            instead of looping token by token.</p>
+                        <p>The empirical result is the part I care about: processing time scales linearly. At a
+                            sequence length of 5,000, our vTRN implementation is already roughly <strong>5× faster
+                            than the Transformer baseline</strong>, and the gap widens as sequences grow. That is not
+                            an incremental win; it is a different scaling curve.</p>
+                        <h2>Three consequences</h2>
+                        <ul>
+                            <li><strong>Long context is an architecture problem, not a memory problem.</strong> Brute-forcing a
+                                million tokens with O(n²) attention is a dead end; changing the complexity class is
+                                the way through.</li>
+                            <li><strong>Local learning signals beat diffuse ones.</strong> Residue-driven updates give every
+                                component a direct, high-quality error signal instead of one gradient smeared across
+                                the whole stack.</li>
+                            <li><strong>The Transformer is a baseline, not a boundary.</strong> Post-transformer does not mean
+                                anti-Transformer; it means the design space did not close in 2017.</li>
+                        </ul>
+                        <p>If this argument lands, read the full paper: <a href="/papers/vtrn.html">The Vectorized
+                            Temporal Residue Network (vTRN)</a>, and its speculative sibling, <a
+                                href="/papers/is-vtrn.html">is-vTRN</a>.</p>
+                    </div>
+                </article>
+
+                <p style="text-align: center; margin-top: 2.5rem;">
+                    <a href="/blog/" class="btn">← All Lab Notes</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <a href="/">Top</a>
+                <a href="/#papers">Papers</a>
+                <a href="/#contact">Contact</a>
+            </nav>
+            <div class="footer-colophon">
+                <p>© 2026 Romain Abdel-Aal. All rights reserved. · Set in Fraunces, Spectral, and IBM Plex Mono.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/scripts/theme.js" defer></script>
+</body>
+
+</html>

@@ -21,7 +21,7 @@ function renderFuturisticCharts(root = document) {
             g.setAttribute('y', i*(h/6));
             g.setAttribute('width', w);
             g.setAttribute('height', 1);
-            g.setAttribute('fill', i%2===0 ? 'rgba(0,255,255,0.03)' : 'rgba(191,0,255,0.02)');
+            g.setAttribute('fill', i%2===0 ? 'rgba(192,61,20,0.05)' : 'rgba(23,94,90,0.05)');
             svg.appendChild(g);
         }
 
@@ -38,8 +38,8 @@ function renderFuturisticCharts(root = document) {
         const grad = document.createElementNS(ns,'linearGradient');
         grad.setAttribute('id','grad'+idx);
         grad.setAttribute('x1','0%'); grad.setAttribute('x2','100%');
-        const stop1 = document.createElementNS(ns,'stop'); stop1.setAttribute('offset','0%'); stop1.setAttribute('stop-color','#00fff0'); stop1.setAttribute('stop-opacity','0.95');
-        const stop2 = document.createElementNS(ns,'stop'); stop2.setAttribute('offset','100%'); stop2.setAttribute('stop-color','#bf00ff'); stop2.setAttribute('stop-opacity','0.95');
+        const stop1 = document.createElementNS(ns,'stop'); stop1.setAttribute('offset','0%'); stop1.setAttribute('stop-color','#c03d14'); stop1.setAttribute('stop-opacity','0.95');
+        const stop2 = document.createElementNS(ns,'stop'); stop2.setAttribute('offset','100%'); stop2.setAttribute('stop-color','#175e5a'); stop2.setAttribute('stop-opacity','0.95');
         grad.appendChild(stop1); grad.appendChild(stop2); defs.appendChild(grad);
         svg.appendChild(defs);
         svg.appendChild(path);

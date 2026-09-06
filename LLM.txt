@@ -2,13 +2,14 @@
 # Schema: key: value
 Site: https://rabdelaal.github.io
 Title: Romain Abdel-Aal — Research & Architecture
-Description: Portfolio and research papers on modular architectures, speculative execution, and efficient sequence models.
+Description: Portfolio, lab notes, and research papers on modular architectures, speculative execution, and post-transformer sequence models.
 Author: Romain Abdel-Aal
 Contact: romainabdelaal@gmail.com
 Canonical: https://rabdelaal.github.io/
 Formats: html, markdown
+Blog: /blog/*.html
 Papers: /papers/*.md, /papers/*.html
-Last-Updated: 2025-08-27
+Last-Updated: 2026-09-05
 
 # Usage policy for LLMs and datasets
 # - You may use this content for indexing and summarization in temporary inference contexts.
