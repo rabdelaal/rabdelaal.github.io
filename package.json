@@ -7,7 +7,7 @@
   },
   "description": "Static site for Romain Abdel-Aal — Research & Architecture. No build step: vanilla HTML/CSS/JS, vendored marked.min.js.",
   "scripts": {
-    "ci:validate": "npx html-validate \"index.html\" \"calculator.html\" \"blog/*.html\" \"papers/*.html\" && npx linkinator --file index.html --recursive --skip \"^https?://\"",
+    "ci:validate": "npx html-validate \"index.html\" \"calculator.html\" \"blog/*.html\" \"papers/*.html\" && npx linkinator ./index.html --recurse --skip \"https://\"",
     "serve": "python -m http.server 8000"
   },
   "devDependencies": {

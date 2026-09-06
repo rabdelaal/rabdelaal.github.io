@@ -25,4 +25,4 @@ jobs:
         run: npx html-validate "index.html" "calculator.html" "blog/*.html" "papers/*.html"
 
       - name: Link check (internal links)
-        run: npx linkinator --file index.html --recursive --skip "^https?://"
+        run: npx linkinator ./index.html --recurse --skip "https://"
