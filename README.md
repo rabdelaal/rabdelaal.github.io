@@ -1,8 +1,9 @@
 # Romain Abdel-Aal — Research & Architecture
 
 Personal site of Romain Abdel-Aal: COO of Levier IA, independent researcher and solution architect.
-Designed as a **preprint** — an editorial, print-inspired system (Fraunces · Spectral · IBM Plex Mono,
-warm paper background, oxide-red accent). No frameworks, no CDN scripts: vanilla HTML/CSS/JS.
+Designed as a **preprint** — an editorial, print-inspired system (Fraunces · Spectral · IBM Plex Mono).
+Two palettes: dark cyberpunk by default, warm paper (oxide-red accent) via the theme toggle.
+No frameworks, no CDN scripts: vanilla HTML/CSS/JS.
 
 ## What's on the site
 
