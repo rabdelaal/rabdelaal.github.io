@@ -2,7 +2,7 @@
 # Schema: key: value
 Site: https://rabdelaal.github.io
 Title: Romain Abdel-Aal — Research & Architecture
-Description: Portfolio, lab notes, and research papers on modular architectures, speculative execution, and post-transformer sequence models.
+Description: Applied AI architecture, MCP agent infrastructure, numerical optimization, symbolic regression and independent research. Systems, 9 manuscripts, lab notes, and an interactive career timeline.
 Author: Romain Abdel-Aal
 Contact: romainabdelaal@gmail.com
 Canonical: https://rabdelaal.github.io/

@@ -4,11 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Romain Abdel-Aal — Research & Architecture</title>
+    <title>Romain Abdel-Aal | AI Solutions Architect &amp; Applied AI Researcher</title>
 
     <!-- Styles -->
     <link rel="preload" href="/styles/main.css" as="style">
     <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/v3.css?v=1">
     <link rel="icon" href="/images/profileromain.jpg" type="image/jpeg">
 
     <!-- Fonts -->
@@ -20,15 +21,17 @@
 
     <!-- SEO / Open Graph -->
     <meta name="description"
-        content="Romain Abdel-Aal — Research & Architecture. Independent researcher and solution architect working on modular neural architectures, speculative execution, and post-transformer sequence models.">
+        content="Applied AI architecture, MCP agent infrastructure, numerical optimization, symbolic regression and independent research. Based in Paris, working internationally.">
     <meta name="author" content="Romain Abdel-Aal">
-    <meta name="theme-color" content="#0a0e14">
-    <meta property="og:title" content="Romain Abdel-Aal — Research & Architecture">
+    <meta name="theme-color" content="#06090e">
+    <meta property="og:title" content="Romain Abdel-Aal | AI Solutions Architect &amp; Applied AI Researcher">
     <meta property="og:description"
-        content="Selected works, papers, and technical notes on modular neural architectures, latency-hiding, and post-transformer sequence models.">
+        content="Engineering intelligence — from mathematical kernels to autonomous systems. Portfolio, research archive and systems work.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rabdelaal.github.io/">
     <meta property="og:image" content="https://rabdelaal.github.io/images/profileromain.jpg">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="fr_FR">
     <link rel="canonical" href="https://rabdelaal.github.io/">
 
     <!-- JSON-LD -->
@@ -40,622 +43,430 @@
             "url": "https://rabdelaal.github.io/",
             "image": "https://rabdelaal.github.io/images/profileromain.jpg",
             "sameAs": [
-                "https://www.linkedin.com/in/romain-a-03204450/",
-                "https://github.com/rabdelaal",
                 "https://github.com/bahira",
-                "https://x.com/RomainAbdelAal",
-                "https://levier-ia.fr"
+                "https://github.com/rabdelaal",
+                "https://huggingface.co/5dimension",
+                "https://www.linkedin.com/in/romain-a-03204450/",
+                "https://x.com/RomainAbdelAal"
             ],
             "jobTitle": "Chief Operating Officer",
-            "worksFor": "Levier IA",
+            "worksFor": {
+                "@type": "Organization",
+                "name": "Levier IA",
+                "url": "https://levier-ia.fr/"
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Paris",
+                "addressCountry": "FR"
+            },
             "knowsAbout": [
-                "Neural Architecture Design",
-                "Sequence Modeling",
-                "Speculative Execution",
+                "AI Solutions Architecture",
+                "Agent Infrastructure",
+                "Model Context Protocol",
+                "Symbolic Regression",
+                "Numerical Optimization",
                 "Retrieval-Augmented Generation",
-                "System Architecture"
+                "Sequence Modeling",
+                "Speculative Execution"
             ]
         }
     </script>
 </head>
 
-<body>
-    <a class="skip-link" href="#about">Skip to content</a>
+<body class="v3">
+    <a class="skip-link" href="#systems">Skip to content</a>
 
     <!-- Masthead -->
-    <header class="masthead">
-        <div class="container masthead-inner">
-            <a href="#top" class="brand">
-                <span class="brand-mark">RA</span>
-                <span class="brand-name">Romain Abdel-Aal</span>
-                <span class="brand-vol">Vol. 2012–2026</span>
+    <header class="v-masthead">
+        <div class="container v-masthead-inner">
+            <a href="#top" class="v-brand">
+                <span class="v-brand-mark">RA</span>
+                <span>Romain Abdel-Aal</span>
+                <span class="v-brand-sub">Vol. 2012–2026</span>
             </a>
-            <nav class="masthead-nav" aria-label="Main navigation">
-                <a href="#about">Abstract</a>
-                <a href="#services">Services</a>
-                <a href="#skills">Stack</a>
-                <a href="#papers">Papers</a>
-                <a href="#notes">Notes</a>
-                <a href="#contact">Contact</a>
-                <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">◐</button>
-            </nav>
+            <div class="v-masthead-right">
+                <nav class="v-nav" aria-label="Main navigation">
+                    <a href="#systems">Systems</a>
+                    <a href="#applied">Applied AI</a>
+                    <a href="#research">Research</a>
+                    <a href="#trajectory">Trajectory</a>
+                    <a href="#labs">Labs</a>
+                    <a href="#notes">Notes</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+                <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Toggle theme"
+                    title="Toggle theme">◐</button>
+            </div>
         </div>
     </header>
 
     <main id="top">
-        <!-- Hero — the preprint header -->
-        <section class="hero" aria-label="Introduction">
-            <div class="container hero-grid">
-                <div class="hero-main">
-                    <p class="hero-kicker" data-stagger="1">Preprint · Independent Research · November 2026</p>
-                    <h1 class="hero-title" data-stagger="2">Research <em>&amp;</em><br>Architecture</h1>
-                    <p class="hero-byline" data-stagger="3"><b>Romain Abdel-Aal</b> — COO @ Levier IA · Solution Architect
-                        &amp; AI Researcher</p>
-
-                    <div class="hero-abstract" data-stagger="4">
-                        <span class="abstract-label">Abstract</span>
-                        <p>Exploring the frontiers of modular neural architectures, speculative execution, and
-                            efficient sequence models. Building the next paradigm of AI — one kernel at a time.</p>
-                    </div>
-
-                    <div class="hero-cta" data-stagger="5">
-                        <a href="#contact" class="btn btn--solid">Book a Consultation</a>
-                        <a href="#papers" class="btn">Read the Papers</a>
-                    </div>
-                </div>
-
-                <figure class="hero-figure" data-stagger="6">
-                    <div class="fig-frame">
-                        <img src="/images/profileromain.jpg" alt="Portrait of Romain Abdel-Aal" width="640" height="736"
-                            fetchpriority="high">
-                    </div>
-                    <figcaption class="fig-caption"><b>Fig. 0</b> — The author. Architecting systems and papers in
-                        parallel since 2012.</figcaption>
-                </figure>
-            </div>
-
-            <div class="container hero-stats" data-reveal>
-                <div class="stat">
-                    <span class="stat-number">9<sup>[1]</sup></span>
-                    <span class="stat-label">Published Papers</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">14<sup>[2]</sup></span>
-                    <span class="stat-label">Years Shipping Systems</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">6<sup>[3]</sup></span>
-                    <span class="stat-label">Ventures &amp; Programs</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- §02 Abstract / About -->
-        <section class="section" id="about">
+        <!-- Hero -->
+        <section class="v-hero" aria-label="Introduction">
             <div class="container">
-                <div class="section-head" data-reveal>
-                    <span class="section-no">§ 02 · Abstract</span>
-                    <h2 class="section-title">Building the future <em>of AI</em></h2>
-                </div>
-
-                <div class="about-grid">
-                    <div data-reveal>
-                        <p class="about-text lead">
-                            I'm a researcher and architect focused on pushing the boundaries of neural architectures
-                            and sequence modeling.
+                <div class="v-hero-grid">
+                    <div>
+                        <p class="v-eyebrow" data-stagger="1">AI Solutions Architect · Applied AI Researcher</p>
+                        <h1 class="v-title" data-stagger="2">Engineering<br><em>Intelligence.</em></h1>
+                        <p class="v-subtitle" data-stagger="3"><b>Romain Abdel-Aal</b> — COO at Levier IA · Paris ·
+                            International scope</p>
+                        <p class="v-lede" data-stagger="4">
+                            I design and prototype AI systems across efficient inference, mathematical optimization,
+                            agent infrastructure and enterprise integration — connecting research ideas with
+                            executable software.
                         </p>
-                        <p class="about-text">
-                            With over a decade of experience in software development, system architecture, and AI
-                            research, I've led projects from early-stage crypto systems to enterprise-scale solutions.
+                        <p class="v-lede-muted" data-stagger="5">
+                            From symbolic regression and numerical kernels to model-connected tools and end-to-end
+                            applications. Open to senior technical roles, research collaborations and selected
+                            consulting engagements.
                         </p>
-                        <p class="about-text">
-                            My current work explores modular architectures, speculative execution for latency hiding,
-                            and post-transformer paradigms for efficient AI systems — documented openly in the papers
-                            and notes on this site.
-                        </p>
-                        <p class="about-text">
-                            I also serve as <a href="https://levier-ia.fr" target="_blank" rel="noopener">COO of Levier
-                            IA</a>, where I lead technical operations and AI product architecture: the Levier-Learn™
-                            platform, a suite of AI diagnostics, and autonomous agent infrastructure on the edge.
-                        </p>
-                        <p class="about-margin-note">Correspondence: romainabdelaal@gmail.com · Current affiliation:
-                            COO, Levier IA · Research interests: modular architectures, vTRN sequence models, speculative
-                            decoding.</p>
+                        <div class="v-cta" data-stagger="6">
+                            <a href="#systems" class="v-btn v-btn--solid">Explore the work <span>→</span></a>
+                            <a href="#contact" class="v-btn">Discuss an opportunity</a>
+                            <button type="button" class="v-btn v-btn--quiet" onclick="window.print()">Print / PDF</button>
+                        </div>
                     </div>
 
-                    <figure class="video-figure" data-reveal>
-                        <div class="fig-frame">
-                            <svg class="research-map" viewBox="0 0 560 640" role="img"
-                                aria-label="Map of the SSR research program: one principle, four research lines"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <!-- Root principle -->
-                                <rect class="fsvg-box fsvg-box--accent" x="130" y="26" width="300" height="86" rx="2" />
-                                <text class="fsvg-accent fsvg-mono fsvg-label" x="280" y="58" text-anchor="middle">THE SSR PRINCIPLE</text>
-                                <text class="fsvg-muted fsvg-mono fsvg-small" x="280" y="80" text-anchor="middle">replace synchronous barriers with</text>
-                                <text class="fsvg-muted fsvg-mono fsvg-small" x="280" y="96" text-anchor="middle">speculation + residue correction</text>
-
-                                <!-- Trunk -->
-                                <line class="fsvg-line" x1="280" y1="112" x2="280" y2="150" />
-                                <rect class="fsvg-joint" x="275" y="145" width="10" height="10" transform="rotate(45 280 150)" />
-
-                                <!-- Split -->
-                                <line class="fsvg-line" x1="280" y1="155" x2="280" y2="188" />
-                                <line class="fsvg-line" x1="86" y1="188" x2="474" y2="188" />
-                                <line class="fsvg-line" x1="86" y1="188" x2="86" y2="222" />
-                                <line class="fsvg-line" x1="280" y1="188" x2="280" y2="222" />
-                                <line class="fsvg-line" x1="474" y1="188" x2="474" y2="222" />
-
-                                <!-- Child 1: SSR Omega -->
-                                <rect class="fsvg-box" x="16" y="222" width="140" height="104" rx="2" />
-                                <text class="fsvg-ink fsvg-mono fsvg-label" x="86" y="252" text-anchor="middle">SSR OMEGA</text>
-                                <text class="fsvg-muted fsvg-mono fsvg-small" x="86" y="274" text-anchor="middle">modular · parallel</text>
-                                <text class="fsvg-muted fsvg-mono fsvg-small" x="86" y="290" text-anchor="middle">interpretable</text>
-                                <text class="fsvg-faint fsvg-mono fsvg-ref" x="86" y="314" text-anchor="middle">[1] [2]</text>
-
-                                <!-- Child 2: vTRN -->
-                                <rect class="fsvg-box fsvg-box--accent" x="210" y="222" width="140" height="104" rx="2" />
-                                <text class="fsvg-accent fsvg-mono fsvg-label" x="280" y="252" text-anchor="middle">vTRN · is-vTRN</text>
-                                <text class="fsvg-muted fsvg-mono fsvg-small" x="280" y="274" text-anchor="middle">O(n) sequence</text>
-                                <text class="fsvg-muted fsvg-mono fsvg-small" x="280" y="290" text-anchor="middle">models</text>
-                                <text class="fsvg-accent fsvg-mono fsvg-ref" x="280" y="314" text-anchor="middle">~5× faster @ n=5k</text>
-
-                                <!-- Child 3: SDRC -->
-                                <rect class="fsvg-box" x="404" y="222" width="140" height="104" rx="2" />
-                                <text class="fsvg-ink fsvg-mono fsvg-label" x="474" y="252" text-anchor="middle">SDRC · SyS-FUSED</text>
-                                <text class="fsvg-muted fsvg-mono fsvg-small" x="474" y="274" text-anchor="middle">speculative</text>
-                                <text class="fsvg-muted fsvg-mono fsvg-small" x="474" y="290" text-anchor="middle">execution</text>
-                                <text class="fsvg-faint fsvg-mono fsvg-ref" x="474" y="314" text-anchor="middle">[5] [6]</text>
-
-                                <!-- Lower band: applications -->
-                                <line class="fsvg-line fsvg-line--dashed" x1="40" y1="380" x2="520" y2="380" />
-                                <text class="fsvg-faint fsvg-mono fsvg-small" x="280" y="402" text-anchor="middle">DOWNSTREAM APPLICATIONS</text>
-
-                                <rect class="fsvg-box" x="52" y="430" width="216" height="88" rx="2" />
-                                <text class="fsvg-ink fsvg-mono fsvg-label" x="160" y="458" text-anchor="middle">ASTRALAGI</text>
-                                <text class="fsvg-muted fsvg-mono fsvg-small" x="160" y="480" text-anchor="middle">hybrid RAG agent</text>
-                                <text class="fsvg-faint fsvg-mono fsvg-ref" x="160" y="502" text-anchor="middle">FIG. 3</text>
-
-                                <rect class="fsvg-box" x="292" y="430" width="216" height="88" rx="2" />
-                                <text class="fsvg-ink fsvg-mono fsvg-label" x="400" y="458" text-anchor="middle">GEPARD · SPEAR</text>
-                                <text class="fsvg-muted fsvg-mono fsvg-small" x="400" y="480" text-anchor="middle">evolutionary control</text>
-                                <text class="fsvg-faint fsvg-mono fsvg-ref" x="400" y="502" text-anchor="middle">[7] [8] [9]</text>
-
-                                <!-- Connectors to applications -->
-                                <line class="fsvg-line fsvg-line--soft" x1="160" y1="326" x2="160" y2="430" />
-                                <line class="fsvg-line fsvg-line--soft" x1="474" y1="326" x2="400" y2="430" />
-
-                                <!-- Footer note -->
-                                <text class="fsvg-faint fsvg-mono fsvg-small" x="280" y="570" text-anchor="middle">ONE PRINCIPLE · FOUR LINES OF WORK</text>
-                                <text class="fsvg-faint fsvg-mono fsvg-small" x="280" y="588" text-anchor="middle">2012 — 2026</text>
-                            </svg>
+                    <figure class="v-portrait" data-stagger="6">
+                        <div class="v-portrait-frame">
+                            <img src="/images/profileromain.jpg" alt="Portrait of Romain Abdel-Aal" width="400"
+                                height="400" fetchpriority="high">
+                            <span class="v-portrait-tag">COO @ Levier IA</span>
                         </div>
-                        <figcaption class="fig-caption"><b>Fig. 1</b> — The SSR research program at a glance. Numbers
-                            refer to the publications in §&nbsp;06.</figcaption>
+                        <figcaption class="v-figcaption"><b>Fig. 0</b> — The author. Architecting systems and
+                            manuscripts in parallel since 2012.</figcaption>
                     </figure>
                 </div>
-            </div>
-        </section>
 
-        <!-- §03 Services / Terms of engagement -->
-        <section class="section" id="services">
-            <div class="container">
-                <div class="section-head" data-reveal>
-                    <span class="section-no">§ 03 · Services</span>
-                    <h2 class="section-title">Terms of <em>engagement</em></h2>
-                    <p class="section-description">Premium services for organizations pushing the boundaries of AI.
-                        Fixed-scope rate card below — custom engagements on request.</p>
-                </div>
-
-                <div class="modules-grid" data-reveal>
-                    <div class="module">
-                        <div class="module-head">
-                            <h3>AI Architecture Consulting</h3>
-                            <span class="module-id">SRV-01</span>
+                <!-- Evidence strip -->
+                <div class="v-strip">
+                    <div class="v-strip-grid">
+                        <div class="v-cell">
+                            <span class="v-cell-num">2012</span>
+                            <span class="v-cell-label">Working across software<br>&amp; systems since</span>
                         </div>
-                        <ul>
-                            <li>Architecture audits &amp; optimization</li>
-                            <li>Custom model design</li>
-                            <li>Performance tuning</li>
-                        </ul>
-                        <div style="padding: 0 1.2rem 1.3rem;">
-                            <a href="#contact" class="btn" style="width: 100%; justify-content: center;">Get a quote</a>
+                        <div class="v-cell">
+                            <span class="v-cell-num">9</span>
+                            <span class="v-cell-label">Listed manuscripts<br>&amp; preprints</span>
                         </div>
-                    </div>
-
-                    <div class="module">
-                        <div class="module-head">
-                            <h3>Research Collaboration</h3>
-                            <span class="module-id">SRV-02</span>
+                        <div class="v-cell">
+                            <span class="v-cell-num">4</span>
+                            <span class="v-cell-label">Public repositories<br>in the SPEAR / MCP family</span>
                         </div>
-                        <ul>
-                            <li>Joint research papers</li>
-                            <li>Technical co-authorship</li>
-                            <li>Long-term partnerships</li>
-                        </ul>
-                        <div style="padding: 0 1.2rem 1.3rem;">
-                            <a href="#contact" class="btn" style="width: 100%; justify-content: center;">Discuss partnership</a>
+                        <div class="v-cell">
+                            <span class="v-cell-num">1</span>
+                            <span class="v-cell-label">Current role —<br>COO, Levier IA</span>
                         </div>
-                    </div>
-
-                    <div class="module">
-                        <div class="module-head">
-                            <h3>Technical Workshops</h3>
-                            <span class="module-id">SRV-03</span>
-                        </div>
-                        <ul>
-                            <li>Deep dives on SSR, vTRN &amp; speculation</li>
-                            <li>Hands-on team training</li>
-                            <li>Q&amp;A and mentorship</li>
-                        </ul>
-                        <div style="padding: 0 1.2rem 1.3rem;">
-                            <a href="#contact" class="btn" style="width: 100%; justify-content: center;">Book a workshop</a>
-                        </div>
-                    </div>
-
-                    <div class="module">
-                        <div class="module-head">
-                            <h3>On-Chain Protocols</h3>
-                            <span class="module-id">SRV-04</span>
-                        </div>
-                        <ul>
-                            <li>Protocol design &amp; security</li>
-                            <li>Smart contract auditing</li>
-                            <li>On-chain agent ecosystems</li>
-                        </ul>
-                        <div style="padding: 0 1.2rem 1.3rem;">
-                            <a href="#contact" class="btn" style="width: 100%; justify-content: center;">Go onchain</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Rate card -->
-                <div data-reveal style="margin-top: 3rem;">
-                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Consulting <em style="color: var(--accent);">rate
-                        card</em> — 2026</h3>
-                    <div class="index-list">
-                        <div class="index-row" style="cursor: default;">
-                            <span class="row-no">T-01</span>
-                            <div class="row-body">
-                                <h3>Starter</h3>
-                                <p>1-hour consultation · architecture review (up to 2 pages) · high-level
-                                    recommendations · email follow-up</p>
-                            </div>
-                            <div class="row-tags"><span>one-time</span></div>
-                            <span class="row-year">$500</span>
-                            <a class="row-arrow" href="#contact" aria-label="Book Starter">→</a>
-                        </div>
-                        <div class="index-row" style="cursor: default; background: var(--accent-soft);">
-                            <span class="row-no">T-02</span>
-                            <div class="row-body">
-                                <h3>Professional <em style="font-size: 0.7em; color: var(--accent);">· most
-                                    popular</em></h3>
-                                <p>3-hour deep-dive · detailed architecture audit · custom model recommendations ·
-                                    implementation roadmap · follow-up consultation</p>
-                            </div>
-                            <div class="row-tags"><span>one-time</span></div>
-                            <span class="row-year">$1,500</span>
-                            <a class="row-arrow" href="#contact" aria-label="Book Professional">→</a>
-                        </div>
-                        <div class="index-row" style="cursor: default;">
-                            <span class="row-no">T-03</span>
-                            <div class="row-body">
-                                <h3>Enterprise</h3>
-                                <p>Full-day workshop (6h) · complete architecture redesign · team training ·
-                                    performance optimization plan · 3-month email support</p>
-                            </div>
-                            <div class="row-tags"><span>one-time</span></div>
-                            <span class="row-year">$3,000</span>
-                            <a class="row-arrow" href="#contact" aria-label="Book Enterprise">→</a>
-                        </div>
-                        <div class="index-row" style="cursor: default;">
-                            <span class="row-no">T-04</span>
-                            <div class="row-body">
-                                <h3>Partnership</h3>
-                                <p>Ongoing collaboration · joint research opportunities · custom architecture
-                                    development · priority access to new research · dedicated support channel</p>
-                            </div>
-                            <div class="row-tags"><span>custom</span></div>
-                            <span class="row-year">$5,000+</span>
-                            <a class="row-arrow" href="#contact" aria-label="Discuss partnership">→</a>
-                        </div>
-                    </div>
-                    <div style="margin-top: 2rem;">
-                        <a href="/calculator.html" class="btn">Try the free cost calculator</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- §04 Instrumentation / Skills -->
-        <section class="section" id="skills">
+        <!-- §01 Systems -->
+        <section class="v-sec" id="systems">
             <div class="container">
-                <div class="section-head" data-reveal>
-                    <span class="section-no">§ 04 · Instrumentation</span>
-                    <h2 class="section-title">The working <em>stack</em></h2>
-                    <p class="section-description">Modules I build with — from neural systems to on-chain
-                        engineering.</p>
+                <div class="v-sec-head">
+                    <div data-reveal>
+                        <span class="v-sec-no">§ 01 · Systems</span>
+                        <h2 class="v-sec-title">Built, tested, <em>published</em></h2>
+                    </div>
+                    <p class="v-sec-desc" data-reveal>Flagship engineering work: symbolic discovery of numerical
+                        kernels, portable exports, and agent infrastructure. Each card links to the public source.</p>
                 </div>
 
-                <div class="modules-grid" data-reveal>
-                    <div class="module">
-                        <div class="module-head">
-                            <h3>Neural Systems</h3>
-                            <span class="module-id">MOD-01</span>
+                <div class="v-sys-grid" data-reveal>
+                    <article class="v-card">
+                        <div class="v-card-top">
+                            <span>FIG. 01</span>
+                            <span class="v-pill v-pill--live">Public repository</span>
+                        </div>
+                        <h3>SuperSPEAR</h3>
+                        <p>Evolutionary symbolic regression that searches for compact mathematical approximations, then
+                            exports them as portable WASM and MISRA-C kernels with cross-target parity checks.</p>
+                        <div class="v-tags"><span class="v-tag">Symbolic regression</span><span
+                                class="v-tag">WASM</span><span class="v-tag">C99</span></div>
+                        <div class="v-card-links">
+                            <a href="https://github.com/bahira/superspear" target="_blank" rel="noopener">Source
+                                <span>↗</span></a>
+                            <a href="https://bahira.github.io/superspear/" target="_blank" rel="noopener">Demo
+                                <span>↗</span></a>
+                        </div>
+                    </article>
+
+                    <article class="v-card">
+                        <div class="v-card-top">
+                            <span>FIG. 02</span>
+                            <span class="v-pill v-pill--live">Public repository</span>
+                        </div>
+                        <h3>SpearVM</h3>
+                        <p>AVX2-accelerated polynomial approximations for GELU, erf and tanh. Speedups versus libm are
+                            reported in the repository and are pending independent reproduction.</p>
+                        <div class="v-tags"><span class="v-tag">AVX2</span><span class="v-tag">Numerics</span><span
+                                class="v-tag">C</span></div>
+                        <div class="v-card-links">
+                            <a href="https://github.com/bahira/SpearVM" target="_blank" rel="noopener">Source
+                                <span>↗</span></a>
+                        </div>
+                    </article>
+
+                    <article class="v-card">
+                        <div class="v-card-top">
+                            <span>FIG. 03</span>
+                            <span class="v-pill v-pill--live">Public repository</span>
+                        </div>
+                        <h3>SPEAR Unified</h3>
+                        <p>The family, integrated: shared interfaces, export targets and test harnesses that tie the
+                            SPEAR projects into one engineering effort.</p>
+                        <div class="v-tags"><span class="v-tag">Tooling</span><span class="v-tag">Python</span></div>
+                        <div class="v-card-links">
+                            <a href="https://github.com/bahira/spear-unified" target="_blank" rel="noopener">Source
+                                <span>↗</span></a>
+                        </div>
+                    </article>
+
+                    <article class="v-card">
+                        <div class="v-card-top">
+                            <span>FIG. 04</span>
+                            <span class="v-pill v-pill--live">Public repository</span>
+                        </div>
+                        <h3>Browser Bot MCP</h3>
+                        <p>A local-first MCP server built on Pomerado that turns a natural-language web task into a
+                            reusable, deterministic browser workflow — with explicit human approval boundaries.</p>
+                        <div class="v-tags"><span class="v-tag">MCP</span><span class="v-tag">Automation</span><span
+                                class="v-tag">Node</span></div>
+                        <div class="v-card-links">
+                            <a href="https://github.com/bahira/browser-bot-mcp" target="_blank" rel="noopener">Source
+                                <span>↗</span></a>
+                        </div>
+                    </article>
+
+                    <article class="v-card">
+                        <div class="v-card-top">
+                            <span>FIG. 05</span>
+                            <span class="v-pill v-pill--live">Public portfolio</span>
+                        </div>
+                        <h3>Sentinel</h3>
+                        <p>Experiments in compact generative models: tokenizer design, quantization and multimodal
+                            generation, published as an open model and Space portfolio.</p>
+                        <div class="v-tags"><span class="v-tag">Compact models</span><span
+                                class="v-tag">Quantization</span></div>
+                        <div class="v-card-links">
+                            <a href="https://huggingface.co/5dimension" target="_blank" rel="noopener">Portfolio
+                                <span>↗</span></a>
+                        </div>
+                    </article>
+
+                    <article class="v-card">
+                        <div class="v-card-top">
+                            <span>FIG. 06</span>
+                            <span class="v-pill v-pill--live">Current role</span>
+                        </div>
+                        <h3>Levier IA</h3>
+                        <p>COO since 2026. Technical operations and AI product architecture across a learning platform,
+                            a suite of AI diagnostics and agent workflows on the edge.</p>
+                        <div class="v-tags"><span class="v-tag">SaaS</span><span class="v-tag">Edge</span><span
+                                class="v-tag">Operations</span></div>
+                        <div class="v-card-links">
+                            <a href="https://levier-ia.fr" target="_blank" rel="noopener">levier-ia.fr <span>↗</span></a>
+                        </div>
+                    </article>
+                </div>
+
+                <p class="v-provenance" data-reveal><b>Evidence labels</b> Public repository · Research prototype · In
+                    development · Archived · Repository existence is not a claim of production readiness.</p>
+            </div>
+        </section>
+
+        <!-- §02 Applied AI -->
+        <section class="v-sec" id="applied">
+            <div class="container">
+                <div class="v-sec-head">
+                    <div data-reveal>
+                        <span class="v-sec-no">§ 02 · Applied AI</span>
+                        <h2 class="v-sec-title">Where the work <em>lands</em></h2>
+                    </div>
+                    <p class="v-sec-desc" data-reveal>I work at the intersection of customer problems and technical
+                        execution: translating requirements into architecture, integrating AI into existing workflows,
+                        prototyping fast, and defining how it will be evaluated before deployment.</p>
+                </div>
+
+                <div class="v-cap-grid" data-reveal>
+                    <div class="v-cap">
+                        <div class="v-cap-head">
+                            <h3>Applied AI</h3><span class="v-cap-id">CAP-01</span>
                         </div>
                         <ul>
-                            <li>Retrieval-Augmented Generation (RAG)</li>
-                            <li>LLM fine-tuning &amp; prompt chaining</li>
-                            <li>OpenAI / Anthropic APIs</li>
-                            <li>LangChain · Python · Vector DBs</li>
-                            <li>Tree-of-thought reasoning</li>
+                            <li>LLM APIs and prompt orchestration</li>
+                            <li>Retrieval-augmented generation</li>
+                            <li>Domain-specific agents</li>
+                            <li>Model evaluation and structured outputs</li>
                         </ul>
                     </div>
 
-                    <div class="module">
-                        <div class="module-head">
-                            <h3>Systems Architecture</h3>
-                            <span class="module-id">MOD-02</span>
+                    <div class="v-cap">
+                        <div class="v-cap-head">
+                            <h3>Agent infrastructure</h3><span class="v-cap-id">CAP-02</span>
                         </div>
                         <ul>
-                            <li>End-to-end enterprise solutions</li>
-                            <li>Complex API integrations</li>
-                            <li>Real-time data pipelines</li>
-                            <li>Technical &amp; functional documentation</li>
-                            <li>Cross-functional team leadership</li>
+                            <li>MCP servers and clients</li>
+                            <li>Tool schemas and workflow orchestration</li>
+                            <li>Browser automation and replay</li>
+                            <li>Permissions, routing and observability</li>
                         </ul>
                     </div>
 
-                    <div class="module">
-                        <div class="module-head">
-                            <h3>On-Chain Engineering</h3>
-                            <span class="module-id">MOD-03</span>
+                    <div class="v-cap">
+                        <div class="v-cap-head">
+                            <h3>Numerical systems</h3><span class="v-cap-id">CAP-03</span>
                         </div>
                         <ul>
-                            <li>Solidity · ERC-20 tokens</li>
-                            <li>Smart contract design</li>
-                            <li>On-chain earnings-sharing systems</li>
-                            <li>Remix IDE · Binance API</li>
+                            <li>Symbolic regression and genetic programming</li>
+                            <li>Polynomial approximation, error measurement</li>
+                            <li>Numerical stability, Lie-group research</li>
+                            <li>AVX2 · C99 · WASM</li>
+                        </ul>
+                    </div>
+
+                    <div class="v-cap">
+                        <div class="v-cap-head">
+                            <h3>Software architecture</h3><span class="v-cap-id">CAP-04</span>
+                        </div>
+                        <ul>
+                            <li>Python · JavaScript / TypeScript · Node</li>
+                            <li>APIs and real-time data systems</li>
+                            <li>SQL and enterprise integration</li>
+                            <li>Cloud and edge deployment</li>
+                        </ul>
+                    </div>
+
+                    <div class="v-cap">
+                        <div class="v-cap-head">
+                            <h3>Blockchain</h3><span class="v-cap-id">CAP-05</span>
+                        </div>
+                        <ul>
+                            <li>Solidity and Ethereum</li>
+                            <li>Token and smart-contract design</li>
                             <li>Trading infrastructure</li>
                         </ul>
                     </div>
 
-                    <div class="module">
-                        <div class="module-head">
-                            <h3>Performance &amp; Scale</h3>
-                            <span class="module-id">MOD-04</span>
+                    <div class="v-cap">
+                        <div class="v-cap-head">
+                            <h3>Leadership</h3><span class="v-cap-id">CAP-06</span>
                         </div>
                         <ul>
-                            <li>Speculative execution &amp; decoding</li>
-                            <li>Latency-hiding optimization</li>
-                            <li>High-throughput ad platforms</li>
-                            <li>Algorithm–data-science interface</li>
-                            <li>O(n) sequence modeling (vTRN)</li>
+                            <li>Solution architecture and technical discovery</li>
+                            <li>Product architecture</li>
+                            <li>Cross-functional delivery</li>
+                            <li>Stakeholder communication</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- §05 Exhibits / Projects -->
-        <section class="section" id="projects">
+        <!-- §03 Research -->
+        <section class="v-sec" id="research">
             <div class="container">
-                <div class="section-head" data-reveal>
-                    <span class="section-no">§ 05 · Exhibits</span>
-                    <h2 class="section-title">Selected <em>projects</em></h2>
-                    <p class="section-description">Systems built, shipped, and — where possible — left running.</p>
+                <div class="v-sec-head">
+                    <div data-reveal>
+                        <span class="v-sec-no">§ 03 · Research</span>
+                        <h2 class="v-sec-title">The research <em>archive</em></h2>
+                    </div>
+                    <p class="v-sec-desc" data-reveal>Nine manuscripts on modular architectures, linear-complexity
+                        sequence models, speculative execution and evolutionary control. Each has an HTML reader and a
+                        Markdown source.</p>
                 </div>
 
-                <div class="index-list" data-reveal>
-                    <a class="index-row" href="#papers">
-                        <span class="row-no">Fig. 2</span>
-                        <div class="row-body">
-                            <h3>The SSR Research Program</h3>
-                            <p>Modular, parallel, and interpretable machine reasoning — the SSR Omega architecture and
-                                the vTRN family of O(n) sequence models.</p>
-                        </div>
-                        <div class="row-tags">
-                            <span>Research</span><span>2025–2026</span>
-                        </div>
-                        <span class="row-arrow">→</span>
+                <div class="v-arch" data-reveal>
+                    <a class="v-arch-row" href="/papers/ssr-architecture.html">
+                        <span class="v-arch-no">[1]</span>
+                        <span class="v-arch-title">The SSR Architecture</span>
+                        <span class="v-arch-theme">Three-kernel architecture</span>
+                        <span class="v-arch-year">2025</span>
                     </a>
-
-                    <a class="index-row" href="https://github.com/bahira" target="_blank" rel="noopener">
-                        <span class="row-no">Fig. 3</span>
-                        <div class="row-body">
-                            <h3>Project: AstralAGI</h3>
-                            <p>A specialized AI agent for generative astrology — hybrid RAG over a custom corpus, with
-                                prompt chaining and tree-of-thought interpretation.</p>
-                        </div>
-                        <div class="row-tags">
-                            <span>LLM Agent</span><span>2024</span>
-                        </div>
-                        <span class="row-arrow">→</span>
+                    <a class="v-arch-row" href="/papers/ssr-omega.html">
+                        <span class="v-arch-no">[2]</span>
+                        <span class="v-arch-title">The SSR Omega Architecture</span>
+                        <span class="v-arch-theme">Modular · parallel reasoning</span>
+                        <span class="v-arch-year">2025</span>
                     </a>
-
-                    <a class="index-row" href="/calculator.html">
-                        <span class="row-no">Fig. 4</span>
-                        <div class="row-body">
-                            <h3>AI Architecture Cost Calculator</h3>
-                            <p>A free tool for estimating inference costs across model providers, built as a companion
-                                to the consulting practice.</p>
-                        </div>
-                        <div class="row-tags">
-                            <span>Tool</span><span>2026</span>
-                        </div>
-                        <span class="row-arrow">→</span>
+                    <a class="v-arch-row" href="/papers/vtrn.html">
+                        <span class="v-arch-no">[3]</span>
+                        <span class="v-arch-title">Vectorized Temporal Residue Network (vTRN)</span>
+                        <span class="v-arch-theme">Linear-complexity sequence modeling</span>
+                        <span class="v-arch-year">2025</span>
                     </a>
-
-                    <a class="index-row" href="#timeline">
-                        <span class="row-no">Fig. 5</span>
-                        <div class="row-body">
-                            <h3>Xaartaz — Enterprise Architecture</h3>
-                            <p>Founder-led design of end-to-end IT solutions: system optimization and complex API
-                                integrations for enterprise clients.</p>
-                        </div>
-                        <div class="row-tags">
-                            <span>Company</span><span>2020–</span>
-                        </div>
-                        <span class="row-arrow">→</span>
+                    <a class="v-arch-row" href="/papers/is-vtrn.html">
+                        <span class="v-arch-no">[4]</span>
+                        <span class="v-arch-title">Inertial-Speculative vTRN (is-vTRN)</span>
+                        <span class="v-arch-theme">Speculative sequence modeling</span>
+                        <span class="v-arch-year">2025</span>
                     </a>
-
-                    <a class="index-row" href="#timeline">
-                        <span class="row-no">Fig. 6</span>
-                        <div class="row-body">
-                            <h3>Early On-Chain Systems</h3>
-                            <p>Ethereum tokens, smart contracts, and automated earnings-sharing — from the early
-                                crypto-finance era.</p>
-                        </div>
-                        <div class="row-tags">
-                            <span>Blockchain</span><span>2017–</span>
-                        </div>
-                        <span class="row-arrow">→</span>
+                    <a class="v-arch-row" href="/papers/sdrc.html">
+                        <span class="v-arch-no">[5]</span>
+                        <span class="v-arch-title">Speculative Decomposition with Residue Correction (SDRC)</span>
+                        <span class="v-arch-theme">Parallel reasoning</span>
+                        <span class="v-arch-year">2025</span>
                     </a>
-
-                    <a class="index-row" href="https://levier-ia.fr" target="_blank" rel="noopener">
-                        <span class="row-no">Fig. 7</span>
-                        <div class="row-body">
-                            <h3>Levier IA — Chief Operating Officer</h3>
-                            <p>AI-augmented LMS (Levier-Learn™), a suite of AI diagnostics, and autonomous agent
-                                infrastructure deployed on Cloudflare's edge.</p>
-                        </div>
-                        <div class="row-tags">
-                            <span>Company</span><span>SaaS</span>
-                        </div>
-                        <span class="row-arrow">→</span>
+                    <a class="v-arch-row" href="/papers/sys-fused.html">
+                        <span class="v-arch-no">[6]</span>
+                        <span class="v-arch-title">Fused Synaptic Speculation (SyS-Fused)</span>
+                        <span class="v-arch-theme">Latency hiding</span>
+                        <span class="v-arch-year">2025</span>
+                    </a>
+                    <a class="v-arch-row" href="/papers/gepard.html">
+                        <span class="v-arch-no">[7]</span>
+                        <span class="v-arch-title">GEPARD</span>
+                        <span class="v-arch-theme">Evolutionary control search</span>
+                        <span class="v-arch-year">2025</span>
+                    </a>
+                    <a class="v-arch-row" href="/papers/cognitive-resonance.html">
+                        <span class="v-arch-no">[8]</span>
+                        <span class="v-arch-title">Cognitive Resonance Cascade</span>
+                        <span class="v-arch-theme">Layered reasoning architecture</span>
+                        <span class="v-arch-year">2026</span>
+                    </a>
+                    <a class="v-arch-row" href="/papers/spear.html">
+                        <span class="v-arch-no">[9]</span>
+                        <span class="v-arch-title">SPEAR</span>
+                        <span class="v-arch-theme">Symbolic policy evolution · control</span>
+                        <span class="v-arch-year">2026</span>
                     </a>
                 </div>
+
+                <p class="v-note" data-reveal>All nine are manuscripts shared on this site. None is presented as
+                    peer-reviewed: no venue, DOI or citation is claimed. Complexity claims are theoretical unless a
+                    measurement is attached.</p>
             </div>
         </section>
 
-        <!-- §06 Publications / Papers -->
-        <section class="section" id="papers">
+        <!-- §04 Trajectory -->
+        <section class="v-sec" id="trajectory">
             <div class="container">
-                <div class="section-head" data-reveal>
-                    <span class="section-no">§ 06 · Publications</span>
-                    <h2 class="section-title">Selected <em>papers</em></h2>
-                    <p class="section-description">Exploring novel architectures and paradigms. Manuscripts available
-                        in HTML and Markdown.</p>
-                </div>
-
-                <div class="index-list" data-reveal>
-                    <a class="index-row" href="papers/ssr-architecture.html">
-                        <span class="row-no">[1]</span>
-                        <div class="row-body">
-                            <h3>The SSR Architecture</h3>
-                            <p>The Three-Kernel System</p>
-                        </div>
-                        <div class="row-tags"><span>Architecture</span><span>Systems</span></div>
-                        <span class="row-year">2025</span>
-                        <span class="row-arrow">→</span>
-                    </a>
-                    <a class="index-row" href="papers/ssr-omega.html">
-                        <span class="row-no">[2]</span>
-                        <div class="row-body">
-                            <h3>The SSR Omega Architecture</h3>
-                            <p>A paradigm for modular, parallel, and interpretable machine reasoning</p>
-                        </div>
-                        <div class="row-tags"><span>Modular</span><span>Scalable</span></div>
-                        <span class="row-year">2025</span>
-                        <span class="row-arrow">→</span>
-                    </a>
-                    <a class="index-row" href="papers/vtrn.html">
-                        <span class="row-no">[3]</span>
-                        <div class="row-body">
-                            <h3>The Vectorized Temporal Residue Network (vTRN)</h3>
-                            <p>A post-transformer architecture with O(n) complexity for large-scale sequence
-                                processing</p>
-                        </div>
-                        <div class="row-tags"><span>Math</span><span>Optimization</span></div>
-                        <span class="row-year">2025</span>
-                        <span class="row-arrow">→</span>
-                    </a>
-                    <a class="index-row" href="papers/is-vtrn.html">
-                        <span class="row-no">[4]</span>
-                        <div class="row-body">
-                            <h3>The Inertial-Speculative Temporal Residue Network (is-vTRN)</h3>
-                            <p>A computationally superior post-transformer architecture</p>
-                        </div>
-                        <div class="row-tags"><span>Sparsity</span><span>Research</span></div>
-                        <span class="row-year">2025</span>
-                        <span class="row-arrow">→</span>
-                    </a>
-                    <a class="index-row" href="papers/sdrc.html">
-                        <span class="row-no">[5]</span>
-                        <div class="row-body">
-                            <h3>Speculative Decomposition with Residue Correction (SDRC)</h3>
-                            <p>A paradigm for parallel reasoning in AI models</p>
-                        </div>
-                        <div class="row-tags"><span>Latency</span><span>LLM</span></div>
-                        <span class="row-year">2025</span>
-                        <span class="row-arrow">→</span>
-                    </a>
-                    <a class="index-row" href="papers/sys-fused.html">
-                        <span class="row-no">[6]</span>
-                        <div class="row-body">
-                            <h3>Fused Synaptic Speculation (SyS-Fused)</h3>
-                            <p>A latency-hiding paradigm for deep learning optimization</p>
-                        </div>
-                        <div class="row-tags"><span>Hardware</span><span>AI</span></div>
-                        <span class="row-year">2025</span>
-                        <span class="row-arrow">→</span>
-                    </a>
-                    <a class="index-row" href="papers/gepard.html">
-                        <span class="row-no">[7]</span>
-                        <div class="row-body">
-                            <h3>GEPARD</h3>
-                            <p>Genetic evolving policy and representation for interpretable, efficient control
-                                systems</p>
-                        </div>
-                        <div class="row-tags"><span>Generative</span><span>Efficiency</span></div>
-                        <span class="row-year">2025</span>
-                        <span class="row-arrow">→</span>
-                    </a>
-                    <a class="index-row" href="papers/cognitive-resonance.html">
-                        <span class="row-no">[8]</span>
-                        <div class="row-body">
-                            <h3>Cognitive Resonance Cascade</h3>
-                            <p>A cascade architecture for layered reasoning</p>
-                        </div>
-                        <div class="row-tags"><span>Cognitive</span><span>Experimental</span></div>
-                        <span class="row-year">2026</span>
-                        <span class="row-arrow">→</span>
-                    </a>
-                    <a class="index-row" href="papers/spear.html">
-                        <span class="row-no">[9]</span>
-                        <div class="row-body">
-                            <h3>SPEAR</h3>
-                            <p>Symbolic policy evolution for ante-hoc robust control — verifiable sub-microsecond
-                                controllers for embedded systems</p>
-                        </div>
-                        <div class="row-tags"><span>Control</span><span>Embedded</span></div>
-                        <span class="row-year">2026</span>
-                        <span class="row-arrow">→</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- §07 Version History / Timeline -->
-        <section class="section" id="timeline">
-            <div class="container">
-                <div class="section-head" data-reveal>
-                    <span class="section-no">§ 07 · Version History</span>
-                    <h2 class="section-title">Career <em>timeline</em></h2>
-                    <p class="section-description">Fourteen years of systems, from the first commit to the current
+                <div class="v-sec-head">
+                    <div data-reveal>
+                        <span class="v-sec-no">§ 04 · Trajectory</span>
+                        <h2 class="v-sec-title">Career <em>timeline</em></h2>
+                    </div>
+                    <p class="v-sec-desc" data-reveal>Fourteen years of systems, from the first commit to the current
                         research program. Drag, scroll, or search.</p>
                 </div>
 
                 <div class="timeline-toolbar" data-reveal>
-                    <input id="timeline-search" class="filter-input" type="search" placeholder="Search the history… (e.g. solidity, RAG, 2020)"
-                        aria-label="Search timeline">
+                    <input id="timeline-search" class="filter-input" type="search"
+                        placeholder="Search the history… (e.g. solidity, RAG, 2020)" aria-label="Search timeline">
                     <div class="timeline-nav">
                         <button id="timeline-prev" class="btn-icon" aria-label="Previous milestone">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+                                height="18">
                                 <path d="M15 18l-6-6 6-6" />
                             </svg>
                         </button>
                         <button id="timeline-next" class="btn-icon" aria-label="Next milestone">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+                                height="18">
                                 <path d="M9 18l6-6-6-6" />
                             </svg>
                         </button>
@@ -681,7 +492,8 @@
             <div id="modal-container" aria-hidden="true">
                 <div id="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
                     <button id="modal-close" type="button" aria-label="Close details">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+                            height="18">
                             <path d="M18 6L6 18M6 6l12 12" />
                         </svg>
                     </button>
@@ -691,109 +503,161 @@
             </div>
         </section>
 
-        <!-- §08 Lab Notes / Blog -->
-        <section class="section" id="notes">
+        <!-- §05 Labs -->
+        <section class="v-sec" id="labs">
             <div class="container">
-                <div class="section-head" data-reveal>
-                    <span class="section-no">§ 08 · Lab Notes</span>
-                    <h2 class="section-title">Notes from the <em>lab</em></h2>
-                    <p class="section-description">Shorter, rougher writing — arguments in progress, build logs, and
-                        lessons learned.</p>
+                <div class="v-sec-head">
+                    <div data-reveal>
+                        <span class="v-sec-no">§ 05 · Labs</span>
+                        <h2 class="v-sec-title">Work in <em>progress</em></h2>
+                    </div>
+                    <p class="v-sec-desc" data-reveal>Incubating systems and creative computing, listed from project
+                        notes. Maturity varies; nothing here is presented as a production service.</p>
                 </div>
 
-                <div class="notes-grid" data-reveal>
-                    <a class="note-card" href="/blog/the-transformer-is-not-the-endgame.html">
-                        <span class="note-meta">Note 01 · Architecture</span>
-                        <h3>The Transformer Is Not the Endgame</h3>
-                        <p>Why O(n) sequence models, modularity, and interpretability motivate the vTRN research
-                            program.</p>
-                        <span class="note-more">Read the note →</span>
-                    </a>
-                    <a class="note-card" href="/blog/latency-hiding.html">
-                        <span class="note-meta">Note 02 · Systems</span>
-                        <h3>Latency Hiding: Why Speculation Wins</h3>
-                        <p>What speculative decomposition and fused speculation teach us about inference
-                            performance.</p>
-                        <span class="note-more">Read the note →</span>
-                    </a>
-                    <a class="note-card" href="/blog/astralagi-lessons.html">
-                        <span class="note-meta">Note 03 · Practice</span>
-                        <h3>Lessons from Building AstralAGI</h3>
-                        <p>What fine-tuning an LLM on a niche corpus taught me about domain-specific agents.</p>
-                        <span class="note-more">Read the note →</span>
-                    </a>
-                </div>
+                <div class="v-labs-grid" data-reveal>
+                    <div class="v-lab-group">
+                        <h3>Systems &amp; agents</h3>
+                        <ul class="v-lab-list">
+                            <li><span class="v-lab-name">NEXUS <span>· multi-provider LLM routing</span></span><span
+                                    class="v-lab-badge v-lab-badge--proto">Prototype</span></li>
+                            <li><span class="v-lab-name">Enterprise MCP Gateway <span>· tool integration</span></span><span
+                                    class="v-lab-badge">Private</span></li>
+                            <li><span class="v-lab-name">Agent Arena Community <span>· agent evaluation</span></span><span
+                                    class="v-lab-badge">Private</span></li>
+                            <li><span class="v-lab-name">JobHunter MCP <span>· discovery workflows</span></span><span
+                                    class="v-lab-badge v-lab-badge--proto">Prototype</span></li>
+                            <li><span class="v-lab-name">VÆKTOR <span>· Lie-group numerical primitives</span></span><span
+                                    class="v-lab-badge v-lab-badge--proto">Research</span></li>
+                            <li><span class="v-lab-name">PRIME//ENGINE · FORGE <span>· portable CPU runtime</span></span><span
+                                    class="v-lab-badge">Experimental</span></li>
+                            <li><span class="v-lab-name">Visual Trader <span>· market visualization</span></span><span
+                                    class="v-lab-badge">Experimental</span></li>
+                            <li><span class="v-lab-name">Bit Compute <span>· computing research</span></span><span
+                                    class="v-lab-badge">Experimental</span></li>
+                        </ul>
+                    </div>
 
-                <div style="margin-top: 2.2rem;" data-reveal>
-                    <a href="/blog/" class="btn">All Lab Notes</a>
+                    <div class="v-lab-group">
+                        <h3>Creative computing</h3>
+                        <ul class="v-lab-list">
+                            <li><span class="v-lab-name">Ashenveil — Éclats du Voile <span>· RPG systems</span></span><span
+                                    class="v-lab-badge v-lab-badge--proto">Prototype</span></li>
+                            <li><span class="v-lab-name">Neon Coven — Dark Circuit <span>· rendering &amp; UI</span></span><span
+                                    class="v-lab-badge">Private</span></li>
+                            <li><span class="v-lab-name">Genesis Forge / Primeborne <span>· auto-combat loops</span></span><span
+                                    class="v-lab-badge v-lab-badge--proto">Prototype</span></li>
+                            <li><span class="v-lab-name">OMBRE — La ville des voleurs <span>· game concept</span></span><span
+                                    class="v-lab-badge">Concept</span></li>
+                            <li><span class="v-lab-name">Astrololo Orbit <span>· symbolic interpretation</span></span><span
+                                    class="v-lab-badge">Experimental</span></li>
+                            <li><span class="v-lab-name">AstralAGI <span>· domain agent, RAG</span></span><span
+                                    class="v-lab-badge v-lab-badge--arch">Archived</span></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- §09 Correspondence / Contact -->
-        <section class="section" id="contact">
+        <!-- §06 Notes -->
+        <section class="v-sec" id="notes">
             <div class="container">
-                <div class="section-head" data-reveal>
-                    <span class="section-no">§ 09 · Correspondence</span>
-                    <h2 class="section-title">Let's work <em>together</em></h2>
+                <div class="v-sec-head">
+                    <div data-reveal>
+                        <span class="v-sec-no">§ 06 · Lab notes</span>
+                        <h2 class="v-sec-title">Notes from the <em>lab</em></h2>
+                    </div>
+                    <p class="v-sec-desc" data-reveal>Shorter, rougher writing — arguments in progress, build logs and
+                        lessons learned. For the finished arguments, read the manuscripts.</p>
                 </div>
 
-                <div class="contact-grid">
-                    <div data-reveal>
-                        <p class="contact-lede">Ready to push the boundaries of AI? Architecture reviews, research
-                            collaborations, workshops — start with a letter.</p>
-                        <a href="mailto:romainabdelaal@gmail.com" class="contact-mail">romainabdelaal@gmail.com</a>
+                <div class="v-notes-grid" data-reveal>
+                    <a class="v-note-card" href="/blog/the-transformer-is-not-the-endgame.html">
+                        <span class="v-note-meta">Note 01 · Architecture</span>
+                        <h3>The Transformer Is Not the Endgame</h3>
+                        <p>The quadratic wall, the Context Field, and why O(n) sequence models matter.</p>
+                        <span class="v-note-more">Read the note →</span>
+                    </a>
+                    <a class="v-note-card" href="/blog/latency-hiding.html">
+                        <span class="v-note-meta">Note 02 · Systems</span>
+                        <h3>Latency Hiding: Why Speculation Wins</h3>
+                        <p>From serial Chain-of-Thought to parallel reasoning with direct residue signals.</p>
+                        <span class="v-note-more">Read the note →</span>
+                    </a>
+                    <a class="v-note-card" href="/blog/astralagi-lessons.html">
+                        <span class="v-note-meta">Note 03 · Practice</span>
+                        <h3>Lessons from Building AstralAGI</h3>
+                        <p>Hybrid RAG, niche corpora, and what a domain agent taught me about applied AI.</p>
+                        <span class="v-note-more">Read the note →</span>
+                    </a>
+                </div>
 
-                        <div style="margin-top: 2rem;">
-                            <span class="availability"><span class="availability-dot"></span> Accepting new projects —
-                                booking Q1 2027</span>
+                <div style="margin-top: 1.8rem;" data-reveal>
+                    <a href="/blog/" class="v-btn">All lab notes <span>→</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- §07 Contact -->
+        <section class="v-sec" id="contact">
+            <div class="container">
+                <div class="v-sec-head">
+                    <div data-reveal>
+                        <span class="v-sec-no">§ 07 · Contact</span>
+                        <h2 class="v-sec-title">Let’s work <em>together</em></h2>
+                    </div>
+                    <p class="v-sec-desc" data-reveal>Architecture reviews, research collaborations, workshops or a
+                        senior role — start with a letter.</p>
+                </div>
+
+                <div class="v-contact-grid">
+                    <div data-reveal>
+                        <p class="v-contact-lede">Open to senior applied AI and architecture roles, research
+                            collaborations and selected consulting engagements.</p>
+                        <a href="mailto:romainabdelaal@gmail.com" class="v-mail">romainabdelaal@gmail.com</a>
+                        <br>
+                        <span class="v-avail"><span class="v-avail-dot"></span> Paris · remote · international</span>
+                        <div>
+                            <button type="button" class="v-btn v-btn--solid" onclick="window.print()">Print / Save as
+                                PDF</button>
                         </div>
                     </div>
 
-                    <div class="contact-side" data-reveal>
-                        <div class="contact-block">
-                            <h3>Elsewhere</h3>
-                            <ul class="social-list">
-                                <li><a href="https://github.com/rabdelaal" target="_blank" rel="noopener">GitHub —
-                                        professional</a></li>
-                                <li><a href="https://github.com/bahira" target="_blank" rel="noopener">GitHub — active
-                                        projects</a></li>
-                                <li><a href="https://www.linkedin.com/in/romain-a-03204450/" target="_blank"
-                                        rel="noopener">LinkedIn</a></li>
-                                <li><a href="https://x.com/RomainAbdelAal" target="_blank" rel="noopener">X /
-                                        Twitter</a></li>
-                                <li><a href="https://warpcast.com/rabdelaal" target="_blank" rel="noopener">Warpcast</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="contact-block">
-                            <h3>Ecosystems</h3>
-                            <div class="ecosystems">
-                                <span>Microsoft</span>
-                                <span>Amazon</span>
-                            </div>
-                        </div>
+                    <div class="v-contact-block" data-reveal>
+                        <h3>Elsewhere</h3>
+                        <ul class="v-links">
+                            <li><a href="https://github.com/bahira" target="_blank" rel="noopener"><span>GitHub —
+                                        active</span><span>↗</span></a></li>
+                            <li><a href="https://github.com/rabdelaal" target="_blank" rel="noopener"><span>GitHub —
+                                        professional</span><span>↗</span></a></li>
+                            <li><a href="https://huggingface.co/5dimension" target="_blank" rel="noopener"><span>Hugging
+                                        Face</span><span>↗</span></a></li>
+                            <li><a href="https://www.linkedin.com/in/romain-a-03204450/" target="_blank"
+                                    rel="noopener"><span>LinkedIn</span><span>↗</span></a></li>
+                            <li><a href="https://x.com/RomainAbdelAal" target="_blank" rel="noopener"><span>X /
+                                        Twitter</span><span>↗</span></a></li>
+                            <li><a href="https://warpcast.com/rabdelaal" target="_blank"
+                                    rel="noopener"><span>Warpcast</span><span>↗</span></a></li>
+                            <li><a href="https://levier-ia.fr" target="_blank" rel="noopener"><span>Levier
+                                        IA</span><span>↗</span></a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-inner">
-            <nav class="footer-nav" aria-label="Footer navigation">
+    <footer class="v-footer">
+        <div class="container v-footer-inner">
+            <nav class="v-footer-nav" aria-label="Footer navigation">
                 <a href="#top">Top</a>
-                <a href="#about">Abstract</a>
-                <a href="#papers">Papers</a>
-                <a href="#notes">Notes</a>
+                <a href="#systems">Systems</a>
+                <a href="#research">Research</a>
+                <a href="#trajectory">Trajectory</a>
                 <a href="#contact">Contact</a>
             </nav>
-            <div class="footer-colophon">
-                <p>© 2026 Romain Abdel-Aal. All rights reserved. · This site is set in Fraunces, Spectral, and IBM Plex
-                    Mono, and styled as a preprint — because the work is the argument.</p>
-            </div>
+            <p class="v-colophon">© 2026 Romain Abdel-Aal. All rights reserved. · Set in Fraunces, Spectral and IBM
+                Plex Mono. No frameworks, no CDN scripts, no trackers.</p>
         </div>
     </footer>
 
